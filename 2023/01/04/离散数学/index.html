@@ -16,7 +16,7 @@
 <meta property="og:description" content="离散语文数学命题逻辑 命题:不是悖论的陈述句    与、或、非、蕴含、双蕴含  异或：要么p要么q——当且仅当成立一个，不能两个都成立。和或区分开   123例：如果天不下雨，我就上街，否则在家  如果形式化成：不下雨且上街且不在家（或）下雨且不上街且在家。  是有问题的，因为下雨和不下雨只能成立一个。所以要用异或。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-04T08:57:48.000Z">
-<meta property="article:modified_time" content="2023-01-06T06:29:36.127Z">
+<meta property="article:modified_time" content="2023-01-06T08:14:54.994Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="离散数学">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.6k字</span>
+        <span class="post-count">2.8k字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
+        <span class="post-count">11分</span>
       </span>
     </span>
 </div>
@@ -286,14 +286,14 @@
 <hr>
 <hr>
 <h2 id="谓词逻辑"><a href="#谓词逻辑" class="headerlink" title="谓词逻辑"></a>谓词逻辑</h2><ul>
-<li>$\forall$用$\rightarrow$，$\exist$用$\wedge$ </li>
+<li>$\forall$用$\rightarrow$，$\exists$用$\wedge$ </li>
 <li>自然语言形式化：唯一（对任意y，如果y满足条件，能推出来x&#x3D;y）；异或(黑猫白猫)</li>
 <li>等值式<ul>
 <li>否定等值式（改变存在任意）</li>
 <li>量词辖域收缩与扩张等值式</li>
 <li>量词分配等值式  <ul>
 <li>注意：量词对析取和合取的分配律不用动，但对蕴含词的分配律，前件量词要换</li>
-<li>注意： $\exist$对$\vee$分配， $\forall$对$\wedge$分配</li>
+<li>注意： $\exists$对$\vee$分配， $\forall$对$\wedge$分配</li>
 </ul>
 </li>
 </ul>
@@ -336,16 +336,33 @@
 <hr>
 <hr>
 <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><ul>
-<li>幂集：$P(A)&#x3D;{x|x\subseteq A}$，A的所有子集组成的集合，$x\in P(A)\Leftrightarrow x\subseteq A$<ul>
-<li>$P(A)\in P(B)\Rightarrow A\in B$,逆定理不成立！！</li>
+<li><p>幂集：$P(A)&#x3D;{x|x\subseteq A}$，A的所有子集组成的集合，$x\in P(A)\Leftrightarrow x\subseteq A$</p>
+<ul>
+<li>$P(A)\in P(B)\Rightarrow A\in B$，逆定理不成立！！</li>
 <li>$A\subseteq B\Leftrightarrow P(A)\subseteq P(B)$</li>
 </ul>
 </li>
-<li>对称差</li>
-<li>广义交：拆掉两层括号求交再加上一层括号，空集的广义交没有意义<br> 广义并：空集的广义并还是空集</li>
-<li>传递集合：集合A的任一元素的元素都是A的元素(内层括号里的内容，在外层也能找得到) , 即$(\forall𝑥)(\forall 𝑦)((𝑥\in 𝑦\wedge 𝑦\in 𝐴)\rightarrow 𝑥\in A)$</li>
-<li>证明两个集合相等：互相包含</li>
-<li>证明$A\subseteq B$：$(\forall x)(x\in A\rightarrow x\in B)$</li>
+<li><p>传递集合：集合A的任一元素的元素都是A的元素(内层括号里的内容，在外层也能找得到) </p>
+<ul>
+<li>$(\forall𝑥)(\forall 𝑦)((𝑥\in 𝑦\wedge 𝑦\in 𝐴)\rightarrow 𝑥\in A)$</li>
+</ul>
+</li>
+<li><p>对称差</p>
+</li>
+<li><p>广义交：拆掉两层括号求交再加上一层括号，空集的广义交没有意义</p>
+<ul>
+<li>$x\in \cap A\Leftrightarrow (\forall y)(y\in A\rightarrow x\in y)$</li>
+</ul>
+</li>
+<li><p>广义并：空集的广义并还是空集</p>
+<ul>
+<li>$x\in \cup A\Leftrightarrow (\exists y)(x\in y\wedge y\in A)$</li>
+</ul>
+</li>
+<li><p>证明两个集合相等：互相包含</p>
+</li>
+<li><p>证明$A\subseteq B$：$(\forall x)(x\in A\rightarrow x\in B)$</p>
+</li>
 </ul>
 <hr>
 <hr>
@@ -353,19 +370,21 @@
 <li>对于关系R：$dom(R),ran(R),fld(R)$</li>
 <li>逆，合成，限制，象</li>
 <li>五种关系<ul>
-<li>自反：所有点都有自环（绝对性）</li>
-<li>非自反：一个自环都没有（绝对性）</li>
-<li>对称：若两点有边，则相互（相对）</li>
-<li>反对称：若有变，是单向边（相对）</li>
+<li>自反：所有点都有自环，对角元需要全是1（很绝对性）</li>
+<li>非自反：一个自环都没有，对角元需要全是0（绝对性）</li>
+<li>对称：若两点有边，则相互，要么就没有边。只要有一个单向边出现就不是对称。（相对绝对）</li>
+<li>反对称：若有变，是单向边，要么就没有边。只要有一对双向边就不是反对称。（相对绝对）</li>
 <li>传递</li>
 </ul>
 </li>
+<li>自反和非自反，可以都不成立，但不可以都成立</li>
+<li>对称和反对称，可以都不成立，也可以都成立（当除了对角元以外都是0的时候，一条相互边都没有的时候就可以对称和反对称都成立）（对称或者反对称和对角元没有一点关系）</li>
 <li>空关系：<ul>
 <li>非空集合上的空关系 : 非自反，反对称，对称，传递  </li>
 <li>空集合上的空关系 : <strong>自反</strong>，非自反，反对称，对称，传递</li>
 </ul>
 </li>
-<li>闭包：传递闭包注意新生成的边也要再去参与传递。<br> $r:自反t:传递s:对称$<br> <em>注意：对称或破坏传递，所以先求对称再求传递，自反放在哪都行</em></li>
+<li>闭包：传递闭包注意新生成的边也要再去参与传递。<br> $r:自反t:传递s:对称$<br> <em>注意：对称会破坏传递，所以先求对称再求传递，自反放在哪都行</em></li>
 <li>等价关系：自反，对称，传递  <ul>
 <li>证明：分别证明自反、对称和传递</li>
 <li>等价类：$[x]_R&#x3D;{𝑦|𝑦\in 𝐴\wedge 𝑥𝑅𝑦}$<br>  把集合元素划分成若干个不相交的小集合  <ul>
@@ -379,7 +398,7 @@
 </li>
 <li>商集：$A&#x2F;R$<br>   以所有等价类为元素的大集合  </li>
 <li>划分：集合${1,2,3}$的划分有
-{{1,2,3}}，{{1，2}，{3}}，{{1，3}，{2}}，{{2，3}，{1}}，{{1}，{2}，{3}}这五种划分，这个例子确定了五种等价关系，比如对{{1}，{2}，{3}}这个划分可以得到等价关系：${&lt;1,1&gt;,&lt;2,2&gt;,&lt;3,3&gt;}$</li>
+{{1,2,3}}，{{1，2}，{3}}，{{1，3}，{2}}，{{2，3}，{1}}，{{1}，{2}，{3}}这五种划分，这个例子确定了五种等价关系，比如对{{1}，{2}，{3}}这个划分可以得到等价关系：{$&lt;1,1&gt;,&lt;2,2&gt;,&lt;3,3&gt;$}</li>
 </ul>
 </li>
 <li>相容关系：自反，对称  <ul>
