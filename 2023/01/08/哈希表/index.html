@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>在2023年的第一个月 | Hexo</title>
+  <title>哈希表 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="贰零贰叁2023&#x2F;01&#x2F;03在2022年的末尾，信誓旦旦给自己立下了许多规矩，但都在转眼醒来的下一天被打破。  长大以后，不再为今天是去年还是下一年激动，人是改不了坏毛病的，就算过了一年，自己照样还是过去那个烂掉的自己。 还有一门考试才结束期末，但似乎一直没有真正静下心来复习。现在的我，知道每一件事都很重要，但一直没有很用心的去面对它们，处于一种飘渺的状态。">
+  <meta name="description" content="哈希表数组模拟哈希表STL中hashmapunordered_map&lt;int , int&gt;  unordered_map 容器中是无序的，map 容器中根据自行对存储的键值对进行排序 以键值对（pair类型）的形式存储数据，存储的各个键值对的键互不相同且不允许被修改 头文件include&lt;unordered_map&gt; 创建unordered_map&lt;int , int">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在2023年的第一个月">
-<meta property="og:url" content="http://example.com/2023/01/03/%E5%9C%A82023%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88/index.html">
+<meta property="og:title" content="哈希表">
+<meta property="og:url" content="http://example.com/2023/01/08/%E5%93%88%E5%B8%8C%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="贰零贰叁2023&#x2F;01&#x2F;03在2022年的末尾，信誓旦旦给自己立下了许多规矩，但都在转眼醒来的下一天被打破。  长大以后，不再为今天是去年还是下一年激动，人是改不了坏毛病的，就算过了一年，自己照样还是过去那个烂掉的自己。 还有一门考试才结束期末，但似乎一直没有真正静下心来复习。现在的我，知道每一件事都很重要，但一直没有很用心的去面对它们，处于一种飘渺的状态。">
+<meta property="og:description" content="哈希表数组模拟哈希表STL中hashmapunordered_map&lt;int , int&gt;  unordered_map 容器中是无序的，map 容器中根据自行对存储的键值对进行排序 以键值对（pair类型）的形式存储数据，存储的各个键值对的键互不相同且不允许被修改 头文件include&lt;unordered_map&gt; 创建unordered_map&lt;int , int">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-03T14:06:52.000Z">
-<meta property="article:modified_time" content="2023-01-03T15:11:40.340Z">
+<meta property="article:published_time" content="2023-01-08T15:04:01.000Z">
+<meta property="article:modified_time" content="2023-01-08T15:04:38.915Z">
 <meta property="article:author" content="rObberT93">
-<meta property="article:tag" content="杂言">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,20 +162,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-在2023年的第一个月" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-哈希表" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      在2023年的第一个月
+      哈希表
     </h1>
   
 
         
-        <a href="/2023/01/03/%E5%9C%A82023%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88/" class="archive-article-date">
-  	<time datetime="2023-01-03T14:06:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-03</time>
+        <a href="/2023/01/08/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2023-01-08T15:04:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-08</time>
 </a>
       
         <!-- 需要添加的位置 -->
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">744字</span>
+        <span class="post-count">579字</span>
       </span>
     </span>
 
@@ -207,51 +207,82 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="贰零贰叁"><a href="#贰零贰叁" class="headerlink" title="贰零贰叁"></a>贰零贰叁</h1><h2 id="2023-x2F-01-x2F-03"><a href="#2023-x2F-01-x2F-03" class="headerlink" title="2023&#x2F;01&#x2F;03"></a>2023&#x2F;01&#x2F;03</h2><p>在2022年的末尾，信誓旦旦给自己立下了许多规矩，但都在转眼醒来的下一天被打破。 </p>
-<p>长大以后，不再为今天是去年还是下一年激动，人是改不了坏毛病的，就算过了一年，自己照样还是过去那个烂掉的自己。</p>
-<p>还有一门考试才结束期末，但似乎一直没有真正静下心来复习。现在的我，知道每一件事都很重要，但一直没有很用心的去面对它们，处于一种飘渺的状态。</p>
-<span id="more"></span>
-<p>2022年的我实在是逃避到极致了，总是不想面对该做的事情、不想面对很多人…</p>
-<p>每天都说要早睡，昨天搭博客熬了一整个通宵……<br>每天都说要减肥，胡吃海喝还停不下来嘴的我真让自己嫌弃……  </p>
-<p>算了，就当想寒假还很长，嘴上说过的事，都是会做的，我会一件不落的完成的，慢慢来吧，先接纳自己。  </p>
-<p>这几天，安安心心复习离散，准备考试，前几天考的几门自己认为考的不怎么样，但也不敢去想它们。</p>
-<p>这学期的程设让我挺痛苦的，之前一点基础都没有，高中算学过一点python，还一干二净还给了老师。我深感我真是一点也不聪明，现在自己学了不少东西，也稍微捡回一丢丢自信。虽然最后期末是满分，但这次实在有点大放水（捂脸）</p>
-<p>这段时间总在网上看一些有的没的，其实对我没有任何帮助，看太多别人的人生只会徒增焦虑……</p>
-<p><strong>寒假期间：</strong>  </p>
+        <h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><h2 id="数组模拟哈希表"><a href="#数组模拟哈希表" class="headerlink" title="数组模拟哈希表"></a>数组模拟哈希表</h2><h2 id="STL中hashmap"><a href="#STL中hashmap" class="headerlink" title="STL中hashmap"></a>STL中hashmap</h2><p><code>unordered_map&lt;int , int&gt;</code></p>
 <ul>
-<li>basic  <ul>
-<li>完善大作业，做到最好！（这学期很对不起同组大佬www）  </li>
-<li>陪伴家人</li>
-</ul>
-</li>
-<li>学习   <ul>
-<li>系统学习数据结构与算法，听课、做练习并做好笔记，上传到GitHub和博客。</li>
-<li>每天最少做一道leetcode，看明白题解，整理算法思路和用到的数据结构，隔一段时间要复习。</li>
-<li>熟悉python基本操作</li>
-<li>预习微积分（课件）、高代（录屏）、oop（c++ primer plus)、大<del>雾</del>物</li>
-<li>看一些科研期刊，多了解一些东西</li>
-<li>学英语（再不张嘴说一说，退步的有点猛了orz）</li>
-</ul>
-</li>
-<li>生活<ul>
-<li>重新开始锻炼身体！！！</li>
-<li>早睡早起，真的不能再熬夜了（我该怎么骂自己）</li>
-<li>好好吃饭，可少吃点吧！</li>
-<li>继续搭建我的博客，多记录一些东西（学习、生活……)希望有一天我能有很多“有用”的东西可以与人分享</li>
-<li>重新规划大学生活，深刻反思自己的毛病，调整状态。</li>
-<li>遛狗</li>
-<li>少出门，继续做小阴人</li>
-<li>看新闻联播</li>
-</ul>
-</li>
-<li>娱乐<ul>
-<li>unity尝试做个小游戏</li>
-<li>画点东西</li>
-<li>用qt玩点东西（小游戏、交互界面…)</li>
-<li>和妈妈一起看几部电影</li>
+<li>unordered_map 容器中是无序的，map 容器中根据自行对存储的键值对进行排序</li>
+<li>以键值对（pair类型）的形式存储数据，存储的各个键值对的键互不相同且不允许被修改</li>
+<li>头文件<code>include&lt;unordered_map&gt;</code></li>
+<li>创建<code>unordered_map&lt;int , int &gt;maptable</code></li>
+<li>复制（拷贝）构造函数：将现有 unordered_map 容器中存储的键值对，复制给新建 unordered_map 容器<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在创建好 umap 容器的基础上，再创建并初始化一个 umap2 容器</span></span><br><span class="line"><span class="function">std::unordered_map&lt;std::string, std::string&gt; <span class="title">umap2</span><span class="params">(umap)</span></span>;</span><br></pre></td></tr></table></figure></li>
+<li>移动构造函数：以右值引用的方式将临时 unordered_map 容器中存储的所有键值对，全部复制给新建容器<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用移动构造函数，创建 umap2 容器</span></span><br><span class="line"><span class="function">std::unordered_map&lt;std::string, std::string&gt; <span class="title">umap2</span><span class="params">(retUmap())</span></span>;</span><br></pre></td></tr></table></figure></li>
+<li>键值对：value和key<br><code>std::map&lt;X, Y</code>&gt;实际储存了一串<code>std::pair&lt;const X, Y&gt;</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt; m = <span class="comment">/* fill it */</span>;</span><br><span class="line"><span class="keyword">auto</span> it = m.<span class="built_in">begin</span>();</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>(*it).first</code>，即<code>it-&gt;first</code>会得到key</li>
+<li><code>(*it).second</code>，即<code>it-&gt;second</code>会得到value</li>
 </ul>
 </li>
 </ul>
+<h2 id="unordered-map容器成员"><a href="#unordered-map容器成员" class="headerlink" title="unordered_map容器成员"></a>unordered_map容器成员</h2><table>
+<thead>
+<tr>
+<th align="left">成员方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">begin()</td>
+<td>返回指向容器中第一个键值对的正向迭代器</td>
+</tr>
+<tr>
+<td align="left">end()</td>
+<td>返回指向容器中最后一个键值对之后位置的正向迭代器</td>
+</tr>
+<tr>
+<td align="left">empty()</td>
+<td>若容器为空，则返回 true；否则 false</td>
+</tr>
+<tr>
+<td align="left">size()</td>
+<td>返回当前容器中存有键值对的个数</td>
+</tr>
+<tr>
+<td align="left">at(key)</td>
+<td>返回容器中存储的键 key 对应的值，如果 key 不存在，则会抛出 out_of_range 异常</td>
+</tr>
+<tr>
+<td align="left">find(key)</td>
+<td>查找以 key 为键的键值对，如果找到，则返回一个指向该键值对的正向迭代器；反之，则返回一个指向容器中最后一个键值对之后位置的迭代器</td>
+</tr>
+<tr>
+<td align="left">count(key)</td>
+<td>在容器中查找以 key 键的键值对的个数。</td>
+</tr>
+<tr>
+<td align="left">emplace()</td>
+<td>向容器中添加新键值对，效率比 insert() 方法高。</td>
+</tr>
+<tr>
+<td align="left">erase()</td>
+<td>删除指定键值对</td>
+</tr>
+<tr>
+<td align="left">clear()</td>
+<td>清空容器，即删除容器中存储的所有键值对</td>
+</tr>
+<tr>
+<td align="left">swap()</td>
+<td>交换 2 个 unordered_map 容器存储的键值对，前提是必须保证这 2 个容器的类型完全相等</td>
+</tr>
+<tr>
+<td align="left">bucket_size(n)</td>
+<td>返回第 n 个桶中存储键值对的数量</td>
+</tr>
+<tr>
+<td align="left">bucket(key)</td>
+<td>返回以 key 为键的键值对所在桶的编号</td>
+</tr>
+</tbody></table>
 
       
 
@@ -265,7 +296,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂言</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -321,7 +352,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/03/%E5%9C%A82023%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/08/%E5%93%88%E5%B8%8C%E8%A1%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -335,18 +366,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/01/04/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          离散数学
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/03/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">滑动窗口</div>
+    <a href="/2023/01/04/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">离散数学</div>
       <i class="icon-circle-right"></i>
     </a>
   
