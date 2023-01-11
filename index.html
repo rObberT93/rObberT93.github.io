@@ -63,7 +63,7 @@
 		</nav>
 
 		<nav>
-			总文章数 6
+			总文章数 7
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -158,6 +158,184 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/11/set/">set</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/11/set/" class="archive-article-date">
+  	<time datetime="2023-01-11T04:20:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-11</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">658字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><ul>
+<li>set是一个集合（内部元素有且只有一份），且元素有序排列——set适合用来去重和排序</li>
+<li>使用 set 容器存储的各个键值对，要求键 key 和值 value 必须相等【map存储的键值对，ke不是必须相等】<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&lt;&#x27;a&#x27;, 1&gt;, &lt;&#x27;b&#x27;, 2&gt;, &lt;&#x27;c&#x27;, 3&gt;&#125;//各键值对的键和值不相等</span><br><span class="line">&#123;&lt;&#x27;a&#x27;, &#x27;a&#x27;&gt;, &lt;&#x27;b&#x27;, &#x27;b&#x27;&gt;, &lt;&#x27;c&#x27;, &#x27;c&#x27;&gt;&#125;//各键值对的键和值对应相等</span><br></pre></td></tr></table></figure></li>
+<li>复杂度——O(logn)</li>
+<li>红黑树——平衡二叉树</li>
+<li>不能修改set中的值，修改–&gt;删除当前值，插入新值</li>
+<li>头文件<code>#include&lt;set&gt;</code></li>
+<li>默认构造函数：<code>set&lt;int&gt;s;</code> <code>set&lt;string &gt;s;</code></li>
+<li>创建同时初始化<code>set&lt;int&gt;s&#123;1,2,3&#125;</code> <code>set&lt;string&gt;s&#123;&quot;string_a&quot;,&quot;string_b&quot;&#125;;</code></li>
+<li>复制构造函数：<code>set&lt;int&gt;copyset(s)</code></li>
+<li>移动构造函数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">成员函数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">s.begin()</td>
+<td align="left">返回指向容器中(已排好序的第一个)第一个元素的双向迭代器</td>
+</tr>
+<tr>
+<td align="left">s.end()</td>
+<td align="left">返回指向容器(已排好序的)最后元素所在位置<strong>后一个位置</strong>的双向迭代器</td>
+</tr>
+<tr>
+<td align="left">s.rbegin()</td>
+<td align="left">返回指(已排好序的)向最后一个元素的反向双向迭代器</td>
+</tr>
+<tr>
+<td align="left">s.rend()</td>
+<td align="left">返回指向(已排好序的)第一个元素所在位置前一个位置的反向双向迭代器</td>
+</tr>
+<tr>
+<td align="left">s.insert(x)</td>
+<td align="left">插入元素x</td>
+</tr>
+<tr>
+<td align="left">s.erase(x)</td>
+<td align="left">清除元素x</td>
+</tr>
+<tr>
+<td align="left">s.size()</td>
+<td align="left">set的大小</td>
+</tr>
+<tr>
+<td align="left">s.find(x)</td>
+<td align="left">查找值为x的元素，找到则返回指向x的双向迭代器；未找到则返回和 end() 方法一样的迭代器</td>
+</tr>
+<tr>
+<td align="left">s.lower_bound(val)</td>
+<td align="left">返回指向第一个大于或等于 val 的元素的双向迭代器</td>
+</tr>
+<tr>
+<td align="left">s.count()</td>
+<td align="left">统计set中x的数量，出现为1，不出现为0</td>
+</tr>
+<tr>
+<td align="left">s.upper_bound(val)</td>
+<td align="left">返回指向第一个大于 val 的元素的迭代器</td>
+</tr>
+<tr>
+<td align="left">s.empty()</td>
+<td align="left">空返回 true；非空 false</td>
+</tr>
+<tr>
+<td align="left">s.swap()</td>
+<td align="left">交换 2 个 set 容器中存储的所有元素</td>
+</tr>
+<tr>
+<td align="left">s.clear()</td>
+<td align="left">清空 set 容器中所有的元素</td>
+</tr>
+<tr>
+<td align="left">s.emplace()</td>
+<td align="left">在当前 set 容器中的指定位置直接构造新元素(效果和 insert() 一样，但效率更高)</td>
+</tr>
+</tbody></table>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    set&lt;<span class="type">int</span>&gt;s;</span><br><span class="line">    s.<span class="built_in">insert</span>(<span class="number">9</span>);s.<span class="built_in">insert</span>(<span class="number">5</span>);s.<span class="built_in">insert</span>(<span class="number">9</span>);s.<span class="built_in">inset</span>(<span class="number">1</span>);</span><br><span class="line">    cout&lt;&lt;s.<span class="built_in">size</span>()&lt;&lt;endl;<span class="comment">//3</span></span><br><span class="line">    s.<span class="built_in">erase</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">auto</span> it=s.<span class="built_in">find</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">if</span>(it==s.<span class="built_in">end</span>()) cout&lt;&lt;<span class="string">&quot;can not find&quot;</span>&lt;&lt;endl;<span class="comment">//can not find</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> it=s.<span class="built_in">begin</span>();it!=s.<span class="built_in">end</span>();it++)</span><br><span class="line">        cout&lt;&lt; *it&lt;&lt;<span class="string">&quot; &quot;</span>;<span class="comment">//1 9</span></span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/11/set/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-哈希表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
