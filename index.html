@@ -63,7 +63,7 @@
 		</nav>
 
 		<nav>
-			总文章数 7
+			总文章数 10
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -159,6 +159,451 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSAPP-chapter-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/12/CSAPP-chapter-2/">CSAPP_chapter_2</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/12/CSAPP-chapter-2/" class="archive-article-date">
+  	<time datetime="2023-01-12T11:34:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第二章-信息的表示和处理"><a href="#第二章-信息的表示和处理" class="headerlink" title="第二章 信息的表示和处理"></a>第二章 信息的表示和处理</h1><h2 id="2-1-信息存储"><a href="#2-1-信息存储" class="headerlink" title="2.1 信息存储"></a>2.1 信息存储</h2><h4 id="2-1-1-十六进制表示法："><a href="#2-1-1-十六进制表示法：" class="headerlink" title="2.1.1 十六进制表示法："></a>2.1.1 十六进制表示法：</h4><ul>
+<li>开头0x，后可大小写混合</li>
+<li>进制转换：<ul>
+<li>十进制-&gt;十六进制<br>$n_{[10]}&#x3D;4\times i+j,则n_{[16]}&#x3D;2^{i}\times 10^j$</li>
+<li>十进制-&gt;十六进制<br>辗转相除，余数逆序写出<!---more---></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-2-字数据大小："><a href="#2-1-2-字数据大小：" class="headerlink" title="2.1.2 字数据大小："></a>2.1.2 字数据大小：</h4><ul>
+<li>指针数据大小由计算机字长决定</li>
+</ul>
+<h4 id="2-1-3-寻址和字节顺序："><a href="#2-1-3-寻址和字节顺序：" class="headerlink" title="2.1.3 寻址和字节顺序："></a>2.1.3 寻址和字节顺序：</h4><ul>
+<li>小端or大端，大端序直观（互联网传输），一般机器使用小端模式<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> *pointer;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">show_bytes</span><span class="params">(pointer start, <span class="type">size_t</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">size_t</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%p\t0x%.2x\n&quot;</span>,start+i,start[i]);</span><br><span class="line">        <span class="comment">//%p:print pointer; %x:print hexadecimal</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">15213</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;int a=15213;\n&quot;</span>);</span><br><span class="line">    <span class="built_in">show_bytes</span>((pointer)&amp;a,<span class="built_in">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//int a=15213;</span></span><br><span class="line"><span class="comment">// 000000e7a57ffa5c        0x6d</span></span><br><span class="line"><span class="comment">// 000000e7a57ffa5d        0x3b</span></span><br><span class="line"><span class="comment">// 000000e7a57ffa5e        0x00</span></span><br><span class="line"><span class="comment">// 000000e7a57ffa5f        0x00</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-1-4-表示字符串"><a href="#2-1-4-表示字符串" class="headerlink" title="2.1.4 表示字符串"></a>2.1.4 表示字符串</h4><ul>
+<li>ASCII码</li>
+<li>Unicode（JAVA表示字符串）</li>
+</ul>
+<h4 id="2-1-5-表示代码"><a href="#2-1-5-表示代码" class="headerlink" title="2.1.5 表示代码"></a>2.1.5 表示代码</h4><ul>
+<li>程序是字节序列</li>
+</ul>
+<h4 id="2-1-6-布尔代数"><a href="#2-1-6-布尔代数" class="headerlink" title="2.1.6 布尔代数"></a>2.1.6 布尔代数</h4><ul>
+<li>位向量，$a_{w-1}在左，a_0在右$</li>
+<li>运算<ul>
+<li>与&amp;：集合交集</li>
+<li>或|：集合并集</li>
+<li>非~：单集合补集</li>
+<li>异或^：集合对称差</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-7-C语言中的位级运算"><a href="#2-1-7-C语言中的位级运算" class="headerlink" title="2.1.7 C语言中的位级运算"></a>2.1.7 C语言中的位级运算</h4><ul>
+<li>基本符号<ul>
+<li>| OR</li>
+<li>&amp; AND</li>
+<li>~ NOT</li>
+</ul>
+</li>
+<li>掩码</li>
+</ul>
+<h4 id="2-1-8-C语言中的逻辑运算"><a href="#2-1-8-C语言中的逻辑运算" class="headerlink" title="2.1.8 C语言中的逻辑运算"></a>2.1.8 C语言中的逻辑运算</h4><ul>
+<li>得到true or false</li>
+<li>基本符号<ul>
+<li>&amp;&amp; </li>
+<li>|| </li>
+<li>！</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-9-C语言中的移位运算"><a href="#2-1-9-C语言中的移位运算" class="headerlink" title="2.1.9 C语言中的移位运算"></a>2.1.9 C语言中的移位运算</h4><ul>
+<li>算数右移：左端补符号位</li>
+<li>逻辑右移：左端补0</li>
+</ul>
+<h2 id="2-2整数表示"><a href="#2-2整数表示" class="headerlink" title="2.2整数表示"></a>2.2整数表示</h2><ul>
+<li>Unsigned values—U 无符号整数</li>
+<li>two’s complement values—T 补码</li>
+</ul>
+<h4 id="2-2-1-整型数据类型"><a href="#2-2-1-整型数据类型" class="headerlink" title="2.2.1 整型数据类型"></a>2.2.1 整型数据类型</h4><ul>
+<li>long的取值范围是唯一一个与机器相关的</li>
+<li>正数负数取值范围不对称，负数比整数的范围大1<ul>
+<li>int：-2147 483 648 ~ 2147 483 647</li>
+<li>unsigned：0 ~ 4294 967 295</li>
+</ul>
+</li>
+<li>C++支持有符号（默认）和无符号，JAVA只支持有符号</li>
+</ul>
+<h4 id="2-2-2-无符号数的编码"><a href="#2-2-2-无符号数的编码" class="headerlink" title="2.2.2 无符号数的编码"></a>2.2.2 无符号数的编码</h4><ul>
+<li>$B2U_w(\vec{x})$函数：位向量$\rightarrow 十进制整数$</li>
+<li>各位权重均为1</li>
+<li>UMax &#x3D; 1111 &#x3D; 15</li>
+<li>UMin &#x3D; 0000 &#x3D; 0</li>
+<li>无符号数编码唯一性（函数双射）</li>
+</ul>
+<h4 id="2-2-3-补码编码"><a href="#2-2-3-补码编码" class="headerlink" title="2.2.3 补码编码"></a>2.2.3 补码编码</h4><ul>
+<li>$B2T_w(\vec{x})$函数：位向量$\rightarrow 十进制整数$</li>
+<li>最高位是符号位，权重为-1</li>
+<li>TMax &#x3D; 0111 &#x3D; 7</li>
+<li>TMin &#x3D; 1000 &#x3D; -8</li>
+<li>无符号数编码唯一性（函数双射）</li>
+</ul>
+<h4 id="2-2-4-有符号数和无符号数之间的转换"><a href="#2-2-4-有符号数和无符号数之间的转换" class="headerlink" title="2.2.4 有符号数和无符号数之间的转换"></a>2.2.4 有符号数和无符号数之间的转换</h4><ul>
+<li>强制类型转换：数值改变，位表示不变<ul>
+<li>UMax和补码表示的-1有相同的位模式</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-5-C语言中的有符号数和无符号数"><a href="#2-2-5-C语言中的有符号数和无符号数" class="headerlink" title="2.2.5 C语言中的有符号数和无符号数"></a>2.2.5 C语言中的有符号数和无符号数</h4><ul>
+<li>显式强制类型转换</li>
+<li>隐式强制类型转换：有符号数和无符号数运算会把有符号数强制转换位无符号数</li>
+<li>C语言中TMin的写法：-TMax-1（由补码不对称性+C语言的转换规则导致这么写TMin）</li>
+</ul>
+<h4 id="2-2-6-扩展一个数的位表示"><a href="#2-2-6-扩展一个数的位表示" class="headerlink" title="2.2.6 扩展一个数的位表示"></a>2.2.6 扩展一个数的位表示</h4><ul>
+<li>无符号数的的零扩展</li>
+<li>补码数的符号扩展</li>
+</ul>
+<h4 id="2-2-7-截断数字"><a href="#2-2-7-截断数字" class="headerlink" title="2.2.7 截断数字"></a>2.2.7 截断数字</h4><ul>
+<li>相当于取模运算</li>
+</ul>
+<h4 id="2-2-8-建议"><a href="#2-2-8-建议" class="headerlink" title="2.2.8 建议"></a>2.2.8 建议</h4><ul>
+<li>少使用或不使用无符号数</li>
+</ul>
+<h2 id="2-3整数运算"><a href="#2-3整数运算" class="headerlink" title="2.3整数运算"></a>2.3整数运算</h2><h4 id="2-3-1-无符号加法"><a href="#2-3-1-无符号加法" class="headerlink" title="2.3.1 无符号加法"></a>2.3.1 无符号加法</h4><ul>
+<li>需要w+1位</li>
+<li>大数相加溢出</li>
+</ul>
+<h4 id="2-3-2-补码加法"><a href="#2-3-2-补码加法" class="headerlink" title="2.3.2 补码加法"></a>2.3.2 补码加法</h4><ul>
+<li>positive overflow</li>
+<li>negative overflow</li>
+<li>检查符号位可判断是否溢出</li>
+<li>减法永远不会溢出，只有大正数加大正数or大负数加大负数会溢出（大小指数值的绝对值）</li>
+</ul>
+<h4 id="2-3-3-补码的非"><a href="#2-3-3-补码的非" class="headerlink" title="2.3.3 补码的非"></a>2.3.3 补码的非</h4><ul>
+<li>加法逆元</li>
+</ul>
+<h4 id="2-3-4-无符号乘法"><a href="#2-3-4-无符号乘法" class="headerlink" title="2.3.4 无符号乘法"></a>2.3.4 无符号乘法</h4><ul>
+<li>需要2w位</li>
+<li>等价于计算该值mod2</li>
+<li>一般的乘法计算：$\times 2^n相当于左移n位，如\times 5 相当于左移两位+左移0位$</li>
+</ul>
+<h4 id="2-3-5-补码乘法"><a href="#2-3-5-补码乘法" class="headerlink" title="2.3.5 补码乘法"></a>2.3.5 补码乘法</h4><ul>
+<li>和无符号乘法位级等价</li>
+</ul>
+<h4 id="2-3-6-乘以常数"><a href="#2-3-6-乘以常数" class="headerlink" title="2.3.6 乘以常数"></a>2.3.6 乘以常数</h4><ul>
+<li>用移位和加法运算来代替常数因的乘法</li>
+<li>例：$x*14$:<br>利用$14&#x3D;2^3+2^2+2^1$，编译器会把乘法重写为$(x&lt;&lt;3)+(x&lt;&lt;2)+(x&lt;&lt;1)$，<br>还可以利用$14&#x3D;2^4-2^1写成(x&lt;&lt;4)-(x&lt;&lt;1)$</li>
+</ul>
+<h4 id="2-3-7-除以2的幂"><a href="#2-3-7-除以2的幂" class="headerlink" title="2.3.7 除以2的幂"></a>2.3.7 除以2的幂</h4><ul>
+<li>向下舍入</li>
+<li>向上舍入</li>
+</ul>
+<h2 id="2-4浮点数"><a href="#2-4浮点数" class="headerlink" title="2.4浮点数"></a>2.4浮点数</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/12/CSAPP-chapter-2/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CSAPP-chapter-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/12/CSAPP-chapter-1/">CSAPP_chapter_1</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/12/CSAPP-chapter-1/" class="archive-article-date">
+  	<time datetime="2023-01-12T04:07:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-12</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">722字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="计算机系统漫游"><a href="#计算机系统漫游" class="headerlink" title="计算机系统漫游"></a>计算机系统漫游</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">graph LR  </span><br><span class="line">深入理解计算机系统--&gt; A(程序结构和执行)</span><br><span class="line">A--&gt; A1(信息的表示和处理)</span><br><span class="line">A--&gt; A2(程序的机器表示)</span><br><span class="line">A--&gt; A3(处理器体系结构)</span><br><span class="line">A--&gt; A4(优化程序性能)</span><br><span class="line">A--&gt; A5(存储器层次结构)</span><br><span class="line">深入理解计算机系统--&gt; B(在系统上运行程序)</span><br><span class="line">B--&gt; B1(链接)</span><br><span class="line">B--&gt; B2(异常控制流)</span><br><span class="line">B--&gt; B3(虚拟内存)</span><br><span class="line">深入理解计算机系统--&gt; C(程序间的交互和通信)</span><br><span class="line">C--&gt; C1(系统级I/O)</span><br><span class="line">C--&gt; C2(网络编程)</span><br><span class="line">C--&gt; C3(并发编程)</span><br></pre></td></tr></table></figure>
+<!---more--->
+<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><ul>
+<li>计算机系统 &#x3D; 硬件 + 系统软件</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">graph LR  </span><br><span class="line">深入理解计算机系统--&gt; A(程序结构和执行)</span><br><span class="line">A--&gt; A1(信息的表示和处理)</span><br><span class="line">A1--&gt; A11(位表示计算机内部信息)</span><br><span class="line">A1--&gt; A12(位依据上下文由不同的解释)</span><br><span class="line">A1--&gt; A13(程序:ASCII--编译器--链接器--二进制可执行文件)</span><br><span class="line">A--&gt; A2(程序的机器表示)</span><br><span class="line">A--&gt; A3(处理器体系结构)</span><br><span class="line">A3--&gt;A31(处理器读取并解释存放在主存里的二进制指令)</span><br><span class="line">A--&gt; A4(优化程序性能)</span><br><span class="line">A--&gt; A5(存储器层次结构)</span><br><span class="line">A5--&gt;A51(CPU寄存器--三级cache--DRAM主存--磁盘存储器)</span><br><span class="line">深入理解计算机系统--&gt; B(在系统上运行程序--三个基本抽象)</span><br><span class="line">B--&gt; B1(链接)</span><br><span class="line">B--&gt; B2(异常控制流)</span><br><span class="line">B--&gt; B3(虚拟内存)</span><br><span class="line">B3--&gt;B31(虚拟内存是对主存和磁盘的抽象)</span><br><span class="line">深入理解计算机系统--&gt; C(程序间的交互和通信)</span><br><span class="line">C--&gt; C1(系统级I/O)</span><br><span class="line">C--&gt; C2(网络编程)</span><br><span class="line">C2--&gt;C21(网络是一种I/O设备)</span><br><span class="line">C--&gt; C3(并发编程)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="1-信息-x3D-位-上下文"><a href="#1-信息-x3D-位-上下文" class="headerlink" title="1. 信息&#x3D;位+上下文"></a>1. 信息&#x3D;位+上下文</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">graph LR  </span><br><span class="line">一个cpp程序的生命周期--&gt; A(源文件hello.c--文本)</span><br><span class="line">A--&gt;A1(位bit序列 8个位=1字节)</span><br><span class="line">A--&gt;A2(文本文件--只由ASCII字符构成的文件--数字是对真值的有限近似值)</span><br><span class="line">A--&gt;A4(经过预处理器)</span><br><span class="line">一个cpp程序的生命周期--&gt; B(修改了的源程序hello.i--文本)</span><br><span class="line">B--&gt; B1(经过编译器ccl)</span><br><span class="line">一个cpp程序的生命周期--&gt; C(汇编程序hello.s--文本)</span><br><span class="line">C--&gt; C1(经过汇编器as)</span><br><span class="line">一个cpp程序的生命周期--&gt; D(可重定位目标程序hello.o--二进制)</span><br><span class="line">D--&gt; D1(经过连接器ld)</span><br><span class="line">D--&gt; D2(调用printf.o程序)</span><br><span class="line">一个cpp程序的生命周期--&gt; E(可执行目标程序hello--二进制)</span><br><span class="line">A4--&gt;X(编译系统)</span><br><span class="line">B1--&gt;X</span><br><span class="line">C1--&gt;X</span><br><span class="line">D1--&gt;X</span><br></pre></td></tr></table></figure>
+<h2 id="2-系统的硬件组成"><a href="#2-系统的硬件组成" class="headerlink" title="2.系统的硬件组成"></a>2.系统的硬件组成</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(系统)--&gt;A1(总线)</span><br><span class="line">A--&gt;A2(I/O设备)</span><br><span class="line">A--&gt;A3(主存)</span><br><span class="line">A--&gt;A4(处理器--中央处理单元CPU)</span><br><span class="line">A4--&gt;A5(程序计数器)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Amdahl定律"><a href="#Amdahl定律" class="headerlink" title="Amdahl定律"></a>Amdahl定律</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/12/CSAPP-chapter-1/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-红黑树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/11/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/11/%E7%BA%A2%E9%BB%91%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2023-01-11T05:02:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-11</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">226字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>红黑树—Red Black Tree（RBT)</p>
+<h1 id="红黑树（自平衡二叉树）"><a href="#红黑树（自平衡二叉树）" class="headerlink" title="红黑树（自平衡二叉树）"></a>红黑树（自平衡二叉树）</h1><h2 id="1-红黑规则"><a href="#1-红黑规则" class="headerlink" title="1.红黑规则"></a>1.红黑规则</h2><ul>
+<li>1.1每个节点的颜色均是红色或黑色</li>
+<li>1.2(root property)根节点是黑色</li>
+<li>1.3叶子节点是null节点且为黑色</li>
+<li>1.4(red property)红色节点的child不能是红色(同一路径，不存在连续的红色节点)；但黑色节点的孩子还可以是黑色的</li>
+<li>1.5(black property)每个节点到叶子节点的所有路径，都包含相同数目的黑色节点（相同的黑色高度）</li>
+<li>红黑树的<strong>大致平衡</strong>：根到叶子的所有路径中，最长路径不会超过最短路径的2倍</li>
+<li>默认新插入的节点为红色：因为父节点为黑色的概率较大，插入新节点为红色，可以避免颜色冲突</li>
+<li>高度最多是$2\times log_2(n+1)$</li>
+<li>black height</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/11/%E7%BA%A2%E9%BB%91%E6%A0%91/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -206,85 +651,10 @@
       
         <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><ul>
 <li>set是一个集合（内部元素有且只有一份），且元素有序排列——set适合用来去重和排序</li>
-<li>使用 set 容器存储的各个键值对，要求键 key 和值 value 必须相等【map存储的键值对，ke不是必须相等】<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&lt;&#x27;a&#x27;, 1&gt;, &lt;&#x27;b&#x27;, 2&gt;, &lt;&#x27;c&#x27;, 3&gt;&#125;//各键值对的键和值不相等</span><br><span class="line">&#123;&lt;&#x27;a&#x27;, &#x27;a&#x27;&gt;, &lt;&#x27;b&#x27;, &#x27;b&#x27;&gt;, &lt;&#x27;c&#x27;, &#x27;c&#x27;&gt;&#125;//各键值对的键和值对应相等</span><br></pre></td></tr></table></figure></li>
-<li>复杂度——O(logn)</li>
-<li>红黑树——平衡二叉树</li>
-<li>不能修改set中的值，修改–&gt;删除当前值，插入新值</li>
-<li>头文件<code>#include&lt;set&gt;</code></li>
-<li>默认构造函数：<code>set&lt;int&gt;s;</code> <code>set&lt;string &gt;s;</code></li>
-<li>创建同时初始化<code>set&lt;int&gt;s&#123;1,2,3&#125;</code> <code>set&lt;string&gt;s&#123;&quot;string_a&quot;,&quot;string_b&quot;&#125;;</code></li>
-<li>复制构造函数：<code>set&lt;int&gt;copyset(s)</code></li>
-<li>移动构造函数</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="left">成员函数</th>
-<th align="left">用法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">s.begin()</td>
-<td align="left">返回指向容器中(已排好序的第一个)第一个元素的双向迭代器</td>
-</tr>
-<tr>
-<td align="left">s.end()</td>
-<td align="left">返回指向容器(已排好序的)最后元素所在位置<strong>后一个位置</strong>的双向迭代器</td>
-</tr>
-<tr>
-<td align="left">s.rbegin()</td>
-<td align="left">返回指(已排好序的)向最后一个元素的反向双向迭代器</td>
-</tr>
-<tr>
-<td align="left">s.rend()</td>
-<td align="left">返回指向(已排好序的)第一个元素所在位置前一个位置的反向双向迭代器</td>
-</tr>
-<tr>
-<td align="left">s.insert(x)</td>
-<td align="left">插入元素x</td>
-</tr>
-<tr>
-<td align="left">s.erase(x)</td>
-<td align="left">清除元素x</td>
-</tr>
-<tr>
-<td align="left">s.size()</td>
-<td align="left">set的大小</td>
-</tr>
-<tr>
-<td align="left">s.find(x)</td>
-<td align="left">查找值为x的元素，找到则返回指向x的双向迭代器；未找到则返回和 end() 方法一样的迭代器</td>
-</tr>
-<tr>
-<td align="left">s.lower_bound(val)</td>
-<td align="left">返回指向第一个大于或等于 val 的元素的双向迭代器</td>
-</tr>
-<tr>
-<td align="left">s.count()</td>
-<td align="left">统计set中x的数量，出现为1，不出现为0</td>
-</tr>
-<tr>
-<td align="left">s.upper_bound(val)</td>
-<td align="left">返回指向第一个大于 val 的元素的迭代器</td>
-</tr>
-<tr>
-<td align="left">s.empty()</td>
-<td align="left">空返回 true；非空 false</td>
-</tr>
-<tr>
-<td align="left">s.swap()</td>
-<td align="left">交换 2 个 set 容器中存储的所有元素</td>
-</tr>
-<tr>
-<td align="left">s.clear()</td>
-<td align="left">清空 set 容器中所有的元素</td>
-</tr>
-<tr>
-<td align="left">s.emplace()</td>
-<td align="left">在当前 set 容器中的指定位置直接构造新元素(效果和 insert() 一样，但效率更高)</td>
-</tr>
-</tbody></table>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    set&lt;<span class="type">int</span>&gt;s;</span><br><span class="line">    s.<span class="built_in">insert</span>(<span class="number">9</span>);s.<span class="built_in">insert</span>(<span class="number">5</span>);s.<span class="built_in">insert</span>(<span class="number">9</span>);s.<span class="built_in">inset</span>(<span class="number">1</span>);</span><br><span class="line">    cout&lt;&lt;s.<span class="built_in">size</span>()&lt;&lt;endl;<span class="comment">//3</span></span><br><span class="line">    s.<span class="built_in">erase</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">auto</span> it=s.<span class="built_in">find</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">if</span>(it==s.<span class="built_in">end</span>()) cout&lt;&lt;<span class="string">&quot;can not find&quot;</span>&lt;&lt;endl;<span class="comment">//can not find</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> it=s.<span class="built_in">begin</span>();it!=s.<span class="built_in">end</span>();it++)</span><br><span class="line">        cout&lt;&lt; *it&lt;&lt;<span class="string">&quot; &quot;</span>;<span class="comment">//1 9</span></span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>使用 set 容器存储的各个键值对，要求键 key 和值 value 必须相等【map存储的键值对，ke不是必须相等】<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&lt;&#x27;a&#x27;, 1&gt;, &lt;&#x27;b&#x27;, 2&gt;, &lt;&#x27;c&#x27;, 3&gt;&#125;//各键值对的键和值不相等</span><br><span class="line">&#123;&lt;&#x27;a&#x27;, &#x27;a&#x27;&gt;, &lt;&#x27;b&#x27;, &#x27;b&#x27;&gt;, &lt;&#x27;c&#x27;, &#x27;c&#x27;&gt;&#125;//各键值对的键和值对应相等</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2023/01/11/set/#more">more >></a>
+        
       
 
       
@@ -1063,6 +1433,10 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
