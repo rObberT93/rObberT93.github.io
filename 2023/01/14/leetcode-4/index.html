@@ -16,7 +16,7 @@
 <meta property="og:description" content="寻找两个正序数组的中位数给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。算法的时间复杂度应该为 O(log (m+n))">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-14T13:34:13.000Z">
-<meta property="article:modified_time" content="2023-01-14T15:28:30.135Z">
+<meta property="article:modified_time" content="2023-01-14T15:30:19.980Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -241,33 +241,8 @@
 <li><p>如果某个数组没有第K&#x2F;2个数字，那么我们就淘汰另一个数字的前K&#x2F;2个数字即可。有没有可能两个数组都不存在第K&#x2F;2个数字呢，这道题里是不可能的，因为我们的K不是任意给的，而是给的m+n的中间值，所以必定至少会有一个数组是存在第K&#x2F;2个数字的。</p>
 </li>
 <li><p>最后就是二分法的核心：比较这两个数组的第K&#x2F;2小的数字midVal1和midVal2的大小，如果第一个数组的第K&#x2F;2个数字小的话，那么说明我们要找的数字肯定不在nums1中的前K&#x2F;2个数字，所以我们可以将其淘汰，将nums1的起始位置向后移动K&#x2F;2个，并且此时的K也减去K&#x2F;2，调用递归。反之，我们淘汰nums2中的前K&#x2F;2个数字，并将nums2的起始位置向后移动K&#x2F;2个，并且此时的K也自减去K&#x2F;2，调用递归即可</p>
-</li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = nums1.<span class="built_in">length</span>();</span><br><span class="line">        <span class="type">int</span> n = nums2.<span class="built_in">length</span>();</span><br><span class="line">        <span class="type">int</span> left = (m + n + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> right = (m + n + <span class="number">2</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">findKth</span>(nums1, <span class="number">0</span>, nums2, <span class="number">0</span>, left) + <span class="built_in">findKth</span>(nums1, <span class="number">0</span>, nums2, <span class="number">0</span>, right)) / <span class="number">2.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//i: nums1的起始位置 j: nums2的起始位置</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="type">int</span> <span class="title">findKth</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> j, <span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>( i &gt;= nums1.<span class="built_in">length</span>()) <span class="keyword">return</span> nums2[j + k - <span class="number">1</span>];<span class="comment">//nums1为空数组</span></span><br><span class="line">        <span class="keyword">if</span>( j &gt;= nums2.<span class="built_in">length</span>()) <span class="keyword">return</span> nums1[i + k - <span class="number">1</span>];<span class="comment">//nums2为空数组</span></span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> Math.<span class="built_in">min</span>(nums1[i], nums2[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> midVal1 = (i + k / <span class="number">2</span> - <span class="number">1</span> &lt; nums1.length) ? nums1[i + k / <span class="number">2</span> - <span class="number">1</span>] : Integer.MAX_VALUE;</span><br><span class="line">        <span class="type">int</span> midVal2 = (j + k / <span class="number">2</span> - <span class="number">1</span> &lt; nums2.length) ? nums2[j + k / <span class="number">2</span> - <span class="number">1</span>] : Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">if</span>(midVal1 &lt; midVal2)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">findKth</span>(nums1, i + k / <span class="number">2</span>, nums2, j , k - k / <span class="number">2</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">findKth</span>(nums1, i, nums2, j + k / <span class="number">2</span> , k - k / <span class="number">2</span>);</span><br><span class="line">        &#125;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<pre><code class="c++">class Solution &#123;
-  public double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;
-        int m = nums1.length();
-        int n = nums2.length();
-        int left = (m + n + 1) / 2;
-        int right = (m + n + 2) / 2;
-        return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
-    &#125;
-    //i: nums1的起始位置 j: nums2的起始位置
-    public int findKth(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2, int j, int k)&#123;
-        if( i &gt;= nums1.length()) return nums2[j + k - 1];//nums1为空数组
-        if( j &gt;= nums2.length()) return nums1[i + k - 1];//nums2为空数组
-        if(k == 1)&#123;
-            return Math.min(nums1[i], nums2[j]);
-        &#125;
-        int midVal1 = (i + k / 2 - 1 &lt; nums1.length) ? nums1[i + k / 2 - 1] : Integer.MAX_VALUE;
-        int midVal2 = (j + k / 2 - 1 &lt; nums2.length) ? nums2[j + k / 2 - 1] : Integer.MAX_VALUE;
-        if(midVal1 &lt; midVal2)&#123;
-            return findKth(nums1, i + k / 2, nums2, j , k - k / 2);
-        &#125;else&#123;
-            return findKth(nums1, i, nums2, j + k / 2 , k - k / 2);
-        &#125;        
-    &#125;
-&#125;···
-</code></pre>
 
       
 
@@ -513,15 +488,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
