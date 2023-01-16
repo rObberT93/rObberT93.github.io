@@ -63,7 +63,7 @@
 		</nav>
 
 		<nav>
-			总文章数 13
+			总文章数 14
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -158,6 +158,157 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/16/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/16/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2023-01-16T14:32:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">861字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树的中序遍历"><a href="#二叉树的中序遍历" class="headerlink" title="二叉树的中序遍历"></a>二叉树的中序遍历</h3><ul>
+<li>顺序：<strong>左根右</strong>，即先遍历左子树节点，再遍历根节点，再遍历右子树节点。</li>
+<li>递归的时候隐式地维护了一个栈，而在迭代的时候需要显式地将这个栈模拟出来</li>
+</ul>
+<h4 id="递归解法"><a href="#递归解法" class="headerlink" title="递归解法"></a>递归解法</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) </span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="built_in">inorder</span>(root-&gt;left, res);</span><br><span class="line">        res.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">        <span class="built_in">inorder</span>(root-&gt;right, res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">inorder</span>(root, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="迭代解法"><a href="#迭代解法" class="headerlink" title="迭代解法"></a>迭代解法</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        stack&lt;TreeNode*&gt; stk;</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="literal">nullptr</span> || !stk.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (root != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(root);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            root = stk.<span class="built_in">top</span>();</span><br><span class="line">            stk.<span class="built_in">pop</span>();</span><br><span class="line">            res.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Morris-中序遍历"><a href="#Morris-中序遍历" class="headerlink" title="Morris 中序遍历"></a>Morris 中序遍历</h4><ul>
+<li><p>空间复杂度降为 $O(1)$</p>
+</li>
+<li><p>前置知识</p>
+<ul>
+<li>前驱节点: 如果按照中序遍历访问树，访问的结果为ABC，则称A为B的前驱节点，B为C的前驱节点。</li>
+<li>前驱节点pre是curr左子树的最右子树（按照中序遍历走一遍就知道了）。</li>
+<li>由此可知，前驱节点的右子节点一定为空。</li>
+</ul>
+</li>
+<li><p>主要思想：</p>
+<ul>
+<li><p>树的链接是单向的，从根节点出发，只有通往子节点的单向路程。</p>
+</li>
+<li><p>中序遍历迭代法的难点在于需先访问当前节点的左子树，才能访问当前节点。</p>
+</li>
+<li><p>但只有通往左子树的单向路程，没有回程路，因此只能用额外的数据结构记录下回程的路。</p>
+</li>
+<li><p>在这里可以利用当前节点的前驱节点，建立回程的路，也不需要消耗额外的空间。</p>
+</li>
+<li><p>根据前置知识的分析，当前节点的前驱节点的右子节点是为空的，因此可以用其保存回程的路。</p>
+</li>
+<li><p>但是要注意，这是建立在破坏了树的结构的基础上的，因此我们最后还有一步“消除链接”’的步骤，将树的结构还原。</p>
+</li>
+</ul>
+</li>
+<li><p>重点过程： 当遍历到当前节点curr时，使用cuur的前驱节点pre</p>
+<ul>
+<li>标记当前节点是否访问过</li>
+<li>记录回溯到curr的路径（访问完pre以后，就应该访问curr了）</li>
+</ul>
+</li>
+<li><p>Morris 遍历算法整体步骤如下（假设当前遍历到的节点为 $x$）：</p>
+<ul>
+<li>x无左孩子<ul>
+<li>x加入结果</li>
+<li>x&#x3D;x.right</li>
+</ul>
+</li>
+<li>x有左孩子，找predecessor<ul>
+<li>predecessor右孩子为空，右孩子指向x,x&#x3D;x.left</li>
+<li>predecessor右孩子不为空，x加入结果，x&#x3D;x.right<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">method3</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; ans=<span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">while</span>(root!=null)&#123;</span><br><span class="line">        <span class="comment">//没有左子树，直接访问该节点，再访问右子树</span></span><br><span class="line">        <span class="keyword">if</span>(root.left==null)&#123;</span><br><span class="line">            ans.<span class="built_in">add</span>(root.val);</span><br><span class="line">            root=root.right;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//有左子树，找前驱节点，判断是第一次访问还是第二次访问</span></span><br><span class="line">            TreeNode pre=root.left;</span><br><span class="line">            <span class="keyword">while</span>(pre.right!=null&amp;&amp;pre.right!=root)</span><br><span class="line">                pre=pre.right;</span><br><span class="line">            <span class="comment">//是第一次访问，访问左子树</span></span><br><span class="line">            <span class="keyword">if</span>(pre.right==null)&#123;</span><br><span class="line">                pre.right=root;</span><br><span class="line">                root=root.left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//第二次访问了，那么应当消除链接</span></span><br><span class="line">            <span class="comment">//该节点访问完了，接下来应该访问其右子树</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                pre.right=null;</span><br><span class="line">                ans.<span class="built_in">add</span>(root.val);</span><br><span class="line">                root=root.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/16/%E4%BA%8C%E5%8F%89%E6%A0%91/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-leetcode-18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1085,109 +1236,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/01/04/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-在2023年的第一个月" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/03/%E5%9C%A82023%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88/">在2023年的第一个月</a>
-    </h1>
-  
-
-        
-        <a href="/2023/01/03/%E5%9C%A82023%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88/" class="archive-article-date">
-  	<time datetime="2023-01-03T14:06:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-03</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">744字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="贰零贰叁"><a href="#贰零贰叁" class="headerlink" title="贰零贰叁"></a>贰零贰叁</h1><h2 id="2023-x2F-01-x2F-03"><a href="#2023-x2F-01-x2F-03" class="headerlink" title="2023&#x2F;01&#x2F;03"></a>2023&#x2F;01&#x2F;03</h2><p>在2022年的末尾，信誓旦旦给自己立下了许多规矩，但都在转眼醒来的下一天被打破。 </p>
-<p>长大以后，不再为今天是去年还是下一年激动，人是改不了坏毛病的，就算过了一年，自己照样还是过去那个烂掉的自己。</p>
-<p>还有一门考试才结束期末，但似乎一直没有真正静下心来复习。现在的我，知道每一件事都很重要，但一直没有很用心的去面对它们，处于一种飘渺的状态。</p>
-        
-          <a class="article-more-a" href="/2023/01/03/%E5%9C%A82023%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/03/%E5%9C%A82023%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88/">Have a look ~ >></a>
         </p>
       
 
