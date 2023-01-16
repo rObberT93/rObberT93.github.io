@@ -63,7 +63,7 @@
 		</nav>
 
 		<nav>
-			总文章数 12
+			总文章数 13
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -158,6 +158,120 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-leetcode-18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/16/leetcode-18/">leetcode_18</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/16/leetcode-18/" class="archive-article-date">
+  	<time datetime="2023-01-16T05:53:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-16</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">510字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="leetcode-18-四数之和"><a href="#leetcode-18-四数之和" class="headerlink" title="leetcode_18 四数之和"></a>leetcode_18 四数之和</h2><p>重点：</p>
+<ul>
+<li>双指针</li>
+<li>去重及顺序</li>
+<li>返回二维数组</li>
+<li>整型溢出<!--more--->
+<blockquote>
+<p>给你一个由 n 个整数组成的数组 nums ，和一个目标值 target，<br>请你找出并返回满足下述全部条件且不重复的四元组 [nums[a], nums[b], nums[c], nums[d]] （若两个四元组元素一一对应，则认为两个四元组重复）：<br>· 0 &lt;&#x3D; a, b, c, d &lt; n<br>· a、b、c 和 d 互不相同<br>· nums[a] + nums[b] + nums[c] + nums[d] &#x3D;&#x3D; target<br>可以按任意顺序返回答案</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;result;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">4</span>) <span class="keyword">return</span> result;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">if</span>((<span class="type">long</span>)nums[<span class="number">0</span>]+nums[<span class="number">1</span>]+nums[<span class="number">2</span>]+nums[<span class="number">3</span>]&gt;target) <span class="keyword">return</span> result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> fir=<span class="number">0</span>;fir&lt;n<span class="number">-3</span>;fir++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//去重</span></span><br><span class="line">            <span class="keyword">if</span>(fir&gt;<span class="number">0</span> &amp;&amp; nums[fir]==nums[fir<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> sec=fir+<span class="number">1</span>;sec&lt;n<span class="number">-2</span>;sec++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//去重</span></span><br><span class="line">                <span class="keyword">if</span>(sec&gt;fir+<span class="number">1</span> &amp;&amp; nums[sec]==nums[sec<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">int</span> th=sec+<span class="number">1</span>;</span><br><span class="line">                <span class="type">int</span> fo=n<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">while</span>(th&lt;fo)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>((<span class="type">long</span>)nums[th]+nums[fo]&lt;(<span class="type">long</span>)target-nums[fir]-nums[sec])</span><br><span class="line">                        th++;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>((<span class="type">long</span>)nums[th]+nums[fo]&gt;(<span class="type">long</span>)target-nums[fir]-nums[sec])</span><br><span class="line">                        fo--;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        result.<span class="built_in">push_back</span>(&#123;nums[fir],nums[sec],nums[th],nums[fo]&#125;);</span><br><span class="line">                        <span class="comment">//去重</span></span><br><span class="line">                        <span class="keyword">while</span>(th&lt;fo &amp;&amp; nums[fo<span class="number">-1</span>]==nums[fo]) fo--;</span><br><span class="line">                        <span class="comment">//去重</span></span><br><span class="line">                        <span class="keyword">while</span>(th&lt;fo &amp;&amp; nums[th]==nums[th+<span class="number">1</span>]) th++;</span><br><span class="line">                        th++;</span><br><span class="line">                        fo--;</span><br><span class="line">                    &#125;     </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//测试用例[1000000000,1000000000,1000000000,1000000000] -294967296</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>时间复杂度：$O(n^3)$，其中 $n$ 是数组的长度。排序的时间复杂度是 $O(n \log n)$，枚举四元组的时间复杂度是 $O(n^3)$，因此总时间复杂度为 $O(n^3+n\log n)&#x3D;O(n^3)$</li>
+<li>空间复杂度：$O(\log n)$，其中 $n$ 是数组的长度。空间复杂度主要取决于排序额外使用的空间。此外排序修改了输入数组 $nums$，实际情况中不一定允许，因此也可以看成使用了一个额外的数组存储了数组 $nums$ 的副本并排序，空间复杂度为 $O(n)$</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/16/leetcode-18/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-leetcode-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1103,116 +1217,6 @@
 
 
   
-    <article id="post-滑动窗口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/03/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">滑动窗口</a>
-    </h1>
-  
-
-        
-        <a href="/2023/01/03/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" class="archive-article-date">
-  	<time datetime="2023-01-03T13:48:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-03</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">817字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><h2 id="leetcode-76：最小覆盖子串"><a href="#leetcode-76：最小覆盖子串" class="headerlink" title="leetcode 76：最小覆盖子串"></a>leetcode 76：最小覆盖子串</h2><blockquote>
-<p>给你一个字符串 s,一个字符串 t。返回s中涵盖t所有字符的最小子串。如果s中不存在涵盖t所有字符的子串，则返回空字符串 “”.  </p>
-</blockquote>
-<blockquote>
-<p>注意：对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。如果 s 中存在这样的子串，我们保证它是唯一的答案。  </p>
-</blockquote>
-<pre><code>输入：s = &quot;ADOBECODEBANC&quot;, t = &quot;ABC&quot;  
-输出：&quot;BANC&quot;   
-解释：最小覆盖子串 &quot;BANC&quot; 包含来自字符串 t 的&#39;A&#39;&#39;B&#39;和&#39;C&#39;。  
-</code></pre>
-        
-          <a class="article-more-a" href="/2023/01/03/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/03/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1335,11 +1339,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
