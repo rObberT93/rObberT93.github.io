@@ -63,7 +63,7 @@
 		</nav>
 
 		<nav>
-			总文章数 14
+			总文章数 15
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -159,6 +159,230 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Missing-Semester" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/18/Missing-Semester/">Missing/Semester</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/18/Missing-Semester/" class="archive-article-date">
+  	<time datetime="2023-01-18T09:33:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-18</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="lesson-1-shell"><a href="#lesson-1-shell" class="headerlink" title="lesson 1 shell"></a>lesson 1 shell</h1><h2 id="prerequisite：在windows系统安装Linux子系统"><a href="#prerequisite：在windows系统安装Linux子系统" class="headerlink" title="prerequisite：在windows系统安装Linux子系统"></a>prerequisite：在windows系统安装Linux子系统</h2><ul>
+<li>step1 下载wsl<ul>
+<li>win11在微软应用商店下载wsl</li>
+</ul>
+</li>
+<li>step2 打开 控制面板-&gt;启用或关闭windows功能-&gt;打开”适用于Linux的Windows子系统” 重启</li>
+<li>step3 微软应用商店下载Ubuntu</li>
+<li>step4 管理员身份运行powershell(?)</li>
+<li>step5 输入 wsl -l -v 检查每个发行版的 WSL 版本</li>
+<li>step6 Ubuntu初始化用户名 密码(输入时不显示)</li>
+</ul>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><ul>
+<li><p>man</p>
+</li>
+<li><p>history：查看历史记录</p>
+<ul>
+<li>history | more 分屏显示 每次只显示一页，空格键显示下一页，q键退出显示，h键可以获取帮助</li>
+</ul>
+</li>
+<li><p>date</p>
+</li>
+<li><p>clear：清屏</p>
+</li>
+<li><p>echo</p>
+<ul>
+<li>echo $PATH</li>
+<li>which echo：</li>
+<li>查看命令所在<ul>
+<li>windows下把文件分在不同的盘C:&#x2F; D:&#x2F; etc，在Linux下所有文件在一个root下</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>pwd：print working directory</p>
+</li>
+<li><p>cd：change directory</p>
+<ul>
+<li>..&#x2F;切换到上层目录</li>
+<li>.&#x2F;切换到当前目录</li>
+<li>cd ~切换到主目录</li>
+<li>cd -切换到上次进入的路径</li>
+<li>&#x2F;切换到根目录</li>
+</ul>
+</li>
+<li><p>ls：查看文件信息</p>
+<ul>
+<li>ls -a：显示指定目录下的所有子目录和文件（包括隐藏文件）</li>
+<li>ls -l：以列表的方式显示指定目录下的所有子目录和文件的详细信息</li>
+<li>ls -lh：显示文件大小</li>
+<li>ls –help</li>
+</ul>
+</li>
+<li><p>mv 移动文件。移动文件或目录，也可以给文件或目录重命名。（此处的重命名值得是复制一份内容相同名字不同的文件出来）</p>
+</li>
+<li><p>$&gt;$ :重定向命令，将命令的结果重定向到指定文件</p>
+</li>
+<li><p>|：管道命令，前一个命令的输出作为后一个命令的输入，管道我们可以理解现实生活中的管子，管子的一头塞东西进去，另一头取出来，这里“ | ”的左右分为两端，左端塞东西(写)，右端取东西(读)</p>
+</li>
+<li><p>rmdir：删除一个目录。必须离开目录，且目录必须为空目录，否则提示删除失败</p>
+</li>
+<li><p>mkdir：创建一个新的目录。参数-p可递归创建目录。需要注意新建目录的名称不能与当前目录中已有的目录或文件同名，且须对当前目录有写权限。</p>
+</li>
+<li><p>&lt; file &gt; file^C</p>
+</li>
+<li><p>cat：查看文件内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo hello &gt; hello.txt</span><br><span class="line">cat &lt; hello.txt &gt; hello2.txt</span><br><span class="line">cat hello2.txt//hello</span><br></pre></td></tr></table></figure></li>
+<li><p>sudo</p>
+<ul>
+<li>sudo rm -f 文件名：删除文件（夹）。</li>
+</ul>
+</li>
+<li><p>rm：使用rm命令要小心，因为文件删除后不能恢复。为了防止文件误删，可以在rm后使用-i参数以逐个确认要删除的文件。</p>
+<ul>
+<li>-r：递归删除目录</li>
+<li>-i：以交互式方式执行，提示用户是否进行指定的删除操作</li>
+<li>-f：强制删除，忽略不存在的文件，无需提示</li>
+</ul>
+</li>
+<li><p>grep:文本搜索 如果找到匹配模式，grep打印包含模式的所有行。格式为：$grep [-选项] ‘搜索内容串’文件名$</p>
+<ul>
+<li>-v：显示不包含匹配文本的所有行（相当于取反）</li>
+<li>-n：显示匹配行及行号</li>
+<li>-i：不区分大小写</li>
+</ul>
+</li>
+<li><p>curl –head –silent baidu.com | grep content.length</p>
+</li>
+<li><p>xdg -open</p>
+</li>
+<li><p>ln：建立链接文件，链接文件类似于Windows下的快捷方式。链接文件分为软链接和硬链接。</p>
+<ul>
+<li><p>软链接：软链接不占用磁盘空间，源文件删除则软链接失效。ln -s 源文件 链接文件</p>
+</li>
+<li><p>硬链接：硬链接只能链接普通文件，不能链接目录。两个文件占用相同大小的硬盘空间，即使删除了源文件，链接文件还是存在。ln 源文件 链接文件</p>
+</li>
+</ul>
+</li>
+<li><p>find：查找文件，通常用来在特定的目录下搜索符合条件的文件</p>
+</li>
+<li><p>cp：拷贝文件，将给出的文件或目录复制到另一个文件或目录中</p>
+</li>
+<li><p>tar：归档管理</p>
+</li>
+<li><p>ps：查看进程信息</p>
+</li>
+<li><p>top：动态显示进程</p>
+</li>
+<li><p>kill：终止进程</p>
+</li>
+<li><p>ifconfig：查看网卡信息</p>
+</li>
+<li><p>ping：测试远程主机连通性</p>
+</li>
+<li><p>whoami：查看当前用户</p>
+</li>
+<li><p>exit：如果是图形界面，退出当前终端；如果是使用ssh远程登录，退出登陆账户</p>
+</li>
+<li><p>useradd：添加用户账号</p>
+</li>
+<li><p>which:查看命令所在</p>
+</li>
+<li><p>passwd:设置用户密码</p>
+</li>
+<li><p>su:切换用户</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">missing semester</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/18/Missing-Semester/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -183,7 +407,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">861字</span>
+        <span class="post-count">2.9k字</span>
       </span>
     </span>
 
@@ -192,7 +416,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">13分</span>
       </span>
     </span>
 </div>
@@ -206,58 +430,10 @@
       
         <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树的中序遍历"><a href="#二叉树的中序遍历" class="headerlink" title="二叉树的中序遍历"></a>二叉树的中序遍历</h3><ul>
 <li>顺序：<strong>左根右</strong>，即先遍历左子树节点，再遍历根节点，再遍历右子树节点。</li>
-<li>递归的时候隐式地维护了一个栈，而在迭代的时候需要显式地将这个栈模拟出来</li>
-</ul>
-<h4 id="递归解法"><a href="#递归解法" class="headerlink" title="递归解法"></a>递归解法</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">inorder</span><span class="params">(TreeNode* root, vector&lt;<span class="type">int</span>&gt;&amp; res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) </span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="built_in">inorder</span>(root-&gt;left, res);</span><br><span class="line">        res.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">        <span class="built_in">inorder</span>(root-&gt;right, res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">inorder</span>(root, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="迭代解法"><a href="#迭代解法" class="headerlink" title="迭代解法"></a>迭代解法</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        stack&lt;TreeNode*&gt; stk;</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="literal">nullptr</span> || !stk.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (root != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(root);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            root = stk.<span class="built_in">top</span>();</span><br><span class="line">            stk.<span class="built_in">pop</span>();</span><br><span class="line">            res.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="Morris-中序遍历"><a href="#Morris-中序遍历" class="headerlink" title="Morris 中序遍历"></a>Morris 中序遍历</h4><ul>
-<li><p>空间复杂度降为 $O(1)$</p>
-</li>
-<li><p>前置知识</p>
-<ul>
-<li>前驱节点: 如果按照中序遍历访问树，访问的结果为ABC，则称A为B的前驱节点，B为C的前驱节点。</li>
-<li>前驱节点pre是curr左子树的最右子树（按照中序遍历走一遍就知道了）。</li>
-<li>由此可知，前驱节点的右子节点一定为空。</li>
-</ul>
-</li>
-<li><p>主要思想：</p>
-<ul>
-<li><p>树的链接是单向的，从根节点出发，只有通往子节点的单向路程。</p>
-</li>
-<li><p>中序遍历迭代法的难点在于需先访问当前节点的左子树，才能访问当前节点。</p>
-</li>
-<li><p>但只有通往左子树的单向路程，没有回程路，因此只能用额外的数据结构记录下回程的路。</p>
-</li>
-<li><p>在这里可以利用当前节点的前驱节点，建立回程的路，也不需要消耗额外的空间。</p>
-</li>
-<li><p>根据前置知识的分析，当前节点的前驱节点的右子节点是为空的，因此可以用其保存回程的路。</p>
-</li>
-<li><p>但是要注意，这是建立在破坏了树的结构的基础上的，因此我们最后还有一步“消除链接”’的步骤，将树的结构还原。</p>
-</li>
-</ul>
-</li>
-<li><p>重点过程： 当遍历到当前节点curr时，使用cuur的前驱节点pre</p>
-<ul>
-<li>标记当前节点是否访问过</li>
-<li>记录回溯到curr的路径（访问完pre以后，就应该访问curr了）</li>
-</ul>
-</li>
-<li><p>Morris 遍历算法整体步骤如下（假设当前遍历到的节点为 $x$）：</p>
-<ul>
-<li>x无左孩子<ul>
-<li>x加入结果</li>
-<li>x&#x3D;x.right</li>
-</ul>
-</li>
-<li>x有左孩子，找predecessor<ul>
-<li>predecessor右孩子为空，右孩子指向x,x&#x3D;x.left</li>
-<li>predecessor右孩子不为空，x加入结果，x&#x3D;x.right<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">method3</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; ans=<span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">while</span>(root!=null)&#123;</span><br><span class="line">        <span class="comment">//没有左子树，直接访问该节点，再访问右子树</span></span><br><span class="line">        <span class="keyword">if</span>(root.left==null)&#123;</span><br><span class="line">            ans.<span class="built_in">add</span>(root.val);</span><br><span class="line">            root=root.right;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//有左子树，找前驱节点，判断是第一次访问还是第二次访问</span></span><br><span class="line">            TreeNode pre=root.left;</span><br><span class="line">            <span class="keyword">while</span>(pre.right!=null&amp;&amp;pre.right!=root)</span><br><span class="line">                pre=pre.right;</span><br><span class="line">            <span class="comment">//是第一次访问，访问左子树</span></span><br><span class="line">            <span class="keyword">if</span>(pre.right==null)&#123;</span><br><span class="line">                pre.right=root;</span><br><span class="line">                root=root.left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//第二次访问了，那么应当消除链接</span></span><br><span class="line">            <span class="comment">//该节点访问完了，接下来应该访问其右子树</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                pre.right=null;</span><br><span class="line">                ans.<span class="built_in">add</span>(root.val);</span><br><span class="line">                root=root.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+<li>递归的时候隐式地维护了一个栈，而在迭代的时候需要显式地将这个栈模拟出来
+        
+          <a class="article-more-a" href="/2023/01/16/%E4%BA%8C%E5%8F%89%E6%A0%91/#more">more >></a>
+        
       
 
       
@@ -360,18 +536,10 @@
 <li>双指针</li>
 <li>去重及顺序</li>
 <li>返回二维数组</li>
-<li>整型溢出<!--more--->
-<blockquote>
-<p>给你一个由 n 个整数组成的数组 nums ，和一个目标值 target，<br>请你找出并返回满足下述全部条件且不重复的四元组 [nums[a], nums[b], nums[c], nums[d]] （若两个四元组元素一一对应，则认为两个四元组重复）：<br>· 0 &lt;&#x3D; a, b, c, d &lt; n<br>· a、b、c 和 d 互不相同<br>· nums[a] + nums[b] + nums[c] + nums[d] &#x3D;&#x3D; target<br>可以按任意顺序返回答案</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;result;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">4</span>) <span class="keyword">return</span> result;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">if</span>((<span class="type">long</span>)nums[<span class="number">0</span>]+nums[<span class="number">1</span>]+nums[<span class="number">2</span>]+nums[<span class="number">3</span>]&gt;target) <span class="keyword">return</span> result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> fir=<span class="number">0</span>;fir&lt;n<span class="number">-3</span>;fir++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//去重</span></span><br><span class="line">            <span class="keyword">if</span>(fir&gt;<span class="number">0</span> &amp;&amp; nums[fir]==nums[fir<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> sec=fir+<span class="number">1</span>;sec&lt;n<span class="number">-2</span>;sec++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//去重</span></span><br><span class="line">                <span class="keyword">if</span>(sec&gt;fir+<span class="number">1</span> &amp;&amp; nums[sec]==nums[sec<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">int</span> th=sec+<span class="number">1</span>;</span><br><span class="line">                <span class="type">int</span> fo=n<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">while</span>(th&lt;fo)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>((<span class="type">long</span>)nums[th]+nums[fo]&lt;(<span class="type">long</span>)target-nums[fir]-nums[sec])</span><br><span class="line">                        th++;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>((<span class="type">long</span>)nums[th]+nums[fo]&gt;(<span class="type">long</span>)target-nums[fir]-nums[sec])</span><br><span class="line">                        fo--;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        result.<span class="built_in">push_back</span>(&#123;nums[fir],nums[sec],nums[th],nums[fo]&#125;);</span><br><span class="line">                        <span class="comment">//去重</span></span><br><span class="line">                        <span class="keyword">while</span>(th&lt;fo &amp;&amp; nums[fo<span class="number">-1</span>]==nums[fo]) fo--;</span><br><span class="line">                        <span class="comment">//去重</span></span><br><span class="line">                        <span class="keyword">while</span>(th&lt;fo &amp;&amp; nums[th]==nums[th+<span class="number">1</span>]) th++;</span><br><span class="line">                        th++;</span><br><span class="line">                        fo--;</span><br><span class="line">                    &#125;     </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//测试用例[1000000000,1000000000,1000000000,1000000000] -294967296</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>时间复杂度：$O(n^3)$，其中 $n$ 是数组的长度。排序的时间复杂度是 $O(n \log n)$，枚举四元组的时间复杂度是 $O(n^3)$，因此总时间复杂度为 $O(n^3+n\log n)&#x3D;O(n^3)$</li>
-<li>空间复杂度：$O(\log n)$，其中 $n$ 是数组的长度。空间复杂度主要取决于排序额外使用的空间。此外排序修改了输入数组 $nums$，实际情况中不一定允许，因此也可以看成使用了一个额外的数组存储了数组 $nums$ 的副本并排序，空间复杂度为 $O(n)$</li>
-</ul>
-
+<li>整型溢出
+        
+          <a class="article-more-a" href="/2023/01/16/leetcode-18/#more">more >></a>
+        
       
 
       
@@ -1158,113 +1326,6 @@
 
 
   
-    <article id="post-离散数学" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/01/04/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学</a>
-    </h1>
-  
-
-        
-        <a href="/2023/01/04/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="archive-article-date">
-  	<time datetime="2023-01-04T08:57:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-04</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.8k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">11分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="离散语文数学"><a href="#离散语文数学" class="headerlink" title="离散语文数学"></a>离散<del>语文</del>数学</h1><h2 id="命题逻辑"><a href="#命题逻辑" class="headerlink" title="命题逻辑"></a>命题逻辑</h2><ul>
-<li><p>命题:不是悖论的陈述句  </p>
-</li>
-<li><p>与、或、非、蕴含、双蕴含</p>
-</li>
-<li><p><strong>异或</strong>：要么p要么q——当且仅当成立一个，不能两个都成立。和<strong>或</strong>区分开  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例：如果天不下雨，我就上街，否则在家  </span><br><span class="line">如果形式化成：不下雨且上街且不在家（或）下雨且不上街且在家。  </span><br><span class="line">是有问题的，因为下雨和不下雨只能成立一个。所以要用异或。</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2023/01/04/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">离散数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/01/04/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1388,6 +1449,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
