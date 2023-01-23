@@ -63,7 +63,7 @@
 		</nav>
 
 		<nav>
-			总文章数 17
+			总文章数 18
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -158,6 +158,116 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-红黑树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/11/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/11/%E7%BA%A2%E9%BB%91%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2023-01-11T05:02:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-11</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">226字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>红黑树—Red Black Tree（RBT)</p>
+<h1 id="红黑树（自平衡二叉树）"><a href="#红黑树（自平衡二叉树）" class="headerlink" title="红黑树（自平衡二叉树）"></a>红黑树（自平衡二叉树）</h1><h2 id="1-红黑规则"><a href="#1-红黑规则" class="headerlink" title="1.红黑规则"></a>1.红黑规则</h2><ul>
+<li>1.1每个节点的颜色均是红色或黑色</li>
+<li>1.2(root property)根节点是黑色</li>
+<li>1.3叶子节点是null节点且为黑色</li>
+<li>1.4(red property)红色节点的child不能是红色(同一路径，不存在连续的红色节点)；但黑色节点的孩子还可以是黑色的</li>
+<li>1.5(black property)每个节点到叶子节点的所有路径，都包含相同数目的黑色节点（相同的黑色高度）</li>
+<li>红黑树的<strong>大致平衡</strong>：根到叶子的所有路径中，最长路径不会超过最短路径的2倍</li>
+<li>默认新插入的节点为红色：因为父节点为黑色的概率较大，插入新节点为红色，可以避免颜色冲突</li>
+<li>高度最多是$2\times log_2(n+1)$</li>
+<li>black height</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/11/%E7%BA%A2%E9%BB%91%E6%A0%91/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -998,11 +1108,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1014,11 +1124,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">离散数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
             
             <div class="clearfix"></div>

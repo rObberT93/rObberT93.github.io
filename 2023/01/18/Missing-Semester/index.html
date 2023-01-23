@@ -16,7 +16,7 @@
 <meta property="og:description" content="lesson 1 shellprerequisite：在windows系统安装Linux子系统">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-18T09:33:27.000Z">
-<meta property="article:modified_time" content="2023-01-22T16:32:10.030Z">
+<meta property="article:modified_time" content="2023-01-23T15:41:56.493Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="missing semester">
 <meta name="twitter:card" content="summary">
@@ -68,7 +68,7 @@
 		</nav>
 
 		<nav>
-			总文章数 17
+			总文章数 18
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1k字</span>
+        <span class="post-count">1.8k字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -334,7 +334,103 @@
 <li><p>su:切换用户</p>
 </li>
 </ul>
-<h1 id="lesson-2-bash"><a href="#lesson-2-bash" class="headerlink" title="lesson 2 bash"></a>lesson 2 bash</h1>
+<h1 id="lesson-2-bash"><a href="#lesson-2-bash" class="headerlink" title="lesson 2 bash"></a>lesson 2 bash</h1><h1 id="lesson-3-Editors"><a href="#lesson-3-Editors" class="headerlink" title="lesson 3 Editors"></a>lesson 3 Editors</h1><ul>
+<li>vscode</li>
+</ul>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><h3 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h3><ul>
+<li>normal<ul>
+<li>insert 键入<code>i</code>进入插入模式</li>
+<li>replace 键入<code>R</code>进入替换模式</li>
+<li>visual 键入<code>v</code>进入可视(一般)模式<ul>
+<li>键入<code>V</code>进入可视(行)模式</li>
+<li>键入<code>Ctrl V</code> 进入可视(块)模式</li>
+</ul>
+</li>
+<li>command-line 键入<code>:</code>进入命令模式<ul>
+<li><code>:q</code> 退出（关闭窗口）</li>
+<li><code>:w</code> 保存（写）</li>
+<li><code>:wq</code> 保存然后退出</li>
+<li><code>:e</code> {文件名} 打开要编辑的文件</li>
+<li><code>:ls</code> 显示打开的缓存</li>
+<li><code>:help</code> {标题}打开帮助文档</li>
+<li><code>:help :w</code> 打开 :w 命令的帮助文档</li>
+<li><code>:help w</code> 打开 w 移动的帮助文档</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Vim’s-interface-is-a-programming-language"><a href="#Vim’s-interface-is-a-programming-language" class="headerlink" title="Vim’s interface is a programming language"></a>Vim’s interface is a programming language</h3><p>Vim 的界面本身是一个程序语言。键入操作 （以及他们的助记名） 本身是命令， 这些命令可以组合使用。 这使得移动和编辑更加高效。</p>
+<h4 id="movement"><a href="#movement" class="headerlink" title="movement"></a>movement</h4><ul>
+<li>基本移动: <code>hjkl </code>（左， 下， 上， 右）</li>
+<li>词： <code>w</code>（下一个词）,<code>b</code>（上一个词&#x2F;词初），<code>e</code>（下一个词&#x2F;词尾）</li>
+<li>行： <code>0</code>（行初）， <code>^</code>（第一个非空格字符），<code>$</code>（行尾）</li>
+<li>屏幕： <code>H</code> （屏幕首行）， <code>M</code>（屏幕中间）， <code>L</code> （屏幕底部）</li>
+<li>翻页： <code>Ctrl-u</code> （上翻）， <code>Ctrl-d</code> （下翻）</li>
+<li>文件： <code>gg</code> （文件头）， <code>G</code> （文件尾）</li>
+<li>行数：{行数}G ({行数}为行数)</li>
+<li>杂项： <code>%</code> （找到配对，比如括号或者 &#x2F;* *&#x2F; 之类的注释对）</li>
+<li>查找：<code>f&#123;字符&#125;</code>，<code>t&#123;字符&#125;</code>，<code>F&#123;字符&#125;</code>，<code>T&#123;字符&#125;</code><ul>
+<li>查找&#x2F;到 向前&#x2F;向后 在本行的</li>
+<li><code>,</code> &#x2F; <code>;</code> 用于导航匹配</li>
+</ul>
+</li>
+<li>搜索: <code>/&#123;正则表达式&#125;</code>, <code>n</code> &#x2F;<code>N</code>用于导航匹配</li>
+</ul>
+<h4 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h4><p>可视化模式:</p>
+<ul>
+<li>可视化：<code>v</code></li>
+<li>可视化行： <code>V</code></li>
+<li>可视化块：<code>Ctrl+v</code></li>
+<li>可以用移动命令来选中。</li>
+</ul>
+<h4 id="Edits"><a href="#Edits" class="headerlink" title="Edits"></a>Edits</h4><ul>
+<li><code>i</code>进入插入模式 （insert）<ul>
+<li>但是对于操纵&#x2F;编辑文本，不单想用退格键完成</li>
+</ul>
+</li>
+<li><code>O / o</code> 在之上&#x2F;之下插入行（open）</li>
+<li><code>d&#123;motion&#125;</code> 删除 {motion} （delete）<ul>
+<li>例如， <code>dw</code> 删除词, <code>d$</code> 删除到行尾, <code>d0</code> 删除到行头。</li>
+<li><code>dd-</code>删除整行</li>
+</ul>
+</li>
+<li><code>c&#123;motion&#125;</code>改变 {motion} （change）<ul>
+<li>例如， cw 改变词</li>
+<li>c{motion} 等同于 d{motion} 再 i进入编辑模式</li>
+</ul>
+</li>
+<li><code>x</code> 删除字符（等同于 dl）</li>
+<li><code>s</code> 替换（substitute）字符（等同于 xi）</li>
+<li>可视化模式 + 移动操作（上下左右等移动光标的操作）<ul>
+<li>选中文字,然后使用 <code>d</code> 删除 或者 <code>c</code> 改变</li>
+</ul>
+</li>
+<li><code>u</code> 撤销（undo）, <code>&lt;C-r&gt;</code> 重做（redo）</li>
+<li><code>y</code> 复制（yank）（其他一些命令比如 d 也会复制）</li>
+<li><code>p</code> 粘贴（paste）</li>
+</ul>
+<h4 id="Counts"><a href="#Counts" class="headerlink" title="Counts"></a>Counts</h4><p>使用一个数字来结合Movement和Edits，这会执行指定操作若干次。<br>例如：</p>
+<ul>
+<li><code>3w</code> 向前移动三个词</li>
+<li><code>5j</code> 向下移动5行</li>
+<li><code>7dw</code> 删除7个词</li>
+</ul>
+<h4 id="Modifiers"><a href="#Modifiers" class="headerlink" title="Modifiers"></a>Modifiers</h4><p>可以用修饰语改变“名词”的意义。修饰语有 i，表示“内部”或者“在内“，和 a， 表示”周围“。</p>
+<ul>
+<li><code>ci</code>( 改变当前括号内的内容</li>
+<li><code>ci</code>[ 改变当前方括号内的内容</li>
+<li><code>da&#39;</code> 删除一个单引号字符串，包括周围的单引号</li>
+</ul>
+<h2 id="编辑并运行c-文件"><a href="#编辑并运行c-文件" class="headerlink" title="编辑并运行c++文件"></a>编辑并运行c++文件</h2><ul>
+<li>step1 sudo apt-get update</li>
+<li>step2 sudo apt install g++</li>
+<li>step3 sudo vim hello.cpp</li>
+<li>step4 vim编辑</li>
+<li>step5 g++ hello.cpp -o hello</li>
+<li>step6 .&#x2F;hello</li>
+</ul>
+
       
 
       
@@ -579,11 +675,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,11 +691,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">离散数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
             
             <div class="clearfix"></div>
