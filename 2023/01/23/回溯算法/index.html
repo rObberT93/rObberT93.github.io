@@ -16,7 +16,7 @@
 <meta property="og:description" content="回溯算法basis 递归是一种算法结构，回溯是一种算法思想。 回溯搜索法，本质是穷举（暴力搜索+剪枝） 抽象为树形结构">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-23T10:00:48.000Z">
-<meta property="article:modified_time" content="2023-01-23T13:56:05.694Z">
+<meta property="article:modified_time" content="2023-01-24T16:19:55.119Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -68,7 +68,7 @@
 		</nav>
 
 		<nav>
-			总文章数 18
+			总文章数 19
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">772字</span>
+        <span class="post-count">1.3k字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -249,12 +249,32 @@
 <blockquote>
 <p>leetcode_47 全排列plus</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;result;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;path;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums,vector&lt;<span class="type">bool</span>&gt;&amp;used)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>()==nums.<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; nums[i]==nums[i<span class="number">-1</span>]&amp;&amp;used[i<span class="number">-1</span>]==<span class="literal">false</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(used[i]==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                used[i]=<span class="number">1</span>;</span><br><span class="line">                path.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">                <span class="built_in">backtracking</span>(nums,used);</span><br><span class="line">                path.<span class="built_in">pop_back</span>();</span><br><span class="line">                used[i]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permuteUnique</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>()); </span><br><span class="line">        <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">used</span><span class="params">(nums.size(), <span class="literal">false</span>)</span></span>;</span><br><span class="line">        path.<span class="built_in">clear</span>();</span><br><span class="line">        result.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="built_in">backtracking</span>(nums,used);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;result;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;path;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums,vector&lt;<span class="type">bool</span>&gt;&amp;used)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>()==nums.<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; nums[i]==nums[i<span class="number">-1</span>]&amp;&amp;used[i<span class="number">-1</span>]==<span class="literal">false</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(used[i]==<span class="literal">false</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                used[i]=<span class="literal">true</span>;</span><br><span class="line">                path.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">                <span class="built_in">backtracking</span>(nums,used);</span><br><span class="line">                path.<span class="built_in">pop_back</span>();</span><br><span class="line">                used[i]=<span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permuteUnique</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>()); </span><br><span class="line">        <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">used</span><span class="params">(nums.size(), <span class="literal">false</span>)</span></span>;</span><br><span class="line">        path.<span class="built_in">clear</span>();</span><br><span class="line">        result.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="built_in">backtracking</span>(nums,used);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 <li>去重：<ul>
 <li>对树层中前一位去重，用used[i - 1] &#x3D;&#x3D; false</li>
-<li>对树枝中前一位去重，用used[i - 1] &#x3D;&#x3D; true</li>
+<li>对树枝中前一位去重，用used[i - 1] &#x3D;&#x3D; true<blockquote>
+<p>leetcode_40 组合总和2<br>给定一个候选人编号的集合 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。<br>candidates 中的每个数字在每个组合中只能使用一次，解集不能包含重复的组合。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;result;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; candidates, <span class="type">int</span> target,<span class="type">int</span> n,<span class="type">int</span> index, vector&lt;<span class="type">bool</span>&gt;&amp; used)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(target==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=index;i&lt;n;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; candidates[i<span class="number">-1</span>]==candidates[i] &amp;&amp; used[i<span class="number">-1</span>]==<span class="literal">false</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(target-candidates[i]&lt;<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(used[i]==<span class="literal">false</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    used[i]=<span class="literal">true</span>;</span><br><span class="line">                    target-=candidates[i];</span><br><span class="line">                    path.<span class="built_in">push_back</span>(candidates[i]);</span><br><span class="line">                    index=i+<span class="number">1</span>;</span><br><span class="line">                    <span class="built_in">backtracking</span>(candidates,target,n,index,used);</span><br><span class="line"></span><br><span class="line">                    path.<span class="built_in">pop_back</span>();</span><br><span class="line">                    target+=candidates[i];</span><br><span class="line">                    used[i]=<span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">combinationSum2</span>(vector&lt;<span class="type">int</span>&gt;&amp; candidates, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> n=candidates.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">sort</span>(candidates.<span class="built_in">begin</span>(),candidates.<span class="built_in">end</span>());</span><br><span class="line">        path.<span class="built_in">clear</span>();</span><br><span class="line">        result.<span class="built_in">clear</span>();</span><br><span class="line">        vector&lt;<span class="type">bool</span>&gt;<span class="built_in">used</span>(n,<span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">backtracking</span>(candidates,target,n,<span class="number">0</span>,used);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
+<li>关键仍然在于去重。本题中candidates数组中可能会有重复元素，例如：如果candidates中出现两个1，那么出现在结果数组中的1最多只能有两个<ul>
+<li>树层去重和树枝去重的区别<ul>
+<li>树层：两个组合间不能重复</li>
+<li>树枝：一个组合内不能重复</li>
+<li>在candidates[i] &#x3D;&#x3D; candidates[i - 1]相同的情况下：<ul>
+<li>used[i - 1] &#x3D;&#x3D; true，说明同一树枝candidates[i - 1]使用过</li>
+<li>used[i - 1] &#x3D;&#x3D; false，说明同一树层candidates[i - 1]使用过</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>bool类型数组used记录同一树枝上的元素是否使用过</li>
+</ul>
+</li>
+<li>递归终止条件 sum &gt; target 和 sum &#x3D;&#x3D; target(或者减法角度考虑是 target&lt;0 和 target&#x3D;&#x3D;0)</li>
+<li>sum &gt; target 这个条件其实可以省略，因为在递归单层遍历的时候，会有剪枝的操作，下面会介绍到</li>
+<li>单层搜索中去重：如果<code>candidates[i] == candidates[i - 1] </code>并且 <code>used[i - 1] == false</code>，就说明：前一个树枝，使用了candidates[i - 1]，也就是说同一树层使用过candidates[i - 1]，所以<code>continue</code></li>
 </ul>
 
       
@@ -338,6 +358,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2023/01/25/Ubuntu%E4%B8%AD%E8%BF%9E%E6%8E%A5GitHub/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Ubuntu中连接GitHub
+        
+      </div>
+    </a>
   
   
     <a href="/2023/01/23/leetcode-49/" id="article-nav-older" class="article-nav-link-wrap">
@@ -496,11 +525,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,11 +545,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color5">离散数学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">离散数学</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
             
             <div class="clearfix"></div>
