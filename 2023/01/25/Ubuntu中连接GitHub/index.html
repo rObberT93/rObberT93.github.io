@@ -16,7 +16,7 @@
 <meta property="og:description" content="在b站听课missing semester的时候，在Ubuntu中尝试使用git报错fatal，于是发现，噢天呐，我在干什么，只有bash连接过github，linux还没有连接过怎么可能不报错呢。遂老老实实配置环境。记录下来的目的是让自己以后再安装能快速成功。上次丢了vscode的配置真的哭了……借鉴大神CSDN">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-25T04:50:12.000Z">
-<meta property="article:modified_time" content="2023-01-25T05:42:36.212Z">
+<meta property="article:modified_time" content="2023-01-25T05:58:36.752Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="Linux配置">
 <meta name="twitter:card" content="summary">
@@ -68,7 +68,7 @@
 		</nav>
 
 		<nav>
-			总文章数 19
+			总文章数 23
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -209,20 +209,20 @@
       
         <p>在b站听课missing semester的时候，在Ubuntu中尝试使用git报错fatal，于是发现，噢天呐，我在干什么，只有bash连接过github，linux还没有连接过怎么可能不报错呢。遂老老实实配置环境。<br>记录下来的目的是让自己以后再安装能快速成功。上次丢了vscode的配置真的哭了……<br>借鉴大神CSDN</p>
 <span id="more"></span>
-<h2 id="01-配置"><a href="#01-配置" class="headerlink" title="01.配置"></a>01.配置</h2><h3 id="step1-查看Git版本"><a href="#step1-查看Git版本" class="headerlink" title="step1 查看Git版本"></a>step1 查看Git版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: git version</span><br><span class="line">git version 2.25.1</span><br></pre></td></tr></table></figure>
+<h2 id="01-配置"><a href="#01-配置" class="headerlink" title="01.配置"></a>01.配置</h2><h4 id="Step1-查看Git版本"><a href="#Step1-查看Git版本" class="headerlink" title="Step1 查看Git版本"></a>Step1 查看Git版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: git version</span><br><span class="line">git version 2.25.1</span><br></pre></td></tr></table></figure>
 <p>显示出版本即已安装，若未安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: sudo apt-get install git</span><br></pre></td></tr></table></figure>
-<h3 id="step2-配置Git用户信息"><a href="#step2-配置Git用户信息" class="headerlink" title="step2 配置Git用户信息"></a>step2 配置Git用户信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: git config --global user.name <span class="string">&quot;username&quot;</span></span><br><span class="line"><span class="comment"># 输入自己的GitHub用户名</span></span><br><span class="line">root@zhang-PC: git config --global user.email <span class="string">&quot;xxx@xxx.com&quot;</span></span><br><span class="line"><span class="comment"># 输入自己GitHub上用的邮箱</span></span><br></pre></td></tr></table></figure>
+<h4 id="Step2-配置Git用户信息"><a href="#Step2-配置Git用户信息" class="headerlink" title="Step2 配置Git用户信息"></a>Step2 配置Git用户信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: git config --global user.name <span class="string">&quot;username&quot;</span></span><br><span class="line"><span class="comment"># 输入自己的GitHub用户名</span></span><br><span class="line">root@zhang-PC: git config --global user.email <span class="string">&quot;xxx@xxx.com&quot;</span></span><br><span class="line"><span class="comment"># 输入自己GitHub上用的邮箱</span></span><br></pre></td></tr></table></figure>
 <p>没有出现任何提示也没有任何报错是正常的，敲Enter继续就行了。</p>
-<h2 id="02-创建Secure-Shell"><a href="#02-创建Secure-Shell" class="headerlink" title="02.创建Secure Shell"></a>02.创建Secure Shell</h2><h3 id="step3-安装ssh"><a href="#step3-安装ssh" class="headerlink" title="step3 安装ssh"></a>step3 安装ssh</h3><p>需要sudo权限</p>
+<h2 id="02-创建Secure-Shell"><a href="#02-创建Secure-Shell" class="headerlink" title="02.创建Secure Shell"></a>02.创建Secure Shell</h2><h4 id="Step3-安装ssh"><a href="#Step3-安装ssh" class="headerlink" title="Step3 安装ssh"></a>Step3 安装ssh</h4><p>需要sudo权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: sudo apt-get install ssh</span><br></pre></td></tr></table></figure>
-<h3 id="step4-检查"><a href="#step4-检查" class="headerlink" title="step4 检查"></a>step4 检查</h3><p>生成SSH KEY之前，为了防止混淆，可以查看系统里是否已经存在密钥</p>
+<h4 id="Step4-检查"><a href="#Step4-检查" class="headerlink" title="Step4 检查"></a>Step4 检查</h4><p>生成SSH KEY之前，为了防止混淆，可以查看系统里是否已经存在密钥</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看key是否存在</span></span><br><span class="line">root@zhang-PC: <span class="built_in">ls</span> -al ~/.ssh</span><br><span class="line"></span><br><span class="line">total 20</span><br><span class="line">drwx------  2 root root 4096 Jan  25 10:25 .</span><br><span class="line">drwxr-xr-x  4 root root 4096 Jan  25 10:30 ..</span><br><span class="line">-rw-------  1 root root 2655 Jan  25 10:19 id_rsa</span><br><span class="line">-rw-r--r--  1 root root  572 Jan  25 10:19 id_rsa.pub</span><br><span class="line">-rw-r--r--  1 root root  444 Jan  25 10:31 known_hosts</span><br><span class="line"><span class="comment"># 打开key所在位置</span></span><br><span class="line">root@zhang-PC: <span class="built_in">cd</span> ~/.ssh</span><br><span class="line"><span class="comment"># 防止混淆，删除所有key</span></span><br><span class="line">root@zhang-PC: <span class="built_in">rm</span> *</span><br><span class="line"></span><br><span class="line">root@zhang-PC: <span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure>
-<h3 id="step5-生成全新的SSH-KEY"><a href="#step5-生成全新的SSH-KEY" class="headerlink" title="step5 生成全新的SSH KEY"></a>step5 生成全新的SSH KEY</h3><p>RSA通常是先生成一对RSA密钥，一个是私钥，由用户保存；另一个为公钥，可对外公开，甚至可在网络服务器中注册。RSA密钥一般推荐使用1024位</p>
+<h4 id="Step5-生成全新的SSH-KEY"><a href="#Step5-生成全新的SSH-KEY" class="headerlink" title="Step5 生成全新的SSH KEY"></a>Step5 生成全新的SSH KEY</h4><p>RSA通常是先生成一对RSA密钥，一个是私钥，由用户保存；另一个为公钥，可对外公开，甚至可在网络服务器中注册。RSA密钥一般推荐使用1024位</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: ssh-keygen -t rsa -C <span class="string">&quot;xxx@xxx.com&quot;</span></span><br><span class="line"><span class="comment"># 之前配置相同的邮箱地址</span></span><br><span class="line"></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa): /root/.ssh/id_rsa</span><br><span class="line"><span class="comment"># /root/.ssh/id_rsa是默认地址，直接输入就可以</span></span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): </span><br><span class="line"><span class="comment"># 屏幕不会显示任何东西</span></span><br><span class="line">Enter same passphrase again: </span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /root/.ssh/id_rsa</span><br><span class="line"><span class="comment"># 密钥</span></span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># 公钥</span></span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <span class="built_in">test</span>@gmail.com</span><br><span class="line">The key<span class="string">&#x27;s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 1000]----+</span></span><br><span class="line"><span class="string">| xxxxxxxxxxxxxx  |</span></span><br><span class="line"><span class="string">|o +..=.* * ..o   |</span></span><br><span class="line"><span class="string">| B..+ =.X =  .   |</span></span><br><span class="line"><span class="string">|xxxxxxxxxxxxx    |</span></span><br><span class="line"><span class="string">|..= a o Axxx     |</span></span><br><span class="line"><span class="string">| E o o           |</span></span><br><span class="line"><span class="string">|. o .            |</span></span><br><span class="line"><span class="string">| \               |</span></span><br><span class="line"><span class="string">|.                |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure>
-<h3 id="step6-查看SSH-PUBLIC-KEY"><a href="#step6-查看SSH-PUBLIC-KEY" class="headerlink" title="step6 查看SSH PUBLIC KEY"></a>step6 查看SSH PUBLIC KEY</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进入key存储目录</span></span><br><span class="line">root@zhang-PC: <span class="built_in">cd</span> ~/.ssh</span><br><span class="line"> </span><br><span class="line"><span class="comment">#查看当前目录所有的文件</span></span><br><span class="line">root@zhang-PC: <span class="built_in">ls</span> -a        </span><br><span class="line">.  ..  id_rsa  id_rsa.pub  known_hosts</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#读取public key公钥</span></span><br><span class="line">root@zhang-PC: <span class="built_in">cat</span> id_rsa.pub</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="step7-复制SSH-PUBLIC-KEY"><a href="#step7-复制SSH-PUBLIC-KEY" class="headerlink" title="step7 复制SSH PUBLIC KEY"></a>step7 复制SSH PUBLIC KEY</h3><p>可能是我的问题，我到现在还不知道在Ubuntu终端界面怎么复制粘贴，Ctrl+Shift+C和Ctrl+Shift+V它不好用啊啊啊…<br>于是，来到root&#x2F;.ssh路径下，使用记事本打开id_rsa.pub，然后复制就舒服多了哈哈哈。</p>
-<h3 id="step8-操作GitHub"><a href="#step8-操作GitHub" class="headerlink" title="step8 操作GitHub"></a>step8 操作GitHub</h3><ul>
+<h4 id="Step6-查看SSH-PUBLIC-KEY"><a href="#Step6-查看SSH-PUBLIC-KEY" class="headerlink" title="Step6 查看SSH PUBLIC KEY"></a>Step6 查看SSH PUBLIC KEY</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进入key存储目录</span></span><br><span class="line">root@zhang-PC: <span class="built_in">cd</span> ~/.ssh</span><br><span class="line"> </span><br><span class="line"><span class="comment">#查看当前目录所有的文件</span></span><br><span class="line">root@zhang-PC: <span class="built_in">ls</span> -a        </span><br><span class="line">.  ..  id_rsa  id_rsa.pub  known_hosts</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#读取public key公钥</span></span><br><span class="line">root@zhang-PC: <span class="built_in">cat</span> id_rsa.pub</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="Step7-复制SSH-PUBLIC-KEY"><a href="#Step7-复制SSH-PUBLIC-KEY" class="headerlink" title="Step7 复制SSH PUBLIC KEY"></a>Step7 复制SSH PUBLIC KEY</h4><p>可能是我的问题，我到现在还不知道在Ubuntu终端界面怎么复制粘贴，Ctrl+Shift+C和Ctrl+Shift+V它不好用啊啊啊…<br>于是，来到root&#x2F;.ssh路径下，使用记事本打开id_rsa.pub，然后复制就舒服多了哈哈哈。</p>
+<h4 id="Step8-操作GitHub"><a href="#Step8-操作GitHub" class="headerlink" title="Step8 操作GitHub"></a>Step8 操作GitHub</h4><ul>
 <li>登录GitHub<br>GitHub打不开是家常便饭，所以可能需要科学上网~</li>
 <li>点击右上角头像Setting选项</li>
 <li>进入Account Setting界面</li>
@@ -232,14 +232,15 @@
 <li>点击绿色（Add SSH key）按钮</li>
 <li>页面会跳转回之前的界面，如果成功会显示一串字符（SHA256算法加密的身份验证），可以看到这串字符和之前创建ssh时的fingerprint是完全一致的<br>到此为止，Linux就可以通过SSH建立本机Git和Github的连接了（下载与传输）</li>
 </ul>
-<h2 id="03-库的下载"><a href="#03-库的下载" class="headerlink" title="03.库的下载"></a>03.库的下载</h2><h4 id="step1-在Github上建立一个新的Repository"><a href="#step1-在Github上建立一个新的Repository" class="headerlink" title="step1 在Github上建立一个新的Repository"></a>step1 在Github上建立一个新的Repository</h4><h4 id="step2-创建后可以点击选项栏SSH，会出现一个URL地址，把它复制下来"><a href="#step2-创建后可以点击选项栏SSH，会出现一个URL地址，把它复制下来" class="headerlink" title="step2 创建后可以点击选项栏SSH，会出现一个URL地址，把它复制下来"></a>step2 创建后可以点击选项栏SSH，会出现一个URL地址，把它复制下来</h4><h4 id="step3-回到Ubuntu，把它拷贝下来"><a href="#step3-回到Ubuntu，把它拷贝下来" class="headerlink" title="step3 回到Ubuntu，把它拷贝下来"></a>step3 回到Ubuntu，把它拷贝下来</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: git <span class="built_in">clone</span> git@github.com:rObberT93/test.git</span><br></pre></td></tr></table></figure>
-<h4 id="step4-找到这个文件夹"><a href="#step4-找到这个文件夹" class="headerlink" title="step4 找到这个文件夹"></a>step4 找到这个文件夹</h4><p>这个test文件夹会出现在和root同级的目录下。</p>
+<h2 id="03-库的下载"><a href="#03-库的下载" class="headerlink" title="03.库的下载"></a>03.库的下载</h2><h4 id="Step1-在Github上建立一个新的Repository"><a href="#Step1-在Github上建立一个新的Repository" class="headerlink" title="Step1 在Github上建立一个新的Repository"></a>Step1 在Github上建立一个新的Repository</h4><h4 id="Step2-创建后可以点击选项栏SSH，会出现一个URL地址，把它复制下来"><a href="#Step2-创建后可以点击选项栏SSH，会出现一个URL地址，把它复制下来" class="headerlink" title="Step2 创建后可以点击选项栏SSH，会出现一个URL地址，把它复制下来"></a>Step2 创建后可以点击选项栏SSH，会出现一个URL地址，把它复制下来</h4><h4 id="Step3-回到Ubuntu，把它拷贝下来"><a href="#Step3-回到Ubuntu，把它拷贝下来" class="headerlink" title="Step3 回到Ubuntu，把它拷贝下来"></a>Step3 回到Ubuntu，把它拷贝下来</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@zhang-PC: git <span class="built_in">clone</span> git@github.com:rObberT93/test.git</span><br></pre></td></tr></table></figure>
+<h4 id="Step4-找到这个文件夹"><a href="#Step4-找到这个文件夹" class="headerlink" title="Step4 找到这个文件夹"></a>Step4 找到这个文件夹</h4><p>这个test文件夹会出现在和root同级的目录下。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入克隆到本地的文件夹</span></span><br><span class="line">root@zhang-PC: <span class="built_in">cd</span> <span class="built_in">test</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 命令管理一组跟踪的库，查看关联状态</span></span><br><span class="line">root@zhang-PC: git remote -v</span><br><span class="line"> </span><br><span class="line">origin  git@github.com:rObberT93/test.git(fetch)</span><br><span class="line">origin  git@github.com:rObberT93/test.git(push)</span><br></pre></td></tr></table></figure>
 <h2 id="04-文件的推送修改与上传"><a href="#04-文件的推送修改与上传" class="headerlink" title="04.文件的推送修改与上传"></a>04.文件的推送修改与上传</h2><h4 id="Step-1-接下来我们可以尝试创建一个readme-md文件"><a href="#Step-1-接下来我们可以尝试创建一个readme-md文件" class="headerlink" title="Step 1 接下来我们可以尝试创建一个readme.md文件"></a>Step 1 接下来我们可以尝试创建一个readme.md文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用vim编辑器创建并打开readme.md</span></span><br><span class="line">root@zhang-PC: vim readme.md</span><br></pre></td></tr></table></figure>
-<p>敲入hello world，保存退出(Esc :wq)。<br>可以cat一下看一看。</p>
+<p>敲入Hello World，保存退出(Esc :wq)。<br>可以cat一下看一看。</p>
 <h4 id="Step-2-将本地内容上传到Github"><a href="#Step-2-将本地内容上传到Github" class="headerlink" title="Step 2 将本地内容上传到Github"></a>Step 2 将本地内容上传到Github</h4><p>注：如果你克隆的不是自己仓库，你将没有权限进行任何推送或修改</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将文件添加到暂存区</span></span><br><span class="line">root@zhang-PC: git add readme.md</span><br><span class="line"> </span><br><span class="line"><span class="comment">#提交修改</span></span><br><span class="line">root@zhang-PC: git commit -m <span class="string">&quot;add readme file&quot;</span></span><br><span class="line"> </span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to <span class="built_in">date</span> with <span class="string">&#x27;origin/master&#x27;</span>.</span><br><span class="line"> </span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">                                        </span><br><span class="line"> </span><br><span class="line"><span class="comment">#推送到远程仓库</span></span><br><span class="line">root@zhang-PC: git push origin master</span><br><span class="line"> </span><br><span class="line">Everything up-to-date</span><br></pre></td></tr></table></figure>
-<h4 id="Step-3-回到浏览器，刷新你的Github，进入之前创建的Test库，可以看到Readme-md文件已经存在了，内容显示-Hello-World"><a href="#Step-3-回到浏览器，刷新你的Github，进入之前创建的Test库，可以看到Readme-md文件已经存在了，内容显示-Hello-World" class="headerlink" title="Step 3 回到浏览器，刷新你的Github，进入之前创建的Test库，可以看到Readme.md文件已经存在了，内容显示 Hello World"></a>Step 3 回到浏览器，刷新你的Github，进入之前创建的Test库，可以看到Readme.md文件已经存在了，内容显示 Hello World</h4>
+<h4 id="Step-3-回到浏览器，刷新你的Github"><a href="#Step-3-回到浏览器，刷新你的Github" class="headerlink" title="Step 3 回到浏览器，刷新你的Github"></a>Step 3 回到浏览器，刷新你的Github</h4><p>进入之前创建的test库，可以看到readme.md文件已经存在了，内容显示 Hello World</p>
+<h1 id="final！成功！"><a href="#final！成功！" class="headerlink" title="final！成功！"></a>final！成功！</h1>
       
 
       
@@ -321,6 +322,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2023/01/25/Missing-Semester-middle/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Missing-Semester-middle
+        
+      </div>
+    </a>
   
   
     <a href="/2023/01/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
@@ -475,7 +485,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,11 +493,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,11 +513,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">离散数学</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color5">离散数学</a>
               </li>
             
             <div class="clearfix"></div>

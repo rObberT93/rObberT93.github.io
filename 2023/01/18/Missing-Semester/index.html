@@ -16,7 +16,7 @@
 <meta property="og:description" content="lesson 1 shellprerequisite：在windows系统安装Linux子系统">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-18T09:33:27.000Z">
-<meta property="article:modified_time" content="2023-01-25T05:00:32.875Z">
+<meta property="article:modified_time" content="2023-01-26T12:13:34.267Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="missing semester">
 <meta name="twitter:card" content="summary">
@@ -68,7 +68,7 @@
 		</nav>
 
 		<nav>
-			总文章数 19
+			总文章数 23
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -524,7 +524,7 @@
 <h3 id="st"><a href="#st" class="headerlink" title="st"></a>st</h3><h3 id="利用数据整理来确定参数"><a href="#利用数据整理来确定参数" class="headerlink" title="利用数据整理来确定参数"></a>利用数据整理来确定参数</h3><p><code>xargs</code></p>
 <h3 id="整理二进制数据"><a href="#整理二进制数据" class="headerlink" title="整理二进制数据"></a>整理二进制数据</h3><p>用<code>ffmpeg</code>从相机中捕获一张图片，将其转换成灰度图后通过SSH将压缩后的文件发送到远端服务器，并在那里解压、存档并显示</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -loglevel panic -i /dev/video0 -frames 1 -f image2 -</span><br><span class="line"> | convert - -colorspace gray -</span><br><span class="line"> | gzip</span><br><span class="line"> | ssh mymachine &#x27;gzip -d | tee copy.jpg | env DISPLAY=:0 feh -&#x27;</span><br></pre></td></tr></table></figure>
-<h1 id="lesson5-命令行环境"><a href="#lesson5-命令行环境" class="headerlink" title="lesson5 命令行环境"></a>lesson5 命令行环境</h1>
+
       
 
       
@@ -769,7 +769,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,11 +777,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,11 +797,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">离散数学</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color5">离散数学</a>
               </li>
             
             <div class="clearfix"></div>
