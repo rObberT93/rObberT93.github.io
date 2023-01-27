@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>leetcode_49 | Hexo</title>
+  <title>单调栈 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="leetcode_49 字母异位词分组 给你一个字符串数组，请你将字母异位词组合在一起。可以按任意顺序返回结果列表。字母异位词，是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。输入: strs &#x3D; [“eat”, “tea”, “tan”, “ate”, “nat”, “bat”]输出: [ [“bat” ] , [ “nat”,”tan” ] , [ “a">
+  <meta name="description" content="单调栈basis 应用场景：一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置 时间复杂度为O(n) 单调栈的本质是空间换时间，因为在遍历的过程中需要用一个栈来记录右边第一个比当前元素高的元素，优点是只需要遍历一次 单调栈里只需要存放元素的下标i就可以了，如果需要使用对应的元素，直接T[i]就可以获取。1234567891011121314151617181920212223">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode_49">
-<meta property="og:url" content="http://example.com/2023/01/23/leetcode-49/index.html">
+<meta property="og:title" content="单调栈">
+<meta property="og:url" content="http://example.com/2023/01/27/%E5%8D%95%E8%B0%83%E6%A0%88/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="leetcode_49 字母异位词分组 给你一个字符串数组，请你将字母异位词组合在一起。可以按任意顺序返回结果列表。字母异位词，是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。输入: strs &#x3D; [“eat”, “tea”, “tan”, “ate”, “nat”, “bat”]输出: [ [“bat” ] , [ “nat”,”tan” ] , [ “a">
+<meta property="og:description" content="单调栈basis 应用场景：一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置 时间复杂度为O(n) 单调栈的本质是空间换时间，因为在遍历的过程中需要用一个栈来记录右边第一个比当前元素高的元素，优点是只需要遍历一次 单调栈里只需要存放元素的下标i就可以了，如果需要使用对应的元素，直接T[i]就可以获取。1234567891011121314151617181920212223">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-23T09:22:50.000Z">
-<meta property="article:modified_time" content="2023-01-23T09:55:03.582Z">
+<meta property="article:published_time" content="2023-01-27T13:04:44.000Z">
+<meta property="article:modified_time" content="2023-01-27T14:12:24.351Z">
 <meta property="article:author" content="rObberT93">
-<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,20 +162,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-49" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-单调栈" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode_49
+      单调栈
     </h1>
   
 
         
-        <a href="/2023/01/23/leetcode-49/" class="archive-article-date">
-  	<time datetime="2023-01-23T09:22:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-23</time>
+        <a href="/2023/01/27/%E5%8D%95%E8%B0%83%E6%A0%88/" class="archive-article-date">
+  	<time datetime="2023-01-27T13:04:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-27</time>
 </a>
       
         <!-- 需要添加的位置 -->
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">884字</span>
+        <span class="post-count">556字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -207,13 +207,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="leetcode-49-字母异位词分组"><a href="#leetcode-49-字母异位词分组" class="headerlink" title="leetcode_49 字母异位词分组"></a>leetcode_49 字母异位词分组</h2><blockquote>
-<p>给你一个字符串数组，请你将字母异位词组合在一起。可以按任意顺序返回结果列表。<br>字母异位词，是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。<br>输入: strs &#x3D; [“eat”, “tea”, “tan”, “ate”, “nat”, “bat”]<br>输出: [ [“bat” ] , [ “nat”,”tan” ] , [ “ate”,”eat”,”tea” ] ]</p>
+        <h1 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h1><h2 id="basis"><a href="#basis" class="headerlink" title="basis"></a>basis</h2><ul>
+<li>应用场景：一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置</li>
+<li>时间复杂度为O(n)</li>
+<li>单调栈的本质是空间换时间，因为在遍历的过程中需要用一个栈来记录右边第一个比当前元素高的元素，优点是只需要遍历一次</li>
+<li>单调栈里只需要存放元素的下标i就可以了，如果需要使用对应的元素，直接<code>T[i]</code>就可以获取。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">维护一个从栈头到栈底递增的数列</span></span><br><span class="line"><span class="comment">因为只有递增的时候，加入一个元素i，才知道栈顶元素在数组中右面第一个比栈顶元素大的元素是i。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dailyTemperatures</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; temperatures)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=temperatures.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt;<span class="built_in">result</span>(n,<span class="number">0</span>);</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt;stk;<span class="comment">//栈中放数组下标</span></span><br><span class="line">        stk.<span class="built_in">push</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(temperatures[i]&lt;=temperatures[stk.<span class="built_in">top</span>()])</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(stk.<span class="built_in">empty</span>()==<span class="number">0</span>&amp;&amp;temperatures[i]&gt;temperatures[stk.<span class="built_in">top</span>()])&#123;</span><br><span class="line">                    result[stk.<span class="built_in">top</span>()]=i-stk.<span class="built_in">top</span>();</span><br><span class="line">                    stk.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                stk.<span class="built_in">push</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>nums1中数字x的下一个更大元素是指x在nums2中对应位置右侧的第一个比x大的元素。<br>给你两个没有重复元素的数组nums1和nums2,下标从0开始计数，其中nums1是nums2的子集。<br>对于每个<code>0&lt;=i&lt;nums1.length</code>，找出满足 <code>nums1[i] == nums2[j]</code> 的下标 j ，并且在nums2确定<code>nums2[j]</code>的下一个更大元素。如果不存在下一个更大元素，那么本次查询的答案是 -1 。</p>
 </blockquote>
-<span id="more"></span>
-<h3 id="方法一-以排好序的string作为键值"><a href="#方法一-以排好序的string作为键值" class="headerlink" title="方法一 以排好序的string作为键值"></a>方法一 以排好序的string作为键值</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">groupAnagrams</span>(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">        unordered_map&lt;string, vector&lt;string&gt;&gt; mp;</span><br><span class="line">        <span class="keyword">for</span> (string&amp; str: strs) &#123;</span><br><span class="line">            string key = str;</span><br><span class="line">            <span class="built_in">sort</span>(key.<span class="built_in">begin</span>(), key.<span class="built_in">end</span>());</span><br><span class="line">            mp[key].<span class="built_in">emplace_back</span>(str);</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;string&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="方法二-计数，以每个字母出现的次数作为键值"><a href="#方法二-计数，以每个字母出现的次数作为键值" class="headerlink" title="方法二 计数，以每个字母出现的次数作为键值"></a>方法二 计数，以每个字母出现的次数作为键值</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	vector&lt;vector&lt;string&gt;&gt; <span class="built_in">groupAnagrams</span>(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">		<span class="keyword">auto</span> arrayHash = [fn = hash&lt;<span class="type">int</span>&gt;&#123;&#125;](<span class="type">const</span> array&lt;<span class="type">int</span>, <span class="number">26</span>&gt;&amp; arr)-&gt;<span class="type">size_t</span> &#123;</span><br><span class="line">               <span class="comment">//size_t 类型表示C中任何对象所能达到的最大长度，它是无符号整数</span></span><br><span class="line">               <span class="comment">/*</span></span><br><span class="line"><span class="comment">               * accumulate()中的第四个参数项要传入一个二元操作(BinaryOperation)规则，告诉它如何将当前元素与累积量做操作</span></span><br><span class="line"><span class="comment">               * 它隐式地调用(size_t)acc和(int)num这两个量，默认情况下做简单的相加运算。</span></span><br><span class="line"><span class="comment">               */</span></span><br><span class="line">			<span class="keyword">return</span> <span class="built_in">accumulate</span>(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), (<span class="type">size_t</span>)<span class="number">0</span>, [&amp;](<span class="type">size_t</span> acc, <span class="type">int</span> num) &#123;</span><br><span class="line">                   <span class="built_in">return</span> (acc &lt;&lt; <span class="number">1</span>) ^ <span class="built_in">fn</span>(num); <span class="comment">// hash运算结果移位相加</span></span><br><span class="line">                   &#125;);</span><br><span class="line">		&#125;;</span><br><span class="line">           <span class="comment">/*</span></span><br><span class="line"><span class="comment">           * 由于key的类型是array&lt;int, 26&gt;，属于用户自定义的一个数据类型，编译器无法针对用户自定义的数据类型做两个元素是否相等的判断</span></span><br><span class="line"><span class="comment">           * 所以，要告诉unordered_map你是如何确定key与key之间是否冲突(或者是否相等)的。</span></span><br><span class="line"><span class="comment">           * 正因如此，unordered_map的API中的第三个参数项就会让用户传入一个运算规则的函数的类型</span></span><br><span class="line"><span class="comment">           * 而前面写的arrayHash这个类(class)实际上是一个lambda expression(你也可以把它看作是一个仿函数(functor)的类)</span></span><br><span class="line"><span class="comment">           * 要获取一个显式的类的类型是容易的，但这里是隐式的，就要借助于decltype获得arrayHash的type了</span></span><br><span class="line"><span class="comment">           * (补充一点，lambda表达式很多都是通过decltype()的技巧获取其类型的，这也是C++11的重大进步之一)</span></span><br><span class="line"><span class="comment">           */</span></span><br><span class="line">		unordered_map&lt;array&lt;<span class="type">int</span>, 26&gt;, vector&lt;string&gt;, <span class="keyword">decltype</span>(arrayHash)&gt; <span class="built_in">mp</span>(<span class="number">0</span>, arrayHash);</span><br><span class="line">		<span class="keyword">for</span> (string&amp; str : strs) &#123;</span><br><span class="line">			array&lt;<span class="type">int</span>, 26&gt; counts&#123;&#125;;</span><br><span class="line">			<span class="type">int</span> length = (<span class="type">int</span>)str.<span class="built_in">length</span>();</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; length; ++i) counts[(<span class="type">size_t</span>)str[i] - <span class="string">&#x27;a&#x27;</span>] ++;</span><br><span class="line">               <span class="comment">/*</span></span><br><span class="line"><span class="comment">               * mp[counts]过程就会调用arrayHash计算counts的hash值</span></span><br><span class="line"><span class="comment">               * 在哈希表中寻找对应哈希值的篮子(busket)，并将该counts对应的str挂在对应篮子的链表尾部</span></span><br><span class="line"><span class="comment">               * (对于不存在的哈希值，对应的篮子是一个空链表，将str挂篮子的链表尾部这一操作仍然不变，</span></span><br><span class="line"><span class="comment">               * 如此一来就统一了emplace_back()的操作：只负责在篮子的链表的尾部添加string)</span></span><br><span class="line"><span class="comment">               */</span></span><br><span class="line">			mp[counts].<span class="built_in">emplace_back</span>(str);</span><br><span class="line">		&#125;</span><br><span class="line">		vector&lt;vector&lt;string&gt;&gt; ans;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">auto</span> it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); ++it) ans.<span class="built_in">emplace_back</span>(it-&gt;second);</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="方法二优化-把频次表转换为string"><a href="#方法二优化-把频次表转换为string" class="headerlink" title="方法二优化 把频次表转换为string"></a>方法二优化 把频次表转换为string</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;string&gt;&gt; <span class="built_in">groupAnagrams</span>(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; res ;</span><br><span class="line">    map&lt;string, vector&lt;string&gt;&gt; map ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 统计string的各字母频次,以频次为key直接加入队列</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> s : strs) &#123;</span><br><span class="line">        string sts = <span class="built_in">string</span>(<span class="number">26</span>, <span class="string">&#x27;0&#x27;</span>) ;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> c : s)  ++ sts[c-<span class="string">&#x27;a&#x27;</span>] ;</span><br><span class="line">        map[sts].<span class="built_in">emplace_back</span> (s) ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> e : map)  res.<span class="built_in">emplace_back</span>(e.second) ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">nextGreaterElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=nums1.<span class="built_in">size</span>(),m=nums2.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt;<span class="built_in">res</span>(n,<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">if</span> (nums1.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt;stk;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;umap;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            umap[nums1[i]]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        stk.<span class="built_in">push</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums2[i]&lt;=nums2[stk.<span class="built_in">top</span>()])</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(!stk.<span class="built_in">empty</span>()&amp;&amp;nums2[stk.<span class="built_in">top</span>()]&lt;nums2[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(umap.<span class="built_in">count</span>(nums2[stk.<span class="built_in">top</span>()])&gt;<span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="type">int</span> index=umap[nums2[stk.<span class="built_in">top</span>()]];</span><br><span class="line">                        res[index]=nums2[i];</span><br><span class="line">                    &#125;</span><br><span class="line">                    stk.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                stk.<span class="built_in">push</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
 
       
@@ -226,7 +230,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -282,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/23/leetcode-49/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/27/%E5%8D%95%E8%B0%83%E6%A0%88/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +300,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/01/23/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          回溯算法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/22/QT/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">QT</div>
+    <a href="/2023/01/27/leetcode-215/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-215</div>
       <i class="icon-circle-right"></i>
     </a>
   
