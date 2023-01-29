@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>滑动窗口 | Hexo</title>
+  <title>python入门-2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="滑动窗口leetcode 76：最小覆盖子串 给你一个字符串 s,一个字符串 t。返回s中涵盖t所有字符的最小子串。如果s中不存在涵盖t所有字符的子串，则返回空字符串 “”.     注意：对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。如果 s 中存在这样的子串，我们保证它是唯一的答案。    输入：s &#x3D; &quot;ADOBECODEBANC&quot;,">
+  <meta name="description" content="Directory 解析 概念 列表解析 集合解析 字典解析   条件判断 循环 for 循环 while 循环">
 <meta property="og:type" content="article">
-<meta property="og:title" content="滑动窗口">
-<meta property="og:url" content="http://example.com/2023/01/03/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/index.html">
+<meta property="og:title" content="python入门-2">
+<meta property="og:url" content="http://example.com/2023/01/29/python%E5%85%A5%E9%97%A8-2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="滑动窗口leetcode 76：最小覆盖子串 给你一个字符串 s,一个字符串 t。返回s中涵盖t所有字符的最小子串。如果s中不存在涵盖t所有字符的子串，则返回空字符串 “”.     注意：对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。如果 s 中存在这样的子串，我们保证它是唯一的答案。    输入：s &#x3D; &quot;ADOBECODEBANC&quot;,">
+<meta property="og:description" content="Directory 解析 概念 列表解析 集合解析 字典解析   条件判断 循环 for 循环 while 循环">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-03T13:48:14.000Z">
-<meta property="article:modified_time" content="2023-01-03T15:03:56.827Z">
+<meta property="article:published_time" content="2023-01-29T09:07:31.000Z">
+<meta property="article:modified_time" content="2023-01-29T15:29:00.774Z">
 <meta property="article:author" content="rObberT93">
-<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,20 +162,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-滑动窗口" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python入门-2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      滑动窗口
+      python入门-2
     </h1>
   
 
         
-        <a href="/2023/01/03/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" class="archive-article-date">
-  	<time datetime="2023-01-03T13:48:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-03</time>
+        <a href="/2023/01/29/python%E5%85%A5%E9%97%A8-2/" class="archive-article-date">
+  	<time datetime="2023-01-29T09:07:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-29</time>
 </a>
       
         <!-- 需要添加的位置 -->
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">817字</span>
+        <span class="post-count">2k字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -207,20 +207,141 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><h2 id="leetcode-76：最小覆盖子串"><a href="#leetcode-76：最小覆盖子串" class="headerlink" title="leetcode 76：最小覆盖子串"></a>leetcode 76：最小覆盖子串</h2><blockquote>
-<p>给你一个字符串 s,一个字符串 t。返回s中涵盖t所有字符的最小子串。如果s中不存在涵盖t所有字符的子串，则返回空字符串 “”.  </p>
-</blockquote>
-<blockquote>
-<p>注意：对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。如果 s 中存在这样的子串，我们保证它是唯一的答案。  </p>
-</blockquote>
-<pre><code>输入：s = &quot;ADOBECODEBANC&quot;, t = &quot;ABC&quot;  
-输出：&quot;BANC&quot;   
-解释：最小覆盖子串 &quot;BANC&quot; 包含来自字符串 t 的&#39;A&#39;&#39;B&#39;和&#39;C&#39;。  
-</code></pre>
-<span id="more"></span>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//模板</span></span><br><span class="line"><span class="comment">/* 滑动窗口算法框架 */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">slidingWindow</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">    Map&lt;Character, Integer&gt; need = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    Map&lt;Character, Integer&gt; window = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span> c : t.<span class="built_in">toCharArray</span>()) </span><br><span class="line">        need.<span class="built_in">put</span>(c,need.<span class="built_in">getOrDefault</span>(c,<span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">	<span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> valid = <span class="number">0</span>; </span><br><span class="line">	<span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">    	<span class="comment">// c 是将移入窗口的字符</span></span><br><span class="line">   	 	<span class="type">char</span> c = s.<span class="built_in">charAt</span>(right);</span><br><span class="line">    	<span class="comment">// 右移窗口</span></span><br><span class="line">    	right++;</span><br><span class="line">    	<span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">    	...</span><br><span class="line"></span><br><span class="line">    	<span class="comment">/*** debug 输出的位置 ***/</span></span><br><span class="line">    	System.out.<span class="built_in">println</span>(<span class="string">&quot;window: [&quot;</span>+left+<span class="string">&quot;,&quot;</span>+ right+<span class="string">&quot;)&quot;</span>);</span><br><span class="line">    	<span class="comment">/********************/</span></span><br><span class="line">    </span><br><span class="line">    	<span class="comment">// 判断左侧窗口是否要收缩</span></span><br><span class="line">    	<span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        	<span class="comment">// d 是将移出窗口的字符</span></span><br><span class="line">        	<span class="type">char</span> d = s[left];</span><br><span class="line">        	<span class="comment">// 左移窗口</span></span><br><span class="line">        	left++;</span><br><span class="line">        	<span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">        	...</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//题解</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">minWindow</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.维护两个map记录窗口中的符合条件的字符以及need的字符</span></span><br><span class="line">        Map&lt;Character,Integer&gt; window = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;Character,Integer&gt; need = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//need中存储的是需要的字符以及需要的对应的数量</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> c : t.<span class="built_in">toCharArray</span>())</span><br><span class="line">            need.<span class="built_in">put</span>(c,need.<span class="built_in">getOrDefault</span>(c,<span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>,right = <span class="number">0</span>;<span class="comment">//双指针</span></span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//count记录当前窗口中符合need要求的字符的数量,当count == need.size()时即可shrik窗口</span></span><br><span class="line">        <span class="type">int</span> start = <span class="number">0</span>;<span class="comment">//start表示符合最优解的substring的起始位序</span></span><br><span class="line">        <span class="type">int</span> len = Integer.MAX_VALUE;</span><br><span class="line">        <span class="comment">//len用来记录最终窗口的长度，并且以len作比较，淘汰选出最小的substring的len</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//一次遍历找“可行解”</span></span><br><span class="line">        <span class="keyword">while</span>(right &lt; s.<span class="built_in">length</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//更新窗口</span></span><br><span class="line">            <span class="type">char</span> c = s.<span class="built_in">charAt</span>(right);</span><br><span class="line">            right++;<span class="comment">//窗口扩大</span></span><br><span class="line">            <span class="comment">// window.put(c,window.getOrDefault(c,0)+1);其实并不需要将s中所有的都加入windowsmap，只需要将need中的加入即可</span></span><br><span class="line">            <span class="keyword">if</span>(need.<span class="built_in">containsKey</span>(c))</span><br><span class="line">            &#123;</span><br><span class="line">                window.<span class="built_in">put</span>(c,window.<span class="built_in">getOrDefault</span>(c,<span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span>(need.<span class="built_in">get</span>(c).<span class="built_in">equals</span>(window.<span class="built_in">get</span>(c)))</span><br><span class="line">                &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//System.out.println****Debug位置</span></span><br><span class="line">            <span class="comment">//shrink左边界，找符合条件的最优解</span></span><br><span class="line">            <span class="keyword">while</span>(count == need.<span class="built_in">size</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(right - left &lt; len)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//不断“打擂”找满足条件的len最短值,并记录最短的子串的起始位序start</span></span><br><span class="line">                    len = right - left;</span><br><span class="line">                    start = left;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//更新窗口——这段代码逻辑几乎完全同上面的更新窗口</span></span><br><span class="line">                <span class="type">char</span> d = s.<span class="built_in">charAt</span>(left);</span><br><span class="line">                left++;<span class="comment">//窗口缩小</span></span><br><span class="line">                <span class="keyword">if</span>(need.<span class="built_in">containsKey</span>(d))&#123;</span><br><span class="line">                    <span class="comment">//window.put(d,window.get(d)-1);——bug：若一进去就将window对应的键值缩小，就永远不会满足下面的if，while也会一直执行，知道left越界，因此，尽管和上面对窗口的处理几乎一样，但是这个处理的顺序还是很关键的！要细心！</span></span><br><span class="line">                    <span class="keyword">if</span>(need.<span class="built_in">get</span>(d).<span class="built_in">equals</span>(window.<span class="built_in">get</span>(d)))</span><br><span class="line">                    &#123;</span><br><span class="line">                        count--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    window.<span class="built_in">put</span>(d,window.<span class="built_in">get</span>(d)<span class="number">-1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len == Integer.MAX_VALUE ? <span class="string">&quot;&quot;</span> : s.<span class="built_in">substring</span>(start,start+len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><ul>
+<li>解析<ul>
+<li>概念</li>
+<li>列表解析</li>
+<li>集合解析</li>
+<li>字典解析</li>
+</ul>
+</li>
+<li>条件判断</li>
+<li>循环<ul>
+<li>for 循环</li>
+<li>while 循环<span id="more"></span></li>
+</ul>
+</li>
+</ul>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>列表解析、集合解析、元组解析、字典解析。</li>
+<li>根据某些元素来创建(推导)出一个新的列表、集合、元组、字典等。所以有的地方也称为推导，比如列表推导、集合推导等。</li>
+<li>中括号，表示列表解析</li>
+<li>大括号，表示集合解析</li>
+<li>大括号且元素是key:value模式，表示字典解析</li>
+<li>注意：如果使用的是括号，表示的是生成器表达式，而不是解析</li>
+</ul>
+<h2 id="列表解析"><a href="#列表解析" class="headerlink" title="列表解析"></a>列表解析</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list=[i*<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>) <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line"><span class="comment"># [0, 4, 8, 12, 16]</span></span><br></pre></td></tr></table></figure>
+<h2 id="集合解析"><a href="#集合解析" class="headerlink" title="集合解析"></a>集合解析</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; i*<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&quot;abcd&quot;</span>&#125;</span><br><span class="line"><span class="comment"># &#123;&#x27;aa&#x27;, &#x27;cc&#x27;, &#x27;dd&#x27;, &#x27;bb&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典解析"><a href="#字典解析" class="headerlink" title="字典解析"></a>字典解析</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> <span class="built_in">zip</span>((<span class="string">&quot;one&quot;</span>,<span class="string">&quot;two&quot;</span>,<span class="string">&quot;three&quot;</span>),(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) &#125;</span><br><span class="line"><span class="comment"># &#123;&#x27;one&#x27;:1, &#x27;two&#x27;:2, &#x27;three&#x27;:3&#125;</span></span><br><span class="line">&#123; k: k*<span class="number">2</span> <span class="keyword">for</span> k <span class="keyword">in</span> <span class="string">&quot;abcd&quot;</span> &#125;</span><br><span class="line"><span class="comment"># &#123;&#x27;a&#x27;:&#x27;aa&#x27;, &#x27;b&#x27;:&#x27;bb&#x27;, &#x27;c&#x27;:&#x27;cc&#x27;, &#x27;d&#x27;:&#x27;dd&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+<h1 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h1><h2 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h2><ul>
+<li>缩进：<br>Python 依赖缩进，使用空格来定义代码中的范围。其他编程语言通常使用花括号来实现此目的。</li>
+<li><code>if:</code><ul>
+<li>简写<code>if</code>:如果只有一条语句要执行，则可以将其与 if 语句放在同一行。</li>
+<li>简写<code>if...else</code>，如：<code>if a &gt; b else print(&quot;B&quot;)</code></li>
+</ul>
+</li>
+<li><code>elif</code>：else if，表示：如果之前的条件不正确，那么试试这个条件</li>
+<li><code>else</code>，捕获违背之前条件捕获的任何内容</li>
+<li>嵌套<code>if</code></li>
+<li><code>pass</code>：continue</li>
+</ul>
+<h2 id="组合条件语句"><a href="#组合条件语句" class="headerlink" title="组合条件语句"></a>组合条件语句</h2><ul>
+<li><code>and</code>：且 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># a是否大于b 且c是否大于a：</span></span><br><span class="line">a = <span class="number">200</span></span><br><span class="line">b = <span class="number">66</span></span><br><span class="line">c = <span class="number">500</span></span><br><span class="line"><span class="keyword">if</span> a &gt; b <span class="keyword">and</span> c &gt; a:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Both conditions are True&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><code>or</code>：或</li>
+</ul>
+<h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><h3 id="basis"><a href="#basis" class="headerlink" title="basis"></a>basis</h3><ul>
+<li>for 循环用于迭代序列（即列表，元组，字典，集合或字符串）。</li>
+<li>这与其他编程语言中的 for 关键字不太相似，而是更像其他面向对象编程语言中的迭代器方法。</li>
+<li>循环遍历字符串<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&quot;banana&quot;</span>:</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure></li>
+<li><code>break</code></li>
+<li><code>continue</code></li>
+<li><code>pass</code></li>
+<li>嵌套循环</li>
+</ul>
+<h3 id="range"><a href="#range" class="headerlink" title="range"></a><code>range</code></h3><p>range() 函数返回一个数字序列，默认情况下从0开始，并默认递增 1，并以指定的数字结束。</p>
+<ul>
+<li>注：<code>range(10)</code>不是0到10的值，而是0到9。</li>
+<li><code>range(3, 10)</code>表示<code>[3,9]</code></li>
+<li>指定增量值，(默认为1)，<code>range(0,20,2)</code><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="built_in">input</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    <span class="built_in">print</span>(s,end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="comment"># print(s*100)</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="for循环中的else"><a href="#for循环中的else" class="headerlink" title="for循环中的else"></a><code>for</code>循环中的<code>else</code></h3><ul>
+<li>for 循环中的 else 关键字指定循环结束时要执行的代码块<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印 0 到 9 的所有数字，并在循环结束时打印一条消息：</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Finally finished!&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>元组:<br>python内置的数据结构之一<br>是一个不可变列表（没有增、删、改的操作）  </p>
+<h2 id="创建元组"><a href="#创建元组" class="headerlink" title="创建元组"></a>创建元组</h2><ul>
+<li>使用括号()：<code>t=(s1,s2)</code><ul>
+<li>也可以省略括号，如：<code>t=s1,s2</code></li>
+</ul>
+</li>
+<li>使用内置函数tuple()，如：<code>t = tuple((s1,s2))</code>，<strong>注意是两层括号</strong></li>
+<li><code>range()</code>函数：<code>t=tuple(range(1,6))</code></li>
+<li>只包含一个元组的元素需要使用小括号和逗号，例如<code>t=(s1,)</code><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 是元组</span></span><br><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>,)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(thistuple))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不是元组</span></span><br><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(thistuple))</span><br></pre></td></tr></table></figure></li>
+<li>空元组：<code>()</code></li>
+</ul>
+<h2 id="访问元组"><a href="#访问元组" class="headerlink" title="访问元组"></a>访问元组</h2><ul>
+<li>索引号<ul>
+<li>负索引</li>
+</ul>
+</li>
+<li>索引范围，返回值将是带有指定项目的新元组<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;kiwi&quot;</span>, <span class="string">&quot;melon&quot;</span>, <span class="string">&quot;mango&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thistuple[<span class="number">2</span>:<span class="number">5</span>])</span><br><span class="line"><span class="comment"># 输出：(&#x27;cherry&#x27;, &#x27;orange&#x27;, &#x27;kiwi&#x27;)</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="更改元组值"><a href="#更改元组值" class="headerlink" title="更改元组值"></a>更改元组值</h2><ul>
+<li>元组创建后将无法更改值。元组是不可变的(恒定的)。</li>
+<li>但有一种方法:将元组转换为列表，更改列表，再将列表转换回元组<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">y = <span class="built_in">list</span>(x)</span><br><span class="line">y[<span class="number">1</span>] = <span class="string">&quot;kiwi&quot;</span></span><br><span class="line">x = <span class="built_in">tuple</span>(y)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="元组方法"><a href="#元组方法" class="headerlink" title="元组方法"></a>元组方法</h2><ul>
+<li>count()：返回元组中指定值出现的次数</li>
+<li>index()：在元组中搜索指定的值并返回它被找到的位置</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>遍历：<code>for</code></li>
+<li>检查项目是否存在：<code>in</code></li>
+<li>长度：<code>len</code></li>
+<li>不能删除项目，但可以完全删除元组</li>
+<li>合并：直接使用<code>+</code></li>
+</ul>
+<h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><p>字典是一个无序、可变和有索引的集合。用花括号编写，拥有键(key)和值(value)。</p>
+<h2 id="创建字典"><a href="#创建字典" class="headerlink" title="创建字典"></a>创建字典</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">thisdict =	&#123;</span><br><span class="line">  <span class="string">&quot;brand&quot;</span>: <span class="string">&quot;Porsche&quot;</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;911&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span>: <span class="number">1963</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(thisdict)</span><br></pre></td></tr></table></figure>
+<h2 id="访问项目"><a href="#访问项目" class="headerlink" title="访问项目"></a>访问项目</h2><ul>
+<li>在方括号内引用其键名来访问字典的项目：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = thisdict[<span class="string">&quot;model&quot;</span>]</span><br><span class="line"><span class="comment"># 输出：911</span></span><br></pre></td></tr></table></figure></li>
+<li><code>get()</code><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = thisdict.get(<span class="string">&quot;model&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="更改值"><a href="#更改值" class="headerlink" title="更改值"></a>更改值</h2><ul>
+<li>引用键名<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thisdict[<span class="string">&quot;model&quot;</span>]=<span class="number">111</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="遍历字典"><a href="#遍历字典" class="headerlink" title="遍历字典"></a>遍历字典</h2><ul>
+<li>返回值是字典的键</li>
+<li>逐个打印字典中的所有键名:<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thisdict:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure></li>
+<li>逐个打印字典中的所有值<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thisdict:</span><br><span class="line">  <span class="built_in">print</span>(thisdict[x])</span><br></pre></td></tr></table></figure></li>
+<li>利用<code>values()</code>返回字典的值<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thisdict.values():</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure></li>
+<li>使用<code>items()</code>遍历键和值<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> thisdict.items():</span><br><span class="line">  <span class="built_in">print</span>(x, y)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="添加项目"><a href="#添加项目" class="headerlink" title="添加项目"></a>添加项目</h2><p>使用新的索引键并为其赋值</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thisdict[<span class="string">&quot;color&quot;</span>] = <span class="string">&quot;red&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="删除项目"><a href="#删除项目" class="headerlink" title="删除项目"></a>删除项目</h2><ul>
+<li>方法1：<code>pop(指定键名)</code><br><code>thisdict.pop(&quot;model&quot;)</code></li>
+<li>方法2：<code>popitem()</code>删除最后插入的项目</li>
+<li>方法3：<code>del</code> 删除具有指定键名的项目<ul>
+<li><code>del thisdict[&quot;model&quot;]</code></li>
+<li>del删除整个字典 <code>del thisdict</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="复制字典"><a href="#复制字典" class="headerlink" title="复制字典"></a>复制字典</h2><ul>
+<li>不能通过 <code>dict2 = dict1</code> 复制字典，因为：<code>dict2</code> 只是对 <code>dict1</code> 的引用，而 <code>dict1</code> 中的更改也将自动在 <code>dict2</code> 中进行</li>
+<li>使用 <code>copy()</code> 方法来复制字典<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mydict = thisdict.copy()</span><br></pre></td></tr></table></figure></li>
+<li>使用 <code>dict()</code> 方法创建字典的副本<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mydict = <span class="built_in">dict</span>(thisdict)</span><br></pre></td></tr></table></figure></li>
+<li><code>dict()</code>构造函数<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(brand=<span class="string">&quot;Porsche&quot;</span>, model=<span class="string">&quot;911&quot;</span>, year=<span class="number">1963</span>)</span><br><span class="line"><span class="comment"># 请注意，关键字不是字符串字面量</span></span><br><span class="line"><span class="comment"># 请注意，使用了等号而不是冒号来赋值</span></span><br><span class="line"><span class="built_in">print</span>(thisdict)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="字典方法"><a href="#字典方法" class="headerlink" title="字典方法"></a>字典方法</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">clear()	<span class="comment"># 删除字典中的所有元素</span></span><br><span class="line">copy() <span class="comment">#返回字典的副本</span></span><br><span class="line">fromkeys()	<span class="comment"># 返回拥有指定键和值的字典</span></span><br><span class="line">get() <span class="comment"># 返回指定键的值</span></span><br><span class="line">items()	<span class="comment"># 返回包含每个键值对的元组的列表</span></span><br><span class="line">keys() <span class="comment"># 返回包含字典键的列表</span></span><br><span class="line">pop() <span class="comment"># 删除拥有指定键的元素</span></span><br><span class="line">popitem() <span class="comment"># 删除最后插入的键值对</span></span><br><span class="line">setdefault() <span class="comment"># 返回指定键的值。如果该键不存在，则插入具有指定值的键。</span></span><br><span class="line">update() <span class="comment"># 使用指定的键值对字典进行更新</span></span><br><span class="line">values() <span class="comment"># 返回字典中所有值的列表</span></span><br></pre></td></tr></table></figure>
+<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>检查键是否存在：<code>in</code> <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">&quot;model&quot;</span> <span class="keyword">in</span> thisdict:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Yes, &#x27;model&#x27; is one of the keys in the thisdict dictionary&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>字典长度 <code>len</code></li>
+<li>嵌套字典<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建包含三个字典的字典</span></span><br><span class="line">myfamily = &#123;</span><br><span class="line">  <span class="string">&quot;child1&quot;</span> : &#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span> : <span class="string">&quot;Phoebe Adele&quot;</span>,</span><br><span class="line">    <span class="string">&quot;year&quot;</span> : <span class="number">2002</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;child2&quot;</span> : &#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span> : <span class="string">&quot;Jennifer Katharine&quot;</span>,</span><br><span class="line">    <span class="string">&quot;year&quot;</span> : <span class="number">1996</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;child3&quot;</span> : &#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span> : <span class="string">&quot;Rory John&quot;</span>,</span><br><span class="line">    <span class="string">&quot;year&quot;</span> : <span class="number">1999</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> myfamily.keys():</span><br><span class="line">    child_name=myfamily[i][<span class="string">&#x27;name&#x27;</span>]</span><br><span class="line">    child_year=myfamily[i][<span class="string">&#x27;year&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;i&#125;</span>&#x27;s name is <span class="subst">&#123;chile_name&#125;</span>, and his or her was born in <span class="subst">&#123;child_year&#125;</span>.&quot;</span>)</span><br><span class="line"><span class="comment"># 嵌套三个已经作为字典存在的字典</span></span><br><span class="line">child1 = &#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span> : <span class="string">&quot;Phoebe Adele&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span> : <span class="number">2002</span></span><br><span class="line">&#125;</span><br><span class="line">child2 = &#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span> : <span class="string">&quot;Jennifer Katharine&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span> : <span class="number">1996</span></span><br><span class="line">&#125;</span><br><span class="line">child3 = &#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span> : <span class="string">&quot;Rory John&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span> : <span class="number">1999</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myfamily = &#123;</span><br><span class="line">  <span class="string">&quot;child1&quot;</span> : child1,</span><br><span class="line">  <span class="string">&quot;child2&quot;</span> : child2,</span><br><span class="line">  <span class="string">&quot;child3&quot;</span> : child3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="zip-函数"><a href="#zip-函数" class="headerlink" title="zip()函数"></a>zip()函数</h2><p>zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。</p>
+<p>如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 * 号操作符，可以将元组解压为列表。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">c = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">zipped = <span class="built_in">zip</span>(a,b) <span class="comment"># 返回一个对象</span></span><br><span class="line"><span class="built_in">list</span>(zipped) <span class="comment"># list() 转换为列表</span></span><br><span class="line"><span class="comment"># [(1, 4), (2, 5), (3, 6)]</span></span><br><span class="line"><span class="built_in">list</span>(<span class="built_in">zip</span>(a,c)) <span class="comment"># 元素个数与最短的列表一致</span></span><br><span class="line"><span class="comment"># [(1, 4), (2, 5), (3, 6)]</span></span><br><span class="line">a1, a2 ==<span class="built_in">zip</span>(*<span class="built_in">zip</span>(a,b))  <span class="comment"># 与 zip 相反，zip(*) 可理解为解压，返回二维矩阵式</span></span><br><span class="line"><span class="built_in">list</span>(a1) </span><br><span class="line"><span class="comment"># [1, 2, 3]</span></span><br><span class="line"><span class="built_in">list</span>(a2) </span><br><span class="line"><span class="comment"># [4, 5, 6]</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -233,7 +354,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -289,7 +410,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/03/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/29/python%E5%85%A5%E9%97%A8-2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,18 +424,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/01/03/%E5%9C%A82023%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/01/29/python%E5%85%A5%E9%97%A8-3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          在2023年的第一个月
+          python入门-3
         
       </div>
     </a>
   
   
-    <a href="/2023/01/03/hi/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hi!</div>
+    <a href="/2023/01/29/python%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python入门-1</div>
       <i class="icon-circle-right"></i>
     </a>
   
