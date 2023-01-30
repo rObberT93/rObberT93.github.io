@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>python入门-2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Directory 解析 概念 列表解析 集合解析 字典解析   条件判断 循环 for 循环 while 循环">
+  <meta name="description" content="Directory 解析 列表解析 集合解析 字典解析   条件判断 循环 for 循环 while 循环   元组 字典 函数 调用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python入门-2">
 <meta property="og:url" content="http://example.com/2023/01/29/python%E5%85%A5%E9%97%A8-2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Directory 解析 概念 列表解析 集合解析 字典解析   条件判断 循环 for 循环 while 循环">
+<meta property="og:description" content="Directory 解析 列表解析 集合解析 字典解析   条件判断 循环 for 循环 while 循环   元组 字典 函数 调用">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-29T09:07:31.000Z">
-<meta property="article:modified_time" content="2023-01-29T15:29:00.774Z">
+<meta property="article:modified_time" content="2023-01-30T09:17:19.287Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2k字</span>
+        <span class="post-count">2.2k字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">9分</span>
       </span>
     </span>
 </div>
@@ -209,7 +209,6 @@
       
         <h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><ul>
 <li>解析<ul>
-<li>概念</li>
 <li>列表解析</li>
 <li>集合解析</li>
 <li>字典解析</li>
@@ -218,9 +217,13 @@
 <li>条件判断</li>
 <li>循环<ul>
 <li>for 循环</li>
-<li>while 循环<span id="more"></span></li>
+<li>while 循环</li>
 </ul>
 </li>
+<li>元组</li>
+<li>字典</li>
+<li>函数</li>
+<li>调用<span id="more"></span></li>
 </ul>
 <h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
 <li>列表解析、集合解析、元组解析、字典解析。</li>
@@ -342,6 +345,15 @@
 <h2 id="zip-函数"><a href="#zip-函数" class="headerlink" title="zip()函数"></a>zip()函数</h2><p>zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。</p>
 <p>如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 * 号操作符，可以将元组解压为列表。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">c = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">zipped = <span class="built_in">zip</span>(a,b) <span class="comment"># 返回一个对象</span></span><br><span class="line"><span class="built_in">list</span>(zipped) <span class="comment"># list() 转换为列表</span></span><br><span class="line"><span class="comment"># [(1, 4), (2, 5), (3, 6)]</span></span><br><span class="line"><span class="built_in">list</span>(<span class="built_in">zip</span>(a,c)) <span class="comment"># 元素个数与最短的列表一致</span></span><br><span class="line"><span class="comment"># [(1, 4), (2, 5), (3, 6)]</span></span><br><span class="line">a1, a2 ==<span class="built_in">zip</span>(*<span class="built_in">zip</span>(a,b))  <span class="comment"># 与 zip 相反，zip(*) 可理解为解压，返回二维矩阵式</span></span><br><span class="line"><span class="built_in">list</span>(a1) </span><br><span class="line"><span class="comment"># [1, 2, 3]</span></span><br><span class="line"><span class="built_in">list</span>(a2) </span><br><span class="line"><span class="comment"># [4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h2><p><code>def</code>关键字定义函数</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Hello from a function&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>默认参数值<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>(<span class="params">country = <span class="string">&quot;China&quot;</span></span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;I am from &quot;</span> + country)</span><br><span class="line"></span><br><span class="line">my_function(<span class="string">&quot;Sweden&quot;</span>) <span class="comment"># I am from Sweden</span></span><br><span class="line">my_function(<span class="string">&quot;India&quot;</span>) <span class="comment"># I am from India</span></span><br><span class="line">my_function() <span class="comment"># I am from China </span></span><br></pre></td></tr></table></figure></li>
+<li>以 List 传参<br>参数可以是任何数据类型（字符串、数字、列表、字典等），并且在函数内其将被视为相同数据类型<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>(<span class="params">food</span>):</span><br><span class="line">  <span class="keyword">for</span> x <span class="keyword">in</span> food:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line">fruits = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line"></span><br><span class="line">my_function(fruits)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><h3 id="关键字参数-key-value"><a href="#关键字参数-key-value" class="headerlink" title="关键字参数 key=value"></a>关键字参数 <code>key=value</code></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>(<span class="params">child3, child2, child1</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;The youngest child is &quot;</span> + child3)</span><br><span class="line"></span><br><span class="line">my_function(child1 = <span class="string">&quot;Phoebe&quot;</span>, child2 = <span class="string">&quot;Jennifer&quot;</span>, child3 = <span class="string">&quot;Rory&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="任意参数"><a href="#任意参数" class="headerlink" title="任意参数"></a>任意参数</h3><p>不知道将传递给函数多少个参数，在函数定义的参数名称前添加<code>*</code>。</p>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2>
       
 
       
@@ -434,7 +446,7 @@
     </a>
   
   
-    <a href="/2023/01/29/python%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/29/python%E5%85%A5%E9%97%A8-1/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">python入门-1</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -586,10 +598,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
@@ -599,6 +607,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,11 +626,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
