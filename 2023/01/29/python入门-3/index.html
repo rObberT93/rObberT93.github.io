@@ -16,7 +16,7 @@
 <meta property="og:description" content="Directory try-except">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-29T13:52:09.000Z">
-<meta property="article:modified_time" content="2023-01-29T14:05:04.154Z">
+<meta property="article:modified_time" content="2023-01-30T05:55:10.204Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">365字</span>
+        <span class="post-count">2.2k字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">9分</span>
       </span>
     </span>
 </div>
@@ -210,6 +210,46 @@
         <h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><ul>
 <li>try-except<span id="more"></span></li>
 </ul>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>类（Class）类似对象构造函数，或者是用于创建对象的“蓝图”。</p>
+<h2 id="内置-init-函数"><a href="#内置-init-函数" class="headerlink" title="内置 __init__() 函数"></a>内置 <code>__init__()</code> 函数</h2><ul>
+<li>所有类都有一个名为 <code>__init__()</code> 的函数，它始终在启动类时执行。</li>
+<li>每次使用类创建新对象时，都会自动调用 <code>__init__()</code> 函数</li>
+<li>使用 <code>__init__()</code> 函数将值赋给对象属性，或者在创建对象时需要执行的其他操作</li>
+</ul>
+<h2 id="类创建"><a href="#类创建" class="headerlink" title="类创建"></a>类创建</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">    self.name = name</span><br><span class="line">    self.age = age</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">myfunc</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello my name is &quot;</span> + self.name)</span><br><span class="line"></span><br><span class="line">p1 = Person(<span class="string">&quot;Bill&quot;</span>, <span class="number">63</span>)</span><br><span class="line">p1.myfunc()</span><br></pre></td></tr></table></figure>
+<h2 id="self参数"><a href="#self参数" class="headerlink" title="self参数"></a><code>self</code>参数</h2><ul>
+<li>self 参数是对类的当前实例的引用，用于访问属于该类的变量。</li>
+<li>它不必被命名为 self，您可以随意调用它，但它必须是类中任意函数的首个参数：<code>def __init__(mysillyobject, name, age):</code></li>
+</ul>
+<h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><ul>
+<li>修改 <code>p1.age = 40</code></li>
+<li>删除对象属性 <code>del p1.age</code></li>
+<li>删除对象 <code>del p1</code></li>
+<li><code>pass</code></li>
+</ul>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li><p>继承允许我们定义继承另一个类的所有方法和属性的类。</p>
+</li>
+<li><p>父类是继承的类，也称为基类。</p>
+</li>
+<li><p>子类是从另一个类继承的类，也称为派生类。</p>
+</li>
+</ul>
+<h2 id="创建父类"><a href="#创建父类" class="headerlink" title="创建父类"></a>创建父类</h2><ul>
+<li>任何类都可以是父类，因此语法与创建任何其他类相同<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个名为 Person 的类，</span></span><br><span class="line"><span class="comment"># 其中包含 firstname 和 lastname 属性</span></span><br><span class="line"><span class="comment"># 以及 printname 方法：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, fname, lname</span>):</span><br><span class="line">    self.firstname = fname</span><br><span class="line">    self.lastname = lname</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">printname</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(self.firstname, self.lastname)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 Person 来创建对象，然后执行 printname 方法：</span></span><br><span class="line"></span><br><span class="line">x = Person(<span class="string">&quot;Bill&quot;</span>, <span class="string">&quot;Gates&quot;</span>)</span><br><span class="line">x.printname()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="创建子类"><a href="#创建子类" class="headerlink" title="创建子类"></a>创建子类</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个名为 Student 的类，它将从 Person 类继承属性和方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">Person</span>):</span><br><span class="line">  <span class="keyword">pass</span> <span class="comment"># pass 表示不向该类添加任何其他属性或方法</span></span><br><span class="line"><span class="comment"># Student 类拥有与 Person 类相同的属性和方法</span></span><br><span class="line">x = Student(<span class="string">&quot;Elon&quot;</span>, <span class="string">&quot;Musk&quot;</span>)</span><br><span class="line">x.printname()</span><br><span class="line"><span class="comment"># 使用 Student 类创建一个对象，然后执行 printname 方法</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>把<code>__init__()</code> 函数添加到子类（而不是 pass 关键字）。</li>
+<li>注释：每次使用类创建新对象时，都会自动调用 <code>__init__()</code> 函数<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">Person</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, fname, lname</span>):</span><br><span class="line">    <span class="comment"># 添加属性等</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="super函数"><a href="#super函数" class="headerlink" title="super函数"></a>super函数</h3><p>会使子类从其父继承所有方法和属性</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">Person</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, fname, lname</span>):</span><br><span class="line">    <span class="built_in">super</span>().__init__(fname, lname)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不必使用父元素的名称，它将自动从其父元素继承方法和属性</li>
+</ul>
+<h2 id="添加属性"><a href="#添加属性" class="headerlink" title="添加属性"></a>添加属性</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加 year 参数，并在创建对象时传递正确的年份：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">Person</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, fname, lname, year</span>):</span><br><span class="line">    <span class="built_in">super</span>().__init__(fname, lname)</span><br><span class="line">    self.graduationyear = year</span><br><span class="line"></span><br><span class="line">x = Student(<span class="string">&quot;Elon&quot;</span>, <span class="string">&quot;Musk&quot;</span>, <span class="number">2019</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="添加方法"><a href="#添加方法" class="headerlink" title="添加方法"></a>添加方法</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把名为 welcome 的方法添加到 Student 类：</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">Person</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, fname, lname, year</span>):</span><br><span class="line">    <span class="built_in">super</span>().__init__(fname, lname)</span><br><span class="line">    self.graduationyear = year</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">welcome</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Welcome&quot;</span>, self.firstname, self.lastname, <span class="string">&quot;to the class of&quot;</span>, self.graduationyear)</span><br></pre></td></tr></table></figure>
 <h1 id="try-except"><a href="#try-except" class="headerlink" title="try-except"></a>try-except</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><ul>
 <li><p><code>try</code> 块允许您测试代码块以查找错误。</p>
 </li>
@@ -231,6 +271,88 @@
 <h3 id="引发异常"><a href="#引发异常" class="headerlink" title="引发异常"></a>引发异常</h3><p>使用 <code>raise</code> 关键词在条件发生时抛出（引发）异常。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = -<span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">  <span class="keyword">raise</span> Exception(<span class="string">&quot;Sorry, no numbers below zero&quot;</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">type</span>(x) <span class="keyword">is</span> <span class="built_in">int</span>:</span><br><span class="line">  <span class="keyword">raise</span> TypeError(<span class="string">&quot;Only integers are allowed&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="defination"><a href="#defination" class="headerlink" title="defination"></a>defination</h2><ul>
+<li><p>RegEx 或正则表达式是形成搜索模式的字符序列。</p>
+</li>
+<li><p>RegEx 可用于检查字符串是否包含指定的搜索模式。</p>
+</li>
+</ul>
+<h2 id="RegEx模块"><a href="#RegEx模块" class="headerlink" title="RegEx模块"></a>RegEx模块</h2><p>名为 re 的内置包，可用于处理正则表达式<code>import re</code></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 索字符串以查看它是否以 &quot;China&quot; 开头并以 &quot;country&quot; 结尾</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">txt = <span class="string">&quot;China is a great country&quot;</span></span><br><span class="line">x = re.search(<span class="string">&quot;^China.*country$&quot;</span>, txt)</span><br></pre></td></tr></table></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">findall	<span class="comment"># 返回包含所有匹配项的列表</span></span><br><span class="line">search <span class="comment"># 如果字符串中的任意位置存在匹配，则返回 Match 对象</span></span><br><span class="line">split	<span class="comment"># 返回在每次匹配时拆分字符串的列表</span></span><br><span class="line">sub	<span class="comment"># 用字符串替换一个或多个匹配项</span></span><br></pre></td></tr></table></figure>
+<h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="comment"># 一组字符</span></span><br><span class="line">\ <span class="comment"># 示意特殊字符</span></span><br><span class="line">. <span class="comment"># 任何字符</span></span><br><span class="line">^ <span class="comment"># 起始于</span></span><br><span class="line">$ <span class="comment"># 结束于</span></span><br><span class="line">* <span class="comment"># 零次或多次出现</span></span><br><span class="line">+ <span class="comment"># 一次或多次出现</span></span><br><span class="line">&#123;&#125; <span class="comment"># 确切地指定的出现次数</span></span><br><span class="line">| <span class="comment"># 两者任一</span></span><br><span class="line">() <span class="comment"># 捕获和分组</span></span><br></pre></td></tr></table></figure>
+<h2 id="特殊序列"><a href="#特殊序列" class="headerlink" title="特殊序列"></a>特殊序列</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">\A <span class="comment"># </span></span><br><span class="line">\b <span class="comment"># </span></span><br><span class="line">\B <span class="comment"># </span></span><br><span class="line">\b <span class="comment"># 数字</span></span><br><span class="line">\D <span class="comment"># 非数字</span></span><br><span class="line">\s <span class="comment"># 包含空白字符</span></span><br><span class="line">\S <span class="comment"># 不包含空白字符</span></span><br><span class="line">\w <span class="comment"># 包含单词字符，从a到Z的字符，从0到9的数字，和下划线——</span></span><br><span class="line">\W <span class="comment"># 不包含任何单词字符</span></span><br><span class="line">\Z <span class="comment"># </span></span><br></pre></td></tr></table></figure>
+<h2 id="函数-1"><a href="#函数-1" class="headerlink" title="函数"></a>函数</h2><ul>
+<li><code>re.match()</code>从头开始匹配,如果不是起始位置匹配成功的话，match函数的匹配结果就为none。匹配成功，re.match方法返回一个匹配的对象。<ul>
+<li>语法: <code>re.match(pattern,string,[flags])</code></li>
+<li>参数说明：<br><code>pattern</code>: 需要匹配的正则表达式<br><code>string</code>:要匹配的完整字符串<br><code>flags</code>:标志位(默认为0)，它可以控制正则表达式的匹配方式<ul>
+<li><code>re.I</code> 忽略匹配时的大小写</li>
+<li><code>re.M</code> 多行匹配，影响 ^ 和 $</li>
+<li><code>re.S</code> . 默认不匹配换行，使 . 匹配包括换行在内的所有字符</li>
+<li><code>re.U</code> 根据Unicode字符集解析字符。这个标志影响 <code>\w</code>,<code>\W</code>,<code>\b</code>,<code>\B</code></li>
+</ul>
+</li>
+<li><code>span()</code> 返回的元组包含了匹配的开始和结束位置</li>
+<li><code>.string</code> 返回传入函数的字符串</li>
+<li><code>group()</code> 返回匹配的字符串部分</li>
+</ul>
+</li>
+<li><code>re.search()</code> 搜索整个字符串，并返回第一个成功的匹配。<ul>
+<li>语法：<code>re.search(pattern, string, flags=0)</code></li>
+</ul>
+</li>
+<li><code>re.findall()</code> 搜索整个字符串，返回一个list<ul>
+<li>语法：<code>re.findall(string)</code></li>
+</ul>
+</li>
+<li><code>re.compile()</code> 用于编译正则表达式，生成一个正则表达式<code>(Pattern)</code>对象。<ul>
+<li>语法：<code>re.compile(pattern，flags=0)</code></li>
+</ul>
+</li>
+<li><code>re.split()</code> 将一个字符串按照正则表达式匹配的结果进行分割，返回列表类型<ul>
+<li>语法：<code>re.split(pattern, string ,?maxsplit=0?，flags=0)</code></li>
+</ul>
+</li>
+<li><code>re.sub()</code> 在一个字符串中替换所有匹配正则表达式的子串，返回替换后的字符串<ul>
+<li>语法：<code>re.sub(pattern, repl, string, count=0，flags=0)</code></li>
+</ul>
+</li>
+<li><code>sub()</code>把匹配替换为指定的文本<ul>
+<li>语法：<code>sub(被替换的字符，替换成的字符，目标字符串，count)</code><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去掉所有非数字字符</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">str1=<span class="built_in">input</span>()</span><br><span class="line">str2=re.sub(<span class="string">&#x27;\D&#x27;</span>,<span class="string">&#x27;&#x27;</span>,str1) <span class="comment"># \D非数字，把非数字替换成无</span></span><br><span class="line"><span class="built_in">print</span>(str2)</span><br></pre></td></tr></table></figure>
+指定 count 参数来控制替换次数：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 替换前两次出现：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="built_in">str</span> = <span class="string">&quot;China is a great country&quot;</span></span><br><span class="line">x = re.sub(<span class="string">&quot;\s&quot;</span>, <span class="string">&quot;9&quot;</span>, <span class="built_in">str</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="Lambda函数"><a href="#Lambda函数" class="headerlink" title="Lambda函数"></a>Lambda函数</h1><ul>
+<li><p>lambda 函数是一种小的匿名函数。</p>
+</li>
+<li><p>lambda 函数可接受任意数量的参数，但只能有一个表达式。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把作为参数传入的数字加 10，然后打印结果</span></span><br><span class="line">x = <span class="keyword">lambda</span> a : a + <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(x(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 有一个带一个参数的函数定义，并且该参数将乘以未知数字：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">myfunc</span>(<span class="params">n</span>):</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">lambda</span> a : a * n</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h1><ul>
+<li><code>hex()</code>10进制转16进制</li>
+<li><code>bin()</code>10进制转2进制</li>
+<li><code>pow(x,y)</code>和<code>x**y</code>等价</li>
+<li><code>my_list.index(xxx)</code>返回xxx在my_list中的下标</li>
+<li><code>str.isalpha()</code>判断字符串是否只包含字母 <code>str.isdigit()</code>判断字符串是否只包含数字<br><code>str.isspace()</code>判断字符串是否包含空格</li>
+<li><code>find(xxx)</code> 查找字符在字符串的索引下标，未查到时，返回 -1</li>
+<li><code>index(xxx)</code> 查找字符在字符串的索引下标，未查到时，报错<code>ValueError</code></li>
+<li><code>count()</code>字符在字符串中出现的次数</li>
+<li><code>join()函数</code>：<code>&#39;sep&#39;.join(seq)</code><ul>
+<li><code>sep</code>：分隔符，可以为空</li>
+<li><code>seq</code>：要连接的元素序列、字符串、元组、字典</li>
+<li>返回值：一个以分隔符sep连接各个元素后生成的字符串</li>
+</ul>
+</li>
+<li><code>str.replace(old str,new str)</code></li>
+<li><code>round(float number,digit)</code>四舍五入</li>
+<li><code>eval(公式字符串)</code> 只要输入的字符串是一个公式，eval()函数能够直接计算这个公式的值</li>
+<li><code>set()</code>创建集合，自动去重</li>
+<li><code>sorted(集合)</code>临时排序</li>
+<li><code>.span</code> 返回匹配值的下标</li>
+</ul>
+
       
 
       
@@ -466,7 +588,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,7 +596,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,11 +616,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
              
               <li class="article-tag-list-item">

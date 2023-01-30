@@ -16,7 +16,7 @@
 <meta property="og:description" content="Directory 输入输出 输出 字符串 格式化 浮点数 其他   输入   列表 索引 遍历 内置函数 合并列表 切片   运算符">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-29T04:33:24.000Z">
-<meta property="article:modified_time" content="2023-01-29T09:24:14.656Z">
+<meta property="article:modified_time" content="2023-01-30T03:11:19.978Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -252,6 +252,11 @@
 方法七：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span> = <span class="built_in">input</span>()</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>) &lt; <span class="number">10</span> :</span><br><span class="line">    exit(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>[<span class="number">0</span>:<span class="number">10</span>])</span><br></pre></td></tr></table></figure>
 方法八：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="built_in">input</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">b=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    b.append(a[i])</span><br><span class="line">    <span class="comment"># append：在列表ls最后(末尾)添加一个元素object</span></span><br><span class="line">    <span class="comment"># 语法：ls.append(object) </span></span><br><span class="line">    <span class="comment"># 无返回值</span></span><br><span class="line">    <span class="comment"># object 可以添加 列表，字典，元组，集合，字符串等。</span></span><br><span class="line">s=<span class="string">&#x27;&#x27;</span>.join(b)</span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></table></figure>
 方法九：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="built_in">str</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">len</span>(a)&gt;=<span class="number">10</span>:</span><br><span class="line">    <span class="built_in">print</span>(a[<span class="number">0</span>:<span class="number">10</span>])</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure></li>
+<li>ASCII<ul>
+<li><code>ord()</code>返回单个字符的ASCII值(0-255)</li>
+<li><code>chr()</code>输入一个整数(0-255)返回对应的ASCII符号</li>
+</ul>
+</li>
 </ul>
 <h4 id="处理引号冲突的四种办法"><a href="#处理引号冲突的四种办法" class="headerlink" title="处理引号冲突的四种办法"></a>处理引号冲突的四种办法</h4><ul>
 <li>方法一：用转义字符<br>转义字符 反斜杠\，使 ‘被认为是一个字符<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Let\&#x27;s go&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
@@ -313,6 +318,8 @@
 </ul>
 <h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><ul>
 <li><code>input()</code>函数接受一个标准输入数据，返回为 string 类型</li>
+<li>统一行输入多个整数，需要映射<code>x,y,z=map(int,input().split())</code></li>
+<li>输入一行整数，转换成列表<code>num_list=list(map(int,input().split(&quot; &quot;)))</code></li>
 </ul>
 <h1 id="list列表"><a href="#list列表" class="headerlink" title="list列表"></a>list列表</h1><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ul>
 <li>正索引 第一项的索引为0</li>
@@ -645,7 +652,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,7 +660,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,11 +680,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
              
               <li class="article-tag-list-item">
