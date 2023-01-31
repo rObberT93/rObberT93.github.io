@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>leetcode-4 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="寻找两个正序数组的中位数给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。算法的时间复杂度应该为 O(log (m+n))">
-<meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-4">
-<meta property="og:url" content="http://example.com/2023/01/14/leetcode-4/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/4/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="寻找两个正序数组的中位数给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。算法的时间复杂度应该为 O(log (m+n))">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-14T13:34:13.000Z">
-<meta property="article:modified_time" content="2023-01-14T15:30:19.980Z">
 <meta property="article:author" content="rObberT93">
-<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,20 +157,22 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-4" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      leetcode-4
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/03/hello-world/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2023/01/14/leetcode-4/" class="archive-article-date">
-  	<time datetime="2023-01-14T13:34:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-14</time>
+        <a href="/2023/01/03/hello-world/" class="archive-article-date">
+  	<time datetime="2023-01-02T17:30:19.741Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-03</time>
 </a>
       
         <!-- 需要添加的位置 -->
@@ -186,7 +183,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">868字</span>
+        <span class="post-count">75字</span>
       </span>
     </span>
 
@@ -195,7 +192,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -207,42 +204,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<ol start="4">
-<li>寻找两个正序数组的中位数<br>给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。<br>算法的时间复杂度应该为 O(log (m+n))</li>
-</ol>
-</blockquote>
-<span id="more"></span>
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>思路：</p>
-<ul>
-<li><p>看到时间复杂度自然想到应该使用二分查找法。  </p>
-</li>
-<li><p>中位数的定义：如果有序数组长度是奇数，中位数就是最中间的数字，如果是偶数，是最中间两个数字的平均值。</p>
-</li>
-<li><p>这里对于两个有序数组也是一样的：假设两个有序数组的长度分别为m和n，由于两个数组长度之和 m+n 的奇偶不确定，因此需要分情况来讨论。</p>
-</li>
-<li><p>简化代码（不分情况讨论）：对第(m+n+1) &#x2F; 2 和 (m+n+2) &#x2F; 2 个求其平均值即可（奇偶数均适用）。假如m+n为奇数，则两值相等。</p>
-</li>
-<li><p>如何实现找到第K个元素。</p>
-</li>
-<li><p>首先，为了避免产生新的数组导致时间复杂度增加，使用变量i和j标记数组nums1和nums2的起始位置。</p>
-</li>
-<li><p>边界处理</p>
-</li>
-<li><p>使用二分法在两个有序数组中找到第K个元素：对K二分，即分别在nums1和nums2中查找第K&#x2F;2个元素，<strong>注意：由于两个数组的长度不定，所以可能某个数组没有第K&#x2F;2个数字</strong></p>
-</li>
-<li><p>先检查数组中是否存在第K&#x2F;2个数字，</p>
-<ul>
-<li>如果存在取出来</li>
-<li>否则赋值上一个整型最大值。</li>
-</ul>
-</li>
-<li><p>如果某个数组没有第K&#x2F;2个数字，那么我们就淘汰另一个数字的前K&#x2F;2个数字即可。有没有可能两个数组都不存在第K&#x2F;2个数字呢，这道题里是不可能的，因为我们的K不是任意给的，而是给的m+n的中间值，所以必定至少会有一个数组是存在第K&#x2F;2个数字的。</p>
-</li>
-<li><p>最后就是二分法的核心：比较这两个数组的第K&#x2F;2小的数字midVal1和midVal2的大小，如果第一个数组的第K&#x2F;2个数字小的话，那么说明我们要找的数字肯定不在nums1中的前K&#x2F;2个数字，所以我们可以将其淘汰，将nums1的起始位置向后移动K&#x2F;2个，并且此时的K也减去K&#x2F;2，调用递归。反之，我们淘汰nums2中的前K&#x2F;2个数字，并将nums2的起始位置向后移动K&#x2F;2个，并且此时的K也自减去K&#x2F;2，调用递归即可</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = nums1.<span class="built_in">length</span>();</span><br><span class="line">        <span class="type">int</span> n = nums2.<span class="built_in">length</span>();</span><br><span class="line">        <span class="type">int</span> left = (m + n + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> right = (m + n + <span class="number">2</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">findKth</span>(nums1, <span class="number">0</span>, nums2, <span class="number">0</span>, left) + <span class="built_in">findKth</span>(nums1, <span class="number">0</span>, nums2, <span class="number">0</span>, right)) / <span class="number">2.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//i: nums1的起始位置 j: nums2的起始位置</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="type">int</span> <span class="title">findKth</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> j, <span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>( i &gt;= nums1.<span class="built_in">length</span>()) <span class="keyword">return</span> nums2[j + k - <span class="number">1</span>];<span class="comment">//nums1为空数组</span></span><br><span class="line">        <span class="keyword">if</span>( j &gt;= nums2.<span class="built_in">length</span>()) <span class="keyword">return</span> nums1[i + k - <span class="number">1</span>];<span class="comment">//nums2为空数组</span></span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> Math.<span class="built_in">min</span>(nums1[i], nums2[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> midVal1 = (i + k / <span class="number">2</span> - <span class="number">1</span> &lt; nums1.length) ? nums1[i + k / <span class="number">2</span> - <span class="number">1</span>] : Integer.MAX_VALUE;</span><br><span class="line">        <span class="type">int</span> midVal2 = (j + k / <span class="number">2</span> - <span class="number">1</span> &lt; nums2.length) ? nums2[j + k / <span class="number">2</span> - <span class="number">1</span>] : Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">if</span>(midVal1 &lt; midVal2)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">findKth</span>(nums1, i + k / <span class="number">2</span>, nums2, j , k - k / <span class="number">2</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">findKth</span>(nums1, i, nums2, j + k / <span class="number">2</span> , k - k / <span class="number">2</span>);</span><br><span class="line">        &#125;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
 
@@ -251,98 +225,19 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/03/hello-world/">Have a look ~ >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/14/leetcode-4/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2023/01/14/leetcode-6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          leetcode_6
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2023/01/12/CSAPP-chapter-2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSAPP_chapter_2</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -362,14 +257,12 @@
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 
 
@@ -396,8 +289,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
