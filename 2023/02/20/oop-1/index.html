@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>哈希表 | Hexo</title>
+  <title>oop-1 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="directory 数组模拟哈希表 STL中的hashmap unordered_map容器成员">
+  <meta name="description" content="directory 前言 编程环境和工具 命令行 编译器 环境变量   ssh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="哈希表">
-<meta property="og:url" content="http://example.com/2023/01/08/%E5%93%88%E5%B8%8C%E8%A1%A8/index.html">
+<meta property="og:title" content="oop-1">
+<meta property="og:url" content="http://example.com/2023/02/20/oop-1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="directory 数组模拟哈希表 STL中的hashmap unordered_map容器成员">
+<meta property="og:description" content="directory 前言 编程环境和工具 命令行 编译器 环境变量   ssh">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-08T15:04:01.000Z">
-<meta property="article:modified_time" content="2023-02-07T12:00:26.837Z">
+<meta property="article:published_time" content="2023-02-20T00:17:45.000Z">
+<meta property="article:modified_time" content="2023-02-20T09:14:11.522Z">
 <meta property="article:author" content="rObberT93">
-<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="oop">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,20 +162,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-哈希表" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-oop-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      哈希表
+      oop-1
     </h1>
   
 
         
-        <a href="/2023/01/08/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2023-01-08T15:04:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-08</time>
+        <a href="/2023/02/20/oop-1/" class="archive-article-date">
+  	<time datetime="2023-02-20T00:17:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-20</time>
 </a>
       
         <!-- 需要添加的位置 -->
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">592字</span>
+        <span class="post-count">518字</span>
       </span>
     </span>
 
@@ -208,85 +208,91 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
-<li>数组模拟哈希表</li>
-<li>STL中的hashmap</li>
-<li>unordered_map容器成员<span id="more"></span></li>
+<li>前言</li>
+<li>编程环境和工具<ul>
+<li>命令行</li>
+<li>编译器</li>
+<li>环境变量</li>
 </ul>
-<h2 id="数组模拟哈希表"><a href="#数组模拟哈希表" class="headerlink" title="数组模拟哈希表"></a>数组模拟哈希表</h2><h2 id="STL中hashmap"><a href="#STL中hashmap" class="headerlink" title="STL中hashmap"></a>STL中hashmap</h2><p><code>unordered_map&lt;int , int&gt;</code></p>
+</li>
+<li>ssh<span id="more"></span></li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="https://github.com/rObberT93/THUoop">获取全部课程笔记</a></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li>《c++编程思想(2017)》</li>
+<li>《设计模式》</li>
+<li>《c++ primer》</li>
+<li><a target="_blank" rel="noopener" href="http://www.cplusplus.com/">www.cplusplus.com</a></li>
+</ul>
+<h4 id="课程理念"><a href="#课程理念" class="headerlink" title="课程理念"></a>课程理念</h4><p>编写更好的软件</p>
 <ul>
-<li>unordered_map 容器中是无序的，map 容器中根据自行对存储的键值对进行排序</li>
-<li>以键值对（pair类型）的形式存储数据，存储的各个键值对的键互不相同且不允许被修改</li>
-<li>头文件<code>include&lt;unordered_map&gt;</code></li>
-<li>创建<code>unordered_map&lt;int , int &gt;maptable</code></li>
-<li>复制（拷贝）构造函数：将现有 unordered_map 容器中存储的键值对，复制给新建 unordered_map 容器<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在创建好 umap 容器的基础上，再创建并初始化一个 umap2 容器</span></span><br><span class="line"><span class="function">std::unordered_map&lt;std::string, std::string&gt; <span class="title">umap2</span><span class="params">(umap)</span></span>;</span><br></pre></td></tr></table></figure></li>
-<li>移动构造函数：以右值引用的方式将临时 unordered_map 容器中存储的所有键值对，全部复制给新建容器<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用移动构造函数，创建 umap2 容器</span></span><br><span class="line"><span class="function">std::unordered_map&lt;std::string, std::string&gt; <span class="title">umap2</span><span class="params">(retUmap())</span></span>;</span><br></pre></td></tr></table></figure></li>
-<li>键值对：value和key<br><code>std::map&lt;X, Y</code>&gt;实际储存了一串<code>std::pair&lt;const X, Y&gt;</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt; m = <span class="comment">/* fill it */</span>;</span><br><span class="line"><span class="keyword">auto</span> it = m.<span class="built_in">begin</span>();</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>(*it).first</code>，即<code>it-&gt;first</code>会得到key</li>
-<li><code>(*it).second</code>，即<code>it-&gt;second</code>会得到value</li>
+<li>简单性</li>
+<li>清晰性</li>
+<li>普遍性——可移植性</li>
+</ul>
+<p>思考c++为什么这么设计？这么设计还有没有什么问题？进行创新型思考。<br>培养“抽象思维”，通过抽象认知复杂世界</p>
+<h4 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h4><ul>
+<li>过程抽象</li>
+<li>数据抽象</li>
+</ul>
+<h4 id="课程评价"><a href="#课程评价" class="headerlink" title="课程评价"></a>课程评价</h4><ul>
+<li>平时练习6次 50%</li>
+<li>期末考试 40%</li>
+<li>开源工程项目的阅读报告10%</li>
+<li>雨课堂(扣分) -5%</li>
+<li>bonus(额外) +5%</li>
+<li><strong>！！！抄袭</strong>查重直接取消本次作业成绩</li>
+</ul>
+<h2 id="编程环境和工具"><a href="#编程环境和工具" class="headerlink" title="编程环境和工具"></a>编程环境和工具</h2><h4 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h4><ul>
+<li>Linux</li>
+<li>wsl windows subsystem for linux</li>
+</ul>
+<h4 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h4><ul>
+<li>IDE <ul>
+<li>DEV C++ </li>
+<li>Code::Blocks </li>
+<li>CLion </li>
+<li>XCode </li>
+<li>Visual Studio Code</li>
+</ul>
+</li>
+<li>Editor <ul>
+<li>Sublime Text</li>
+<li>Notepad++ </li>
+<li>Vim</li>
+</ul>
+</li>
+<li>windows上编译器<ul>
+<li>minGW<ul>
+<li>下载链接 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a></li>
+</ul>
+</li>
+<li>TDM-GCC</li>
+<li>Clang</li>
+<li>MSVC</li>
 </ul>
 </li>
 </ul>
-<h2 id="unordered-map容器成员"><a href="#unordered-map容器成员" class="headerlink" title="unordered_map容器成员"></a>unordered_map容器成员</h2><table>
-<thead>
-<tr>
-<th align="left">成员方法</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">begin()</td>
-<td>返回指向容器中第一个键值对的正向迭代器</td>
-</tr>
-<tr>
-<td align="left">end()</td>
-<td>返回指向容器中最后一个键值对之后位置的正向迭代器</td>
-</tr>
-<tr>
-<td align="left">empty()</td>
-<td>若容器为空，则返回 true；否则 false</td>
-</tr>
-<tr>
-<td align="left">size()</td>
-<td>返回当前容器中存有键值对的个数</td>
-</tr>
-<tr>
-<td align="left">at(key)</td>
-<td>返回容器中存储的键 key 对应的值，如果 key 不存在，则会抛出 out_of_range 异常</td>
-</tr>
-<tr>
-<td align="left">find(key)</td>
-<td>查找以 key 为键的键值对，如果找到，则返回一个指向该键值对的正向迭代器；反之，则返回一个指向容器中最后一个键值对之后位置的迭代器</td>
-</tr>
-<tr>
-<td align="left">count(key)</td>
-<td>在容器中查找以 key 键的键值对的个数。</td>
-</tr>
-<tr>
-<td align="left">emplace()</td>
-<td>向容器中添加新键值对，效率比 insert() 方法高。</td>
-</tr>
-<tr>
-<td align="left">erase()</td>
-<td>删除指定键值对</td>
-</tr>
-<tr>
-<td align="left">clear()</td>
-<td>清空容器，即删除容器中存储的所有键值对</td>
-</tr>
-<tr>
-<td align="left">swap()</td>
-<td>交换 2 个 unordered_map 容器存储的键值对，前提是必须保证这 2 个容器的类型完全相等</td>
-</tr>
-<tr>
-<td align="left">bucket_size(n)</td>
-<td>返回第 n 个桶中存储键值对的数量</td>
-</tr>
-<tr>
-<td align="left">bucket(key)</td>
-<td>返回以 key 为键的键值对所在桶的编号</td>
-</tr>
-</tbody></table>
+<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>在命令⾏中执⾏命令时，系统除了在当前目录下面寻找程序外，还会到<br>Path环境变量中的目录去找</p>
+<ul>
+<li>环境变量⼀般是指在操作系统中用来指定操作系统运行环境的⼀些参<br>数，如：临时文件夹位置和系统文件夹位置等</li>
+<li>Windows下配置环境变量<br>• 这台电脑$\rightarrow$右键$\rightarrow$高级系统设置$\rightarrow$高级$\rightarrow$环境变量$\rightarrow$用户环境变量Path$\rightarrow$添加g++所在路径并以分号与其他路径隔开<br>• 在命令提示符中输⼊<code>g++ -v</code>测试是否配置成功</li>
+<li>Linux&#x2F;MAC下配置环境变量<br>• 配置环境变量编辑<code>~/.bashrc</code>⽂件<br>• 立即启用: <code>source ~/.bashrc</code><br>• 且当每次打开新的shell时，<code>~/.bashrc</code>被执⾏<br>• PATH的路径以冒号分隔, 上图中新增两项之后以冒号分<br>隔，<code>$PATH</code> 引用原来的变量<br>• 在命令行中使用<code>echo $PATH</code> 可查看当前PATH环境变量</li>
+</ul>
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><ul>
+<li>本地windows连接Ubuntu</li>
+<li>本地IPV4地址：127.0.0.1</li>
+<li>Ubuntu<ul>
+<li>host name:zhang-PC</li>
+<li>user name:root</li>
+<li>process ID:1286</li>
+</ul>
+</li>
+<li>ssh username@ip<ul>
+<li>ssh 1286@root</li>
+</ul>
+</li>
+</ul>
 
       
 
@@ -300,7 +306,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oop</a>
         		</li>
       		
 		</ul>
@@ -356,7 +362,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/08/%E5%93%88%E5%B8%8C%E8%A1%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/02/20/oop-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,18 +376,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/01/11/set/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          set
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/01/04/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">离散数学</div>
+    <a href="/2023/02/18/%E5%89%8D%E7%AB%AF2-CSS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端2_CSS</div>
       <i class="icon-circle-right"></i>
     </a>
   

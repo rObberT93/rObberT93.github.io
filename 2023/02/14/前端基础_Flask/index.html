@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>前端基础——FLASK | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 目的：开发一个平台(网站) 前端开发：HTML CSS JavaScript web框架：接受请求并处理 MySQL数据库：存储数据的地方   快速上手：基于Flask Web框架快速搭建一个网站 深入学习：基于Django框架  Flask1234567891011121314151617from flask import Flask,render_templateapp &#x3D; Flask(">
+  <meta name="description" content="前言 目的：开发一个平台(网站) 前端开发：HTML CSS JavaScript web框架：接受请求并处理 MySQL数据库：存储数据的地方   快速上手：基于Flask Web框架快速搭建一个网站 深入学习：基于Django框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端基础——FLASK">
 <meta property="og:url" content="http://example.com/2023/02/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80_Flask/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言 目的：开发一个平台(网站) 前端开发：HTML CSS JavaScript web框架：接受请求并处理 MySQL数据库：存储数据的地方   快速上手：基于Flask Web框架快速搭建一个网站 深入学习：基于Django框架  Flask1234567891011121314151617from flask import Flask,render_templateapp &#x3D; Flask(">
+<meta property="og:description" content="前言 目的：开发一个平台(网站) 前端开发：HTML CSS JavaScript web框架：接受请求并处理 MySQL数据库：存储数据的地方   快速上手：基于Flask Web框架快速搭建一个网站 深入学习：基于Django框架">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-14T07:54:36.000Z">
-<meta property="article:modified_time" content="2023-02-18T00:55:18.679Z">
+<meta property="article:modified_time" content="2023-02-20T00:19:29.742Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -68,7 +68,7 @@
 		</nav>
 
 		<nav>
-			总文章数 45
+			总文章数 46
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -215,7 +215,7 @@
 </ul>
 </li>
 <li>快速上手：基于Flask Web框架快速搭建一个网站</li>
-<li>深入学习：基于Django框架</li>
+<li>深入学习：基于Django框架<span id="more"></span></li>
 </ul>
 <h2 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,render_template</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建了网址/show/info 和 函数index 的对应关系</span></span><br><span class="line"><span class="comment"># 以后用户在浏览器上访问 /show/indo，网站自动执行 index</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/show/info&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="comment"># return &quot;hello&quot;</span></span><br><span class="line">    <span class="comment"># flask内部会自动打开这个文件并读取内容，将内容返回给用户</span></span><br><span class="line">    <span class="comment"># 默认：取当前项目目录的templates文件夹中寻找</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;index.html&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
 <h1 id="浏览器能识别的编码"><a href="#浏览器能识别的编码" class="headerlink" title="浏览器能识别的编码"></a>浏览器能识别的编码</h1><h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><ul>
@@ -527,19 +527,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dsa</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,7 +539,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">csapp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dsa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +555,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">oop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oop</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,11 +571,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
