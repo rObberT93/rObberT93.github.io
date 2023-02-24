@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>离散2-L1 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="directory 前言 图论课程理念：建模ex: 哈密顿图 欧拉图">
+  <meta name="description" content="directory 前言 图的基本概念 图的基本性质">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散2-L1">
 <meta property="og:url" content="http://example.com/2023/02/24/%E7%A6%BB%E6%95%A32-L1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="directory 前言 图论课程理念：建模ex: 哈密顿图 欧拉图">
+<meta property="og:description" content="directory 前言 图的基本概念 图的基本性质">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-24T01:53:42.000Z">
-<meta property="article:modified_time" content="2023-02-24T02:57:04.662Z">
+<meta property="article:modified_time" content="2023-02-24T04:13:40.116Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="离散">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">19字</span>
+        <span class="post-count">770字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -209,7 +209,133 @@
       
         <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
 <li>前言</li>
-<li>图论<br>课程理念：建模<br>ex: 哈密顿图 欧拉图</li>
+<li>图的基本概念</li>
+<li>图的基本性质</li>
+</ul>
+<span id="more"></span>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>课程理念：建模<br>ex: 哈密顿图 欧拉图</p>
+<h2 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h2><p>客观世界用图来建模。</p>
+<h4 id="lead-in"><a href="#lead-in" class="headerlink" title="lead in"></a>lead in</h4><blockquote>
+<p>例：Ramsey问题<br>6个人中没有3个人互相认识，则至少有3个人相互不认识。</p>
+</blockquote>
+<p>定理：如果在一个有r个顶点的图G中，不存在一个完全图Ka，则在其补图中存在完全图Kb。</p>
+<blockquote>
+<p>例：<br>7个人圆桌就坐，是的每个人都能与两旁的人交谈。</p>
+</blockquote>
+<p>哈密顿通路(回路)：经过所有顶点的初级通路</p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><h5 id="应用1-在网络上的应用"><a href="#应用1-在网络上的应用" class="headerlink" title="应用1.在网络上的应用"></a>应用1.在网络上的应用</h5><ul>
+<li>鲁棒</li>
+<li>流量均衡</li>
+<li>成本节约</li>
+</ul>
+<h5 id="应用2-图割"><a href="#应用2-图割" class="headerlink" title="应用2. 图割"></a>应用2. 图割</h5><ul>
+<li>最大流-最小割算法<ul>
+<li>图像个像素为图的顶点</li>
+<li>相邻像素间构成边，根据颜色差异计算边权重</li>
+<li>添加起点S，起点指向所有顶点</li>
+<li>添加终点T，所有顶点指向终点</li>
+<li>构成图G</li>
+</ul>
+</li>
+</ul>
+<h5 id="应用3-机器学习"><a href="#应用3-机器学习" class="headerlink" title="应用3. 机器学习"></a>应用3. 机器学习</h5><ul>
+<li>深度波尔兹曼机</li>
+<li>GNN 图神经网络</li>
+</ul>
+<h4 id="图的概念"><a href="#图的概念" class="headerlink" title="图的概念"></a>图的概念</h4><ul>
+<li><p>基本元素</p>
+<ul>
+<li>顶点(结点)：元素</li>
+<li>边：关系</li>
+</ul>
+</li>
+<li><p>分类</p>
+<ul>
+<li>有限图</li>
+<li>无限图</li>
+</ul>
+</li>
+<li><p>阶：结点个数</p>
+</li>
+<li><p>特例：</p>
+<ul>
+<li>空图：有结点没有边</li>
+<li>平凡图：只有一个结点</li>
+</ul>
+</li>
+<li><p>有向图 无向图 混合图</p>
+</li>
+<li><p>顶点和边</p>
+<ul>
+<li>关联：$e_k&#x3D;(v_i,v_j)$</li>
+<li>环</li>
+<li>孤立点</li>
+<li>关联次数</li>
+</ul>
+</li>
+<li><p>相邻</p>
+<ul>
+<li>(无向图)<ul>
+<li>顶点相邻</li>
+<li>变相邻</li>
+<li>重边</li>
+</ul>
+</li>
+<li>(有向图)<ul>
+<li>前驱</li>
+<li>后继</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>简单图：无重边，无自环的无向图</strong></p>
+</li>
+<li><p>多重图</p>
+</li>
+<li><p>伪图</p>
+</li>
+<li><p>顶点的度数</p>
+<ul>
+<li>出度</li>
+<li>入度</li>
+<li>最大度 最小度</li>
+<li>度序列–判别同构</li>
+</ul>
+</li>
+<li><p>加权图</p>
+<ul>
+<li>正权图</li>
+</ul>
+</li>
+</ul>
+<h2 id="图的基本性质"><a href="#图的基本性质" class="headerlink" title="图的基本性质"></a>图的基本性质</h2><blockquote>
+<p>1.1.1 握手定理:<br>任意图$G(n,m)$的所有顶点的度数之和等于边数的2倍<br>有向图：出度和&#x3D;入度和</p>
+</blockquote>
+<blockquote>
+<p>1.1.2 握手定理推论：<br>奇数顶点的个数必为偶数</p>
+</blockquote>
+<p><strong>例：证明不存在具有奇数个面却每个面都具有奇数条棱的多面体</strong><br>顶点：面<br>    边：两个面相邻</p>
+<blockquote>
+<p>1.1.5 性质：<br>非空简单图G中一定存在度相同的顶点</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proof：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="几种特殊的图"><a href="#几种特殊的图" class="headerlink" title="几种特殊的图"></a>几种特殊的图</h4><ul>
+<li>无向完全图G，记作$K_n$<ul>
+<li>边数：$\frac{1}{2}\times n\times (n-1)$</li>
+</ul>
+</li>
+<li>有向完全图</li>
+<li>k-正则图：每个顶点的度数均为k</li>
+<li>轮图：无向图$C_{n-1}$内放一个顶点，且与圈图的每个顶点之间恰有一条边（$n\geq 4$）</li>
+<li>二分图：$G&#x3D;&lt;V,E&gt;$，如果V可以划分成两个不相交的非空子集$V_1,V_2$,使得图中的每条边均由$V_1$中的一个顶点和$V_2$中的一个顶点组成。<ul>
+<li>注：三角形不是二分图</li>
+<li>注：一个有六个顶点的圈是二分图</li>
+<li>有两个结点的图是不是一定是二分图？不一定，自环。</li>
+<li>有三个结点和非空边集的简单图是不是二分图？三条边的时候都不是，两条及以下是</li>
+<li>二分图的剖分方式唯一吗？不唯一，孤立点。</li>
+</ul>
+</li>
+<li>完全二分图：$K_{m,n}$</li>
 </ul>
 
       
@@ -451,19 +577,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">csapp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,11 +617,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
              
               <li class="article-tag-list-item">
