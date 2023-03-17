@@ -16,7 +16,7 @@
 <meta property="og:description" content="directory 3.1 函数重载与缺省值 3.2 基础知识 3.3 类与对象 3.4 成员变量与成员函数 3.5 private和public  3.6 this指针 3.7 内联函数">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-02T15:22:49.000Z">
-<meta property="article:modified_time" content="2023-03-03T03:43:33.213Z">
+<meta property="article:modified_time" content="2023-03-06T23:07:39.368Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="oop">
 <meta name="twitter:card" content="summary">
@@ -68,7 +68,7 @@
 		</nav>
 
 		<nav>
-			总文章数 55
+			总文章数 60
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">375字</span>
+        <span class="post-count">4k字</span>
       </span>
     </span>
 
@@ -195,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">17分</span>
       </span>
     </span>
 </div>
@@ -218,29 +218,226 @@
 </ul>
 <h2 id="3-1-函数重载与缺省值"><a href="#3-1-函数重载与缺省值" class="headerlink" title="3.1 函数重载与缺省值"></a>3.1 函数重载与缺省值</h2><h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><ul>
 <li>why: 名一样而义不同<ul>
-<li>同一任务，但输入信息的类型不同<ul>
+<li>同一任务，但输入<strong>信息的类型</strong>不同<ul>
 <li><code>sum(int a, int b);</code></li>
 <li><code>sum(double a, double b);</code></li>
 </ul>
 </li>
-<li>同一任务，函数输入信息的存储形式不同 <ul>
+<li>同一任务，函数<strong>输入信息的存储形式</strong>不同 <ul>
 <li><code>sort(const char* s);</code></li>
 <li><code>sort(string str);</code></li>
 </ul>
 </li>
-<li>相似任务，在抽象概念层面一致</li>
+<li>相似任务，在<strong>抽象概念</strong>层面一致</li>
 </ul>
 </li>
 <li>def: 同一名称的函数，有两个以上不同的函数实现.</li>
 <li>编译器将根据函数调用语句的实际参数来决定哪一个函数被调用</li>
-<li>注意：多个同名的函数实现之间，必须保证至少有一个<strong>函数参数的类型</strong>有区别。<strong>返回值、参数名称</strong>等<strong>不能</strong>作为区分标识。</li>
+<li>注意：多个同名的函数实现之间，必须保证至少有一个<strong>函数参数的类型</strong>有区别。<ul>
+<li><strong>返回值、参数名称</strong>等<strong>不能</strong>作为区分标识。</li>
+<li>函数<strong>参数的个数</strong>、<strong>类型</strong>等至少有一个不一样</li>
+</ul>
+</li>
 </ul>
 <h3 id="内置类型转换"><a href="#内置类型转换" class="headerlink" title="内置类型转换"></a>内置类型转换</h3><ul>
 <li>如果函数调用语句的<strong>实参</strong>与函数定义中的<strong>形参</strong>数据类型不同，且两种数据类型在C++中可以进行自动类型转换（如int和float），则实参会被<strong>转换为形参的类型</strong></li>
-<li>如果形参类型为int，实参类型为float，则向零取整</li>
+<li>如果形参类型为int，实参类型为float，则<strong>向零取整</strong></li>
 <li>自动类型转换也可以通过定义的类型转换运算符来完成</li>
 </ul>
-<h2 id="3-2-基础知识"><a href="#3-2-基础知识" class="headerlink" title="3.2 基础知识"></a>3.2 基础知识</h2><h2 id="3-3-类与对象"><a href="#3-3-类与对象" class="headerlink" title="3.3 类与对象"></a>3.3 类与对象</h2><h2 id="3-4-成员变量与成员函数"><a href="#3-4-成员变量与成员函数" class="headerlink" title="3.4 成员变量与成员函数"></a>3.4 成员变量与成员函数</h2><h2 id="3-5-private和public"><a href="#3-5-private和public" class="headerlink" title="3.5 private和public"></a>3.5 private和public</h2><h2 id="3-6-this指针"><a href="#3-6-this指针" class="headerlink" title="3.6 this指针"></a>3.6 this指针</h2><h2 id="3-7-内联函数"><a href="#3-7-内联函数" class="headerlink" title="3.7 内联函数"></a>3.7 内联函数</h2>
+<h3 id="函数参数的缺省值"><a href="#函数参数的缺省值" class="headerlink" title="函数参数的缺省值"></a>函数参数的缺省值</h3><ul>
+<li>函数参数可以在定义时设置默认值（缺省值）</li>
+<li>在调用该函数时，若不提供相应的实参，则编译自动将相应形参设置成缺省值</li>
+<li>有缺省值的函数参数，必须是最后一个参数</li>
+<li>如果有多个带缺省值的函数参数，则这些函数参数都只能在没有缺省值的参数后面出现</li>
+<li>缺省值冲突问题</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun</span><span class="params">(<span class="type">int</span> a=<span class="number">1</span>)</span> </span>&#123; <span class="keyword">return</span> a+<span class="number">1</span>; &#125;</span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">fun</span><span class="params">(<span class="type">float</span> a)</span> </span>&#123; <span class="keyword">return</span> a; &#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123; <span class="keyword">return</span> a+b; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">float</span> a = <span class="number">1.5</span>; </span><br><span class="line">    <span class="type">int</span> b = <span class="number">2</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">fun</span>(a, b) &lt;&lt; endl; <span class="comment">// 3</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">fun</span>(<span class="built_in">fun</span>(a, b)) &lt;&lt; endl; <span class="comment">// 4</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">fun</span>(<span class="built_in">fun</span>(a, b)) + <span class="built_in">fun</span>(<span class="built_in">fun</span>(a), b) &lt;&lt; endl; <span class="comment">// 7</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h3><ul>
+<li>由编译器根据上下文自动确定变量的类型</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auto i = 3; 	//i是int型变量</span><br><span class="line">auto f = 4.0f; 	//f是float型变量</span><br><span class="line">auto a(&#x27;c&#x27;); 	//a是char型变量</span><br><span class="line">auto b = a; 	//b是char型变量</span><br><span class="line">auto *x = new auto(3);	//x是int*</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cxxabi.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">(<span class="type">char</span>* a, <span class="type">int</span> b = <span class="number">1</span>)</span> </span>&#123; cout &lt;&lt; a &lt;&lt; <span class="string">&quot; &quot;</span>  &lt;&lt; b &lt;&lt; endl;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">char</span>* <span class="title">get_type</span><span class="params">(<span class="type">const</span> T&amp; instance)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> abi::__cxa_demangle(<span class="built_in">typeid</span>((instance)).<span class="built_in">name</span>(), <span class="literal">nullptr</span>, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> *a = <span class="keyword">new</span> <span class="built_in">auto</span> (<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">auto</span> b = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">    <span class="keyword">auto</span> c = <span class="keyword">new</span> <span class="type">int</span> [<span class="number">10</span>]; <span class="comment">// int *</span></span><br><span class="line">    <span class="comment">//auto *d = 1; 无法编译通过</span></span><br><span class="line">    <span class="comment">//自动类型推导(auto)需从初始化表达式中推导出变量的类型</span></span><br><span class="line">    <span class="comment">//但是这里的初始化表达式1是一个类型为int的整型字面量，而指针类型的语法要求显式地指定一个类型，所以编译器无法推导出指针的类型。</span></span><br><span class="line">    <span class="comment">//如果想声明一个指向整型字面量1的指针，你可以这样写：</span></span><br><span class="line">    <span class="comment">//auto *d = new int(1);</span></span><br><span class="line">    <span class="comment">//将创建一个int类型的动态分配对象，然后将指针d指向这个对象。</span></span><br><span class="line">    <span class="comment">//在不需要时删除它，以避免内存泄漏。</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">get_type</span>(a) &lt;&lt; endl; <span class="comment">// int*</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">get_type</span>(b) &lt;&lt; endl; <span class="comment">// char const*</span></span><br><span class="line">    cout &lt;&lt; <span class="built_in">get_type</span>(c) &lt;&lt; endl; <span class="comment">//int*</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>追踪返回类型的函数<ul>
+<li>可以将函数返回类型的声明信息放到函数参数列表的后面进行声明</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto func(char* ptr, int val) -&gt; int;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：<ul>
+<li>auto变量必须在编译器确定类型</li>
+<li>auto变量必须在定义时初始化<ul>
+<li><code>auto a; //错误</code></li>
+<li><code>auto b4 = 10, b5 = 20.0, b6 = &#39;a&#39;; //错误,没有推导为同一类型</code></li>
+</ul>
+</li>
+<li>参数不能被声明为auto<ul>
+<li><code>void func(auto a) &#123;…&#125; //错误</code></li>
+</ul>
+</li>
+<li>auto不是一个真正的类型，不能使用一些以类型为操作数的操作符，如sizeof或typeid<ul>
+<li><code>cout &lt;&lt; sizeof(auto) &lt;&lt; endl; //错误</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h3><ul>
+<li>可以对变量或表达式结果的类型进行推导</li>
+<li>重用匿名类型</li>
+<li>auto + decltype 自动追踪返回类型</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// c++11</span></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">func</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> -&gt; <span class="title">decltype</span><span class="params">(x + y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// c++14</span></span><br><span class="line"><span class="comment">// 不需要显式指定返回类型</span></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">func</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内存申请与释放"><a href="#内存申请与释放" class="headerlink" title="内存申请与释放"></a>内存申请与释放</h3><ul>
+<li>内存的动态申请与释放<code>new</code> <code>delete</code></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> * ptr = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">10</span>); <span class="comment">// 单个变量</span></span><br><span class="line"><span class="type">int</span> * array = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">10</span>]; <span class="comment">// 10元素数组</span></span><br><span class="line"><span class="keyword">delete</span> ptr; <span class="comment">// 删除指针变量所指单个内存单元</span></span><br><span class="line"><span class="keyword">delete</span>[] array; <span class="comment">// 删除多个单元组成的内存块 </span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>零指针<ul>
+<li>NULL表示空指针，是一个int型变量</li>
+<li>nullptr是严格意义上的空指针</li>
+</ul>
+</li>
+</ul>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><ul>
+<li>基于范围的for循环<br>由冒号分为两个部分，第一部分是用于迭代的变量，第二部分表示被迭代的范围<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> e : arr) <span class="comment">// auto e : arr 也可以</span></span><br><span class="line">        cout &lt;&lt; e &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-2-基础知识"><a href="#3-2-基础知识" class="headerlink" title="3.2 基础知识"></a>3.2 基础知识</h2><ul>
+<li>oop的基本特征：封装（数据 + 函数）</li>
+</ul>
+<h2 id="3-3-类与对象"><a href="#3-3-类与对象" class="headerlink" title="3.3 类与对象"></a>3.3 类与对象</h2><ul>
+<li>class 用户自定义的类型<ul>
+<li>包含函数与数据的特殊“结构体”，用于扩充C++语言的类型体系</li>
+<li>类中包含的函数：“成员函数”</li>
+<li>包含的数据：“成员变量”</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-4-成员变量与成员函数"><a href="#3-4-成员变量与成员函数" class="headerlink" title="3.4 成员变量与成员函数"></a>3.4 成员变量与成员函数</h2><ul>
+<li><p>成员函数必须在类内声明，但定义（实现）可以在类内或者类外。</p>
+<ul>
+<li>通常，<strong>类的声明放在头文件中</strong>，而<strong>类的成员函数实现（定义）则放在实现文件中</strong>。</li>
+<li>一般将不同的类分别保存为<strong>不同的</strong>头文件和实现文件。</li>
+</ul>
+</li>
+<li><p>类&#x3D; “属性&#x2F;数据” + “服务&#x2F;函数”</p>
+</li>
+<li><p>为了方便解决依赖关系，复杂的成员函数声明和定义一般是分离的，很少使用类内定义的方式。</p>
+</li>
+</ul>
+<h2 id="3-5-类成员的访问权限"><a href="#3-5-类成员的访问权限" class="headerlink" title="3.5 类成员的访问权限"></a>3.5 类成员的访问权限</h2><ul>
+<li>public：可以在类外访问</li>
+<li>private：可以在类外访问<ul>
+<li>class中成员的<strong>缺省属性</strong>为private，即不声明默认为private</li>
+</ul>
+</li>
+<li>protected</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// matrix.h</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fill</span><span class="params">(<span class="type">char</span> dir)</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> data[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line">&#125;; <span class="comment">// &lt;1&gt;</span></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span> &#123;</span><br><span class="line">	<span class="type">int</span> data[<span class="number">6</span>][<span class="number">6</span>]; <span class="comment">// class中成员的缺省属性为private</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fill</span><span class="params">(<span class="type">char</span> dir)</span></span>;</span><br><span class="line">&#125;; <span class="comment">// &lt;2&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>不允许在类外(非该类的成员函数)操作访问对象的私有成员和保护成员，只能访问它的公有属性的成员（函数、数据）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;matrix.h&quot;</span>		<span class="comment">// Matrix类的声明</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Matrix obj;		<span class="comment">// 定义变量（对象）</span></span><br><span class="line">	obj.<span class="built_in">fill</span>(<span class="string">&#x27;u&#x27;</span>);   	<span class="comment">// 访问公有成员</span></span><br><span class="line">	obj.data[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">23</span>; 	<span class="comment">// ERROR! 不能在类外访问私有成员和保护成员</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以在类内用“.”操作访问<strong>同一类</strong>下的私有成员</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// matrix.h</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> data[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(Matrix a)</span></span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fill</span><span class="params">(<span class="type">char</span> dir)</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// matrix.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;matrix.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Matrix::add</span><span class="params">(Matrix a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">6</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;<span class="number">6</span>; j++) &#123;</span><br><span class="line">            data[i][j] += a.data[i][j];   <span class="comment">// 可以在类内用“.”操作访问同一类下的私有成员</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">P</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line">	<span class="type">int</span> data = <span class="number">1</span>;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(P a)</span></span>;</span><br><span class="line"><span class="keyword">public</span>:   </span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123; data += i; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">P::add</span><span class="params">(P a)</span> </span>&#123;  data += a.data; &#125; <span class="comment">// A：在P类私有函数内访问同类P对象的私有成员，类内访问</span></span><br><span class="line"><span class="comment">// 虽然私有成员是不可直接访问的，但是同一个类的成员函数可以访问该类的所有成员，包括私有成员。</span></span><br><span class="line"><span class="comment">//在这个例子中，add(P a) 是 P 类的一个成员函数，所以它可以访问 P 类的私有成员 data。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//需要注意的是，add(P a) 是私有成员函数，只能被该类内的其他成员函数调用，而不能被外部调用。</span></span><br><span class="line"><span class="comment">//因此，这个函数只能在类内部被使用，而不会对类外部的代码造成影响。</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Q</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(P a)</span> </span>&#123; data += a.data; &#125; <span class="comment">//B：Q类函数内访问P类对象的私有成员</span></span><br><span class="line"><span class="keyword">public</span>:   </span><br><span class="line">	<span class="type">int</span> data = <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    P a, b; Q c; </span><br><span class="line">    <span class="type">int</span> d = c.data; <span class="comment">// C：Q类对象的公有数据成员 </span></span><br><span class="line">    a.<span class="built_in">add</span>(b); <span class="comment">// D：在main函数内，P类对象的私有函数</span></span><br><span class="line">    a.<span class="built_in">add</span>(d); <span class="comment">// E：P类对象的公有函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-6-this指针"><a href="#3-6-this指针" class="headerlink" title="3.6 this指针"></a>3.6 this指针</h2><ul>
+<li>所有成员函数的参数中，隐含着一个指向当前对象的指针变量，其名称为this</li>
+<li>是成员函数和普通函数的重要区别<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fill</span><span class="params">(<span class="type">char</span> dir)</span> </span>&#123;<span class="comment">// &lt;1&gt; 在类内定义成员函数</span></span><br><span class="line">		...</span><br><span class="line">		<span class="keyword">this</span>-&gt;data[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; <span class="comment">//等价于 data[0][0] = 1;  </span></span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;;</span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Matrix::fill</span><span class="params">(<span class="type">char</span> dir)</span> </span>&#123;<span class="comment">// &lt;2&gt; 在类外定义成员函数</span></span><br><span class="line">	<span class="keyword">this</span>-&gt;data[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;   <span class="comment">// 等价于 data[0][0] = 1;</span></span><br><span class="line">	... ;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-7-内联函数"><a href="#3-7-内联函数" class="headerlink" title="3.7 内联函数"></a>3.7 内联函数</h2><ul>
+<li>为什么用内联函数<ul>
+<li>函数调用要进行一系列准备和后处理工作(压栈、跳转、退栈、返回等)，所以函数调用是一个比较慢的过程。</li>
+<li>使用内联函数，编译器自动产生等价的表达式。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &lt;1&gt; 速度慢</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">max</span>(a, b) &lt;&lt; endl;</span><br><span class="line"><span class="comment">// &lt;2&gt; </span></span><br><span class="line">cout &lt;&lt; (a &gt; b ? a : b) &lt;&lt; endl;</span><br><span class="line"><span class="comment">// &lt;3&gt; 与&lt;2&gt;等价</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> a &gt; b ? a : b; </span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; <span class="built_in">max</span>(a, b) &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>内联函数与宏定义的区别</p>
+<ul>
+<li>编译器会将所有宏定义的代码，直接拷贝到被调用的地方。</li>
+<li>宏代码容易出错，编译预处理器在拷贝代码时，可能产生意想不到的边界效应。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAX(a, b) (a) &gt; (b) ? (a) : (b)</span></span><br><span class="line"></span><br><span class="line">cout &lt;&lt; (a) &gt; (b) ? (a) : (b) &lt;&lt; end;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX(a, b) ((a) &gt; (b) ? (a) : (b))</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">2</span>, b = <span class="number">1</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">MAX</span>(a++, b) + <span class="number">2</span> &lt;&lt; endl; <span class="comment">// 5 自增两次，但不适用自增第二次之后的值，但打印a可以看到两次自增结果</span></span><br><span class="line">    cout &lt;&lt; a &lt;&lt; endl; <span class="comment">//4</span></span><br><span class="line">    cout &lt;&lt; ((a++) &gt; (b) ? (a++) : (b)) + <span class="number">2</span> &lt;&lt; endl; <span class="comment">// a被两次求值 7</span></span><br><span class="line">    cout &lt;&lt; a &lt;&lt; endl; <span class="comment">// 6</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>内联函数和宏定义的区别</p>
+<ul>
+<li>内联函数可以执行类型检查，进行编译期错误检查。      </li>
+<li>内联函数可调试，而宏定义的函数不可调试。<ul>
+<li>在Debug版本，内联函数没有真正内联，而是和一般函数一样，因此在该阶段可以被调试。</li>
+<li>在Release版本，内联函数实现了真正的内联，增加执行效率。<br>宏定义的函数无法操作私有数据成员。</li>
+</ul>
+</li>
+<li>宏使用的最常见场景：字符串定义、字符串拼接、标志粘贴(教材第9章p221~222)</li>
+</ul>
+</li>
+<li><p>再次强调</p>
+<ul>
+<li><strong>宏定义只是拷贝代码到被调用的地方。</strong></li>
+<li><strong>内联函数生成的是，和函数等价的表达式。</strong></li>
+</ul>
+</li>
+<li><p>注意事项：</p>
+<ul>
+<li><p>避免对大段代码使用内联修饰符</p>
+<ul>
+<li>相当于把该函数在所有被调用的地方拷贝了一份</li>
+<li>所以大段代码内联修饰会增加负担</li>
+</ul>
+</li>
+<li><p>避免对包含循环或复杂控制结构的函数使用内联</p>
+</li>
+<li><p>避免将内联函数的声明和定义分开</p>
+</li>
+<li><p>一般构造函数、析构函数被定义为内联函数</p>
+</li>
+<li><p>编译器“有权”拒绝不合理的请求，例如编译器认为某个函数不值得内联，就会忽略内联修饰符。</p>
+</li>
+<li><p>编译器会对一些没有内联修饰符的函数，自行判断可否转化为内联函数，一般会选择短小的函数。</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//test.h</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">	<span class="type">int</span>* data;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">setdata</span><span class="params">(<span class="type">const</span> <span class="type">int</span>* d)</span> </span>&#123;data = d; &#125; <span class="comment">//内联函数</span></span><br><span class="line">	<span class="function"><span class="type">const</span> <span class="type">int</span>* <span class="title">getdata</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>-&gt;data;&#125;<span class="comment">//内联函数</span></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">operation1</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br><span class="line">	<span class="built_in">Test</span>(<span class="type">int</span> i)&#123; </span><br><span class="line">		<span class="keyword">if</span> (i&gt;<span class="number">0</span>) </span><br><span class="line">			data = <span class="keyword">new</span> <span class="type">int</span>[i];</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			data = <span class="literal">nullptr</span>;</span><br><span class="line"> 	&#125; <span class="comment">//内联函数</span></span><br><span class="line">	~<span class="built_in">Test</span>()&#123;<span class="keyword">delete</span>[] data;&#125; <span class="comment">//内联函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="课后"><a href="#课后" class="headerlink" title="课后"></a>课后</h2><h3 id="如何再c-中打印变量类型"><a href="#如何再c-中打印变量类型" class="headerlink" title="如何再c++中打印变量类型"></a>如何再c++中打印变量类型</h3><ul>
+<li><code>abi::__cxa_demangle</code> 函数<ul>
+<li>不是标准库中的函数</li>
+<li>是由GNU C++ 提供的扩展</li>
+<li>跨平台运行不要使用这个函数，可能不受其他编译器的支持<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cxxabi.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">char</span>* <span class="title">get_type</span><span class="params">(<span class="type">const</span> T&amp; instance)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> abi::__cxa_demangle(<span class="built_in">typeid</span>((instance)).<span class="built_in">name</span>(), <span class="literal">nullptr</span>, <span class="literal">nullptr</span>, <span class="literal">nullptr</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> *x = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">get_type</span>(x) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">typeid</span>(x).<span class="built_in">name</span>() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>typeid</li>
+</ul>
+<h3 id="实现class"><a href="#实现class" class="headerlink" title="实现class"></a>实现class</h3><ul>
+<li>下面是一个类的声明<ul>
+<li>请提供成员函数的实现（注意实现和定义分开）</li>
+<li>并测试这个类是否正常运行（你还需要测试访问权限）<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// move.h</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Move</span> &#123;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    <span class="type">double</span> x;</span><br><span class="line">    <span class="type">double</span> y;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">calc</span><span class="params">()</span></span>; <span class="comment">// calculate x * y</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Move</span>(<span class="type">double</span> a = <span class="number">0</span>, <span class="type">double</span> b = <span class="number">0</span>);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span></span>; <span class="comment">// display the result of calc()</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">get_x</span><span class="params">()</span></span>; <span class="comment">// return x</span></span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">get_y</span><span class="params">()</span></span>; <span class="comment">// return y</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reset</span><span class="params">(<span class="type">double</span> a = <span class="number">0</span>, <span class="type">double</span> b = <span class="number">0</span>)</span></span>; <span class="comment">// reset x and y to a and b</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// move.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;move.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Move::calc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Move::<span class="built_in">Move</span>(<span class="type">double</span> a, <span class="type">double</span> b) &#123;</span><br><span class="line">    x = a;</span><br><span class="line">    y = b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Move::display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Result of calc(): &quot;</span> &lt;&lt; <span class="built_in">calc</span>() &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Move::get_x</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Move::get_y</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Move::reset</span><span class="params">(<span class="type">double</span> a, <span class="type">double</span> b)</span> </span>&#123;</span><br><span class="line">    x = a;</span><br><span class="line">    y = b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;move.h&quot;</span> <span class="comment">// 头文件，包含类的声明</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Move <span class="title">m</span><span class="params">(<span class="number">2.5</span>, <span class="number">3.5</span>)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 访问私有成员变量 x 和 y 的值</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;x = &quot;</span> &lt;&lt; m.<span class="built_in">get_x</span>() &lt;&lt; endl; <span class="comment">// 2.5</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;y = &quot;</span> &lt;&lt; m.<span class="built_in">get_y</span>() &lt;&lt; endl; <span class="comment">// 3.5</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 显示计算结果</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;calc() = &quot;</span>; <span class="comment">// 8.75</span></span><br><span class="line">    m.<span class="built_in">display</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 重置 x 和 y 的值</span></span><br><span class="line">    m.<span class="built_in">reset</span>(<span class="number">1.0</span>, <span class="number">2.0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 显示计算结果</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;calc() = &quot;</span>;</span><br><span class="line">    m.<span class="built_in">display</span>(); <span class="comment">// 2</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="函数重载，缺省值"><a href="#函数重载，缺省值" class="headerlink" title="函数重载，缺省值"></a>函数重载，缺省值</h3><ul>
+<li>函数重载、参数默认值<ul>
+<li>编写一个接受一个字符串参数，并打印该字符串的函数。</li>
+<li>如果提供了第二个参数（bool 类型），且该参数为 true，则该函数打印 n 次字符串，其中 n 是该函数被调用的次数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">const</span> string&amp; str, <span class="type">bool</span> repeat = <span class="literal">false</span>)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">if</span> (repeat) &#123;</span><br><span class="line">        <span class="type">static</span> <span class="type">int</span> count = <span class="number">0</span>;  <span class="comment">// 静态变量，记录函数被调用的次数</span></span><br><span class="line">        ++count;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; count; ++i) &#123;</span><br><span class="line">            cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">f</span>(<span class="string">&quot;OOP0&quot;</span>);</span><br><span class="line">    <span class="built_in">f</span>(<span class="string">&quot;OOP1&quot;</span>);</span><br><span class="line">    <span class="built_in">f</span>(<span class="string">&quot;OOP2&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="built_in">f</span>(<span class="string">&quot;OOP3&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">f</span>(<span class="string">&quot;OOP4&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h3><ul>
+<li>内联函数<br>创建两个功能相同的函数<code>f1() f2()</code>。f1() 是内联函数，f2() 是非内联函数。使用 <code>&lt;ctime&gt;</code> 中的标准 C 函数 <code>clock()</code>标记这两个函数的开始点和结束点，比较它们哪一个运行的更快，为了得到有效数字，也许需要在计时循环中重复调用这两个函数。</li>
+</ul>
+<p>注意：由于编译器可能会忽略inline或自动执行其他优化。该特性和编译器优化指令有关，如”-O2”。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> y = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> z = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">f1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">        x += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">        y += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">clock_t</span> start, end;</span><br><span class="line">    <span class="type">double</span> cpu_time_used;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Timing f1</span></span><br><span class="line">    start = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">f1</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    end = <span class="built_in">clock</span>();</span><br><span class="line">    cpu_time_used = ((<span class="type">double</span>) (end - start)) / CLOCKS_PER_SEC;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Time taken by f1: &quot;</span> &lt;&lt; cpu_time_used &lt;&lt; <span class="string">&quot; seconds\n&quot;</span>; <span class="comment">// Time taken by f1: 1.72 seconds</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Timing f2</span></span><br><span class="line">    start = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">f2</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    end = <span class="built_in">clock</span>();</span><br><span class="line">    cpu_time_used = ((<span class="type">double</span>) (end - start)) / CLOCKS_PER_SEC;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Time taken by f2: &quot;</span> &lt;&lt; cpu_time_used &lt;&lt; <span class="string">&quot; seconds\n&quot;</span>; <span class="comment">// Time taken by f2: 1.744 seconds</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Timing f3</span></span><br><span class="line">    start = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">            z += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    end = <span class="built_in">clock</span>();</span><br><span class="line">    cpu_time_used = ((<span class="type">double</span>) (end - start)) / CLOCKS_PER_SEC;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Time taken by f2: &quot;</span> &lt;&lt; cpu_time_used &lt;&lt; <span class="string">&quot; seconds\n&quot;</span>; <span class="comment">// Time taken by f2: 1.814 seconds</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -481,15 +678,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,15 +694,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">csapp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dsa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,19 +726,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">离散</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">离散</a>
               </li>
              
               <li class="article-tag-list-item">

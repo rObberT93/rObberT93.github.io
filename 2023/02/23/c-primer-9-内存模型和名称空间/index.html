@@ -16,7 +16,7 @@
 <meta property="og:description" content="directory 编译 存储持续性、作用域和链接性">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-23T11:24:36.000Z">
-<meta property="article:modified_time" content="2023-03-02T15:24:01.693Z">
+<meta property="article:modified_time" content="2023-03-06T05:41:12.039Z">
 <meta property="article:author" content="rObberT93">
 <meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
@@ -68,7 +68,7 @@
 		</nav>
 
 		<nav>
-			总文章数 55
+			总文章数 60
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">15字</span>
+        <span class="post-count">313字</span>
       </span>
     </span>
 
@@ -212,6 +212,19 @@
 <li>存储持续性、作用域和链接性</li>
 </ul>
 <span id="more"></span>
+<h3 id="9-2-5-静态持续性、内部链接性"><a href="#9-2-5-静态持续性、内部链接性" class="headerlink" title="9.2.5 静态持续性、内部链接性"></a>9.2.5 静态持续性、内部链接性</h3><ul>
+<li>将static限定符用于作用域为整个文件的变量时，该变量的链接性为内部的</li>
+<li>链接性为内部的变量只能在所属的文件中使用，但常规外部变量都具有外部链接性</li>
+<li>使用外部变量在多文件程序的不同部分之间共享数据</li>
+<li>使用链接性为内部的静态变量在同一个文件的多个函数之间共享数据</li>
+<li>将作用域为整个文件的变量变为静态的，则不会发生变量重复定义的冲突<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.cpp</span></span><br><span class="line"><span class="type">int</span> error = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.cpp</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> error = <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="9-2-6-静态存储持续性、无链接性"><a href="#9-2-6-静态存储持续性、无链接性" class="headerlink" title="9.2.6 静态存储持续性、无链接性"></a>9.2.6 静态存储持续性、无链接性</h3><h3 id="9-2-7-说明符和限定符"><a href="#9-2-7-说明符和限定符" class="headerlink" title="9.2.7 说明符和限定符"></a>9.2.7 说明符和限定符</h3><h3 id="9-2-8-函数和链接性"><a href="#9-2-8-函数和链接性" class="headerlink" title="9.2.8 函数和链接性"></a>9.2.8 函数和链接性</h3><h3 id="9-2-9-语言链接性"><a href="#9-2-9-语言链接性" class="headerlink" title="9.2.9 语言链接性"></a>9.2.9 语言链接性</h3><h3 id="9-2-10-存储方案和动态分配"><a href="#9-2-10-存储方案和动态分配" class="headerlink" title="9.2.10 存储方案和动态分配"></a>9.2.10 存储方案和动态分配</h3><h2 id="9-3-名称空间"><a href="#9-3-名称空间" class="headerlink" title="9.3 名称空间"></a>9.3 名称空间</h2><h3 id="9-3-1-传统的c-名称空间"><a href="#9-3-1-传统的c-名称空间" class="headerlink" title="9.3.1 传统的c++名称空间"></a>9.3.1 传统的c++名称空间</h3><h3 id="9-3-2-新的名称空间特性"><a href="#9-3-2-新的名称空间特性" class="headerlink" title="9.3.2 新的名称空间特性"></a>9.3.2 新的名称空间特性</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Jack &#123;</span><br><span class="line">    <span class="type">double</span> pail;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fetch</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="type">int</span> pal;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Well</span> &#123;...&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> Jill &#123;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">bucket</span><span class="params">(<span class="type">double</span> n)</span> </span>&#123;...&#125;;</span><br><span class="line">    <span class="type">double</span> fetch;</span><br><span class="line">    <span class="type">int</span> pal;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Hill</span> &#123;...&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>访问给定名称空间中的名称</li>
+</ul>
+
       
 
       
@@ -452,15 +465,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,15 +481,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">csapp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">dsa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,19 +513,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">离散</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂言</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">离散</a>
               </li>
              
               <li class="article-tag-list-item">
