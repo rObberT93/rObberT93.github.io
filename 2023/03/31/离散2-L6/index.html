@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>achieves | Hexo</title>
+  <title>离散2-L6 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="achieves">
-<meta property="og:url" content="http://example.com/achieves/index.html">
+  <meta name="description" content="directory review Ford算法 Floyd算法   关键路径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散2-L6">
+<meta property="og:url" content="http://example.com/2023/03/31/%E7%A6%BB%E6%95%A32-L6/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="directory review Ford算法 Floyd算法   关键路径">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-02T21:59:55.000Z">
-<meta property="article:modified_time" content="2023-01-02T21:59:55.120Z">
+<meta property="article:published_time" content="2023-03-31T01:52:57.000Z">
+<meta property="article:modified_time" content="2023-04-03T00:02:09.537Z">
 <meta property="article:author" content="rObberT93">
+<meta property="article:tag" content="离散">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -159,20 +162,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-离散2-L6" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      achieves
+      离散2-L6
     </h1>
   
 
         
-        <a href="/achieves/index.html" class="archive-article-date">
-  	<time datetime="2023-01-02T21:59:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-03</time>
+        <a href="/2023/03/31/%E7%A6%BB%E6%95%A32-L6/" class="archive-article-date">
+  	<time datetime="2023-03-31T01:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-31</time>
 </a>
       
         <!-- 需要添加的位置 -->
@@ -183,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">0字</span>
+        <span class="post-count">1.9k字</span>
       </span>
     </span>
 
@@ -192,7 +195,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -204,7 +207,120 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>review<ul>
+<li>Ford算法</li>
+<li>Floyd算法</li>
+</ul>
+</li>
+<li>关键路径<span id="more"></span></li>
+</ul>
+<h2 id="review"><a href="#review" class="headerlink" title="review"></a>review</h2><ul>
+<li>旅行商问题<ul>
+<li>分支定界法</li>
+<li>便宜算法：近似解</li>
+</ul>
+</li>
+<li>最短路径<ul>
+<li>dijkstra：边权为正，贪心算法</li>
+<li>BFS：边权为1</li>
+<li>Ford：无负回路</li>
+<li>Floyd：任意两点</li>
+</ul>
+</li>
+</ul>
+<h3 id="Ford算法"><a href="#Ford算法" class="headerlink" title="Ford算法"></a>Ford算法</h3><h3 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h3><h2 id="关键路径"><a href="#关键路径" class="headerlink" title="关键路径"></a>关键路径</h2><ul>
+<li>最长路径</li>
+</ul>
+<h3 id="图论模型"><a href="#图论模型" class="headerlink" title="图论模型"></a>图论模型</h3><ul>
+<li><p><strong>PT 图</strong></p>
+<ul>
+<li>结点表示工序</li>
+<li>有向边(i , j )表示工序 i 完成之后工序 j才能启动</li>
+<li>边权wi 表示工序 i 所需的时间</li>
+</ul>
+</li>
+<li><p>PERT 图</p>
+<ul>
+<li>结点为工序之间的关系：vk 是ei的终点、ej 的始点表示工序ei完成后ej才能开始</li>
+<li>有向边表示工序</li>
+<li>边权wi 表示该工序所需时间</li>
+</ul>
+</li>
+</ul>
+<h3 id="扑排序"><a href="#扑排序" class="headerlink" title="扑排序"></a>扑排序</h3><blockquote>
+<p>引理2.7.1 若有向图G无有向回路，则一定存在入度及出度为0的结点</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">proof：</span><br><span class="line">   在G中构造一条极长的有向道路P(vi,…,vj)，则：</span><br><span class="line">            d-(vi)=0， d+(vj)=0</span><br><span class="line">    否则如果d-(vi) ≠0，则一定有边(vk,vi)∈E(G),</span><br><span class="line">    若vk∈P,则G存在有向回路，与已知矛盾；</span><br><span class="line">    若vk不属于P,则P不是极长道路，与假设矛盾。</span><br><span class="line">    因此d-(vi)=0， 同理可证d+(vj)=0</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>定理2.7.1 若有向图G无有向回路，则可以将G 的结点重新编号为v1’, v2’, …, vn’,使得对任意的边vi’ vj’ ∈E(G),都有i＜ j .</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">proof：</span><br><span class="line">    构造法：构造结点序列</span><br><span class="line">    由引理2.7.1，G中存在入度为0的点</span><br><span class="line">    取一个这样的点编号为v1’，令G ← G - v1’,</span><br><span class="line">    得到的图仍然没有回路</span><br><span class="line">    再取一个入度为0的点编号为v2’,</span><br><span class="line">    重复这个过程，直到所有点都编号为止</span><br><span class="line">    这时所有的编号都满足定理的条件</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这样编号使得图中所有边都是从编号小的结点指向编号大的结点<blockquote>
+<p>定义：  设G&#x3D;(V,E)是一个具有n个顶点的有向图,V中顶点<br>序列v1, v2, …, vn称为一个拓扑序列,当且仅当该顶点序列满足下列条件：若<code>&lt;vi,vj&gt;</code>是图中的边(即从顶点vi到vj有一条路径),则在序列中顶点vi 必须排在顶点vj之前</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><ul>
+<li>有回路：某一步找不到入度&#x3D;&#x3D;0的结点</li>
+<li>存储：链表存所有路径，不能只记一个前驱结点</li>
+<li>最大允许延误时间：最晚启动时间 - 最早启动时间<ul>
+<li>最晚启动时间：从最后一个结点V_n往前推，用到最后一个结点的最长路径值 - 从V_i到V_n的最长路径 &#x3D;&#x3D;&gt; 计算用后继-w_ij 每次取min往前</li>
+<li>最早启动时间：从第一个结点往后推最长路径</li>
+</ul>
+</li>
+<li>关键路径上的工序不允许延误，非关键路径上的允许变动</li>
+</ul>
+<h2 id="中国邮路"><a href="#中国邮路" class="headerlink" title="中国邮路"></a>中国邮路</h2><ul>
+<li>问题描述：邮递员从邮局出发，走遍辖区内所有的街道至少<br>一次(可以重复)，最后回到邮局。要走怎样的路 线全程才最短？   </li>
+<li>图论语言：在一个正权连通图G中，从某点出发经过每条边至少一次最后返回出发点的最短回路称为最佳邮路<ul>
+<li>欧拉图 + 最短路径</li>
+</ul>
+</li>
+<li>欧拉回路？<ul>
+<li>当G所有结点的度都是偶数时，G又欧拉回路，该回路就是最佳邮路</li>
+</ul>
+</li>
+<li>当奇数度结点的个数大于2的时候？<ul>
+<li>？<blockquote>
+<p>定理2.8.1 L是无向连通图G最佳邮路的充要条件是:<br>  (1) G的每条边最多重复一次.<br>  (2) 在G的任意一个回路上, 重复边的长度之和不超过该回路长度的一半</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">proof:</span><br><span class="line">必要性:</span><br><span class="line">    （1.最佳邮路G中每条边最多重复一次）</span><br><span class="line">    若一条最佳邮路重复经过图的某些边，将G中k次重复的边画k次，得到G’。</span><br><span class="line">    设最佳邮路L’使G中边eij重复n(n&gt;1)次，这时G’中有欧拉回路L’，若使eij重复n-2次，得到G’’，G’’各点度仍是偶数</span><br><span class="line">    G’’的欧拉回路L’’也是G的一条中国邮路，且L’’长度小于L’，与L’是最佳邮路矛盾。</span><br><span class="line">    因此边eij最多重复一次。</span><br><span class="line">证明(续)：</span><br><span class="line">    （2. 任一回路重复边长不超过回路长度一半）</span><br><span class="line">    假设G中某个回路C的重复边的长度大于C总长度的一半</span><br><span class="line">    令C中重复的边不重复，不重复的边重复，得到G’’</span><br><span class="line">    G’’仍是欧拉图，因为回路上每个顶点的度数改变0或2，不会改变欧拉图的性质。且L’’长度小于L’，与L’是最佳邮路矛盾</span><br><span class="line">    因此，在任意一个回路上，重复边的长度之和不会超过回路的一半</span><br><span class="line"></span><br><span class="line">    充分性:</span><br><span class="line">    思路：无向图满足这两个条件后成为的欧拉图必为最佳邮路，只需证明凡满足定理中条件(1)和(2)的重复边集，其总长度均相等即可。</span><br><span class="line"></span><br><span class="line">    设L1 = E(G) + Q + Q1，</span><br><span class="line">      L2 = E(G) + Q + Q2，</span><br><span class="line">    其中Q是L1和L2共同的重复边集，Q1和Q2是分别只属于</span><br><span class="line">    L1和L2的重复边集，L1和L2的结点度数均为偶数</span><br><span class="line">    设对称差E’(G)=Q1+Q2 ， G’=（V(G), E’(G)）为简单图，</span><br><span class="line">    可能不连通，但其每个结点的度数均为偶数，（因为L1+L2为偶数，减去(2E(G)+2Q),每个节点度数都减去2的倍数，仍为偶数）</span><br><span class="line">    所以图G’可分为若干个回路，所有结点度数均为偶数.</span><br><span class="line"></span><br><span class="line">    故可构造G’=(V(G),E’(G))，G’是简单图，各结点度是偶数</span><br><span class="line">    • 若E’(G)=Φ，显然π(L1)=π(L2)</span><br><span class="line">    • 否则（即E’(G)≠Φ，其中对称差E’(G)=Q1+Q2）</span><br><span class="line">       因为G’是简单图，各结点度是偶数,可分为若干个回路，</span><br><span class="line">       对任一个回路C，设C1和C2分别是L1和L2的重复边集</span><br><span class="line">       由已知条件(2)可知，π(C1) ≤ π(C2), π(C2) ≤ π(C1)</span><br><span class="line">       因此π(C1)=π(C2)，故π(L1)=π(L2)</span><br><span class="line">   充分性得证</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<ul>
+<li>构造（奇偶点图上作业法）<ul>
+<li>①  找出度为奇的点</li>
+<li>② 依据条件1构造邮路，即G的每条边最多重复一次，并保证计算重复边之后度都是偶数</li>
+<li>③ 由条件2对所有回路进行判断，在G的任意一个回路上，如果重复边的长度之和超过该回路长度的一半，则令回路中的重复边不重复，不重复边变为重复</li>
+</ul>
+</li>
+</ul>
+<h3 id="构造——Edmonds最小权匹配算法"><a href="#构造——Edmonds最小权匹配算法" class="headerlink" title="构造——Edmonds最小权匹配算法"></a>构造——Edmonds最小权匹配算法</h3><ul>
+<li><p>① 确定$G$中度为奇的结点，构成$V_0(G)$</p>
+</li>
+<li><p>② 求$V_0(G)$各结点在G中的最短路径$P_{ij}$及其长度$π(vi,vj)$</p>
+</li>
+<li><p>③ 对$V_0(G)$的结点进行最小权匹配，即选出$\frac{|V0(G)|}{2}$个$π(v_i,v_j)$，保证每个结点在Pij中只出现一次，并且这些$π(v_i,v_j)$的总和最小（最佳匹配问题，在后面二分图匹配中会讲如何实现）</p>
+</li>
+<li><p>④ 在最小权匹配里各$π(v_i,v_j)$所对应的路径Pij中的各边在G中重复一次，得到$G’$</p>
+</li>
+<li><p>⑤ $G’$是欧拉图，它的一条欧拉回路即为解</p>
+</li>
+<li><p>构造：加入超发点$V_s$和超收点$V_t$</p>
+</li>
+<li><p>从超发点到超收点找最短路径</p>
+</li>
+<li><p>超发点的出度 &#x3D; 超收点的入度</p>
+</li>
+<li><p>两个点的度 &#x3D; 要找几条覆盖超发点发出的边 &amp; 超收点进入的边 的最短路径</p>
+</li>
+</ul>
+
       
 
       
@@ -212,6 +328,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">离散</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -262,7 +389,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/achieves/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/31/%E7%A6%BB%E6%95%A32-L6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,6 +401,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2023/04/03/oop-7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          oop-7
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/27/oop-6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">oop-L6-引用和复制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -328,7 +474,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

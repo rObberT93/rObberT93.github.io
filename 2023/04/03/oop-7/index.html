@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>计算机系统研讨hw-4 | Hexo</title>
+  <title>oop-7 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="a) A possible sequence of events that can lead to keys missing for 2 threads is as follows:  Thread 1 calls put() and acquires the lock on the hash table.Thread 1 inserts a new key-value pair into th">
+  <meta name="description" content="directory review 组合 继承 成员访问权限 重写隐藏与重载 多重继承">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机系统研讨hw-4">
-<meta property="og:url" content="http://example.com/2023/03/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A0%94%E8%AE%A8hw-4/index.html">
+<meta property="og:title" content="oop-7">
+<meta property="og:url" content="http://example.com/2023/04/03/oop-7/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="a) A possible sequence of events that can lead to keys missing for 2 threads is as follows:  Thread 1 calls put() and acquires the lock on the hash table.Thread 1 inserts a new key-value pair into th">
+<meta property="og:description" content="directory review 组合 继承 成员访问权限 重写隐藏与重载 多重继承">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-19T13:43:17.000Z">
-<meta property="article:modified_time" content="2023-03-19T14:19:13.088Z">
+<meta property="og:image" content="http://example.com/.%5Cpics%5C20230403oop.png">
+<meta property="article:published_time" content="2023-04-02T23:55:38.000Z">
+<meta property="article:modified_time" content="2023-04-05T01:06:47.146Z">
 <meta property="article:author" content="rObberT93">
-<meta property="article:tag" content="计算机系统研讨">
+<meta property="article:tag" content="oop">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/.%5Cpics%5C20230403oop.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -68,7 +70,7 @@
 		</nav>
 
 		<nav>
-			总文章数 64
+			总文章数 65
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -162,20 +164,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-计算机系统研讨hw-4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-oop-7" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      计算机系统研讨hw-4
+      oop-7
     </h1>
   
 
         
-        <a href="/2023/03/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A0%94%E8%AE%A8hw-4/" class="archive-article-date">
-  	<time datetime="2023-03-19T13:43:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-19</time>
+        <a href="/2023/04/03/oop-7/" class="archive-article-date">
+  	<time datetime="2023-04-02T23:55:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
 </a>
       
         <!-- 需要添加的位置 -->
@@ -186,7 +188,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">778字</span>
+        <span class="post-count">3.5k字</span>
       </span>
     </span>
 
@@ -195,7 +197,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">15分</span>
       </span>
     </span>
 </div>
@@ -207,18 +209,173 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>a) A possible sequence of events that can lead to keys missing for 2 threads is as follows:</li>
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>review</li>
+<li>组合</li>
+<li>继承</li>
+<li>成员访问权限</li>
+<li>重写隐藏与重载</li>
+<li>多重继承<span id="more"></span></li>
 </ul>
-<p>Thread 1 calls put() and acquires the lock on the hash table.<br>Thread 1 inserts a new key-value pair into the hash table and releases the lock.<br>Thread 2 calls put() and acquires the lock on the hash table.<br>Thread 2 tries to insert a new key-value pair into the hash table, but finds that the key is already present (insertion fails).<br>Thread 2 releases the lock on the hash table.<br>Thread 1 calls free() to deallocate the memory for the value associated with the key it inserted earlier.<br>Thread 2 calls get() to retrieve the value associated with the same key it tried to insert earlier.<br>Thread 2 reads the value from memory, but the memory has already been freed by thread 1, leading to undefined behavior and a possible crash.</p>
+<h2 id="review"><a href="#review" class="headerlink" title="review"></a>review</h2><ul>
+<li>拷贝构造函数：对象之间的拷贝</li>
+<li>右值引用：延长临时对象的生命周期</li>
+<li>移动构造函数：避免频繁的拷贝</li>
+</ul>
+<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><h3 id="对象之间的关系"><a href="#对象之间的关系" class="headerlink" title="对象之间的关系"></a>对象之间的关系</h3><ul>
+<li>整体-部分 has-a</li>
+<li>一般-特殊 is-a</li>
+</ul>
+<h3 id="组合-1"><a href="#组合-1" class="headerlink" title="组合"></a>组合</h3><ul>
+<li>对象组合的两种实现方法：<ul>
+<li>已有类的对象作为新类的公有数据成员，这样通过允许直接访问子对象而“提供”旧类接口</li>
+<li>已有类的对象作为新类的私有数据成员。新类可以调整旧类的对外接口，可以不使用旧类原有的接口（相当于对接口作了转换）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  Wheel w;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Engine e; <span class="comment">/// 公有成员，直接访问其接口</span></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">setWheel</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;w.<span class="built_in">set</span>(n);&#125; <span class="comment">/// 提供私有成员的访问接口</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Car c;</span><br><span class="line">  c.e.<span class="built_in">set</span>(<span class="number">1</span>);</span><br><span class="line">  c.<span class="built_in">setWheel</span>(<span class="number">4</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 方法一：公有成员 直接访问对象e</span></span><br><span class="line"><span class="comment">// 方法二：私有成员 接口----对象w</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>a) 可能导致两个线程出现丢失键的事件序列如下：</li>
-</ul>
-<p>线程1调用put()并获取哈希表上的锁。<br>线程1将新的键值对插入哈希表，并释放锁。<br>线程2调用put()并获取哈希表上的锁。<br>线程2尝试将新的键值对插入哈希表，但发现键已经存在（插入失败）。<br>线程2释放哈希表上的锁。<br>线程1调用free()释放之前插入的键值对中值的内存。<br>线程2调用get()以检索之前尝试插入的相同键的值。<br>线程2从内存中读取值，但是该内存已经被线程1释放，导致未定义的行为和可能的崩溃<br>b) With one thread, there is no possibility of a race condition because the thread has exclusive access to the hash table when it calls put() or get(). Therefore, it can insert or retrieve key-value pairs without interference from other threads. However, with two or more threads, there is a possibility of race conditions because multiple threads may try to access the hash table simultaneously, leading to conflicts and inconsistencies in the data. In this case, the race condition arises because thread 2 assumes that the value associated with the key it failed to insert earlier is still present in memory, but this assumption is invalidated by thread 1 deallocating the memory for that value. This race condition can lead to missing keys because thread 2 may read a value from memory that has been freed by thread 1, resulting in undefined behavior and a possible crash. To avoid this race condition, synchronization mechanisms such as locks or atomic operations should be used to ensure that only one thread can access the hash table at a time.</p>
+<li><p>对象构造与析构函数的次序</p>
 <ul>
-<li>b) 在一个线程中，没有竞态条件的可能性，因为当线程调用put()或get()时，它具有对哈希表的独占访问权。因此，它可以插入或检索键值对，而不受其他线程的干扰。但是，在两个或多个线程中，存在竞争条件的可能性，因为多个线程可能同时尝试访问哈希表，导致数据冲突和不一致性。在这种情况下，竞争条件出现的原因是线程2假设之前尝试插入的键所关联的值仍然存在于内存中，但这个假设被线程1释放该值的内存所无效。这个竞争条件可能导致键丢失，因为线程2可能从内存中读取已经被线程1释放的值，导致未定义的行为和可能的崩溃。为避免这种竞争条件，应该使用同步机制，如锁或原子操作，以确保只有一个线程可以同时访问哈希表。</li>
+<li>先完成子对象构造，再完成当前对象构造</li>
+<li>子对象构造的次序仅由在类中声明的次序所决定</li>
+<li>析构函数的次序与构造函数相反</li>
 </ul>
-
+</li>
+<li><p>回忆：隐式定义的拷贝构造与赋值运算</p>
+<ul>
+<li>如果调用拷贝构造函数且没有给类显式定义拷贝构造函数，编译器将提供“隐式定义的拷贝构造函数”。该函数的功能为：<ul>
+<li>递归调用所有子对象的拷贝构造函数</li>
+<li>对于基础类型，采用位拷贝</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>赋值运算的默认操作类似</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C1</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="built_in">C1</span>(<span class="type">int</span> n):<span class="built_in">i</span>(n)&#123;&#125;</span><br><span class="line">	<span class="built_in">C1</span>(<span class="type">const</span> C1 &amp;other) <span class="comment">/// 显式定义拷贝构造函数</span></span><br><span class="line">		&#123;i=other.i; cout &lt;&lt; <span class="string">&quot;C1(const C1 &amp;other)&quot;</span> &lt;&lt; endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C2</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> j;</span><br><span class="line">	<span class="built_in">C2</span>(<span class="type">int</span> n):<span class="built_in">j</span>(n)&#123;&#125;</span><br><span class="line">	C2&amp; <span class="keyword">operator</span>= (<span class="type">const</span> C2&amp; right)&#123;<span class="comment">/// 显式定义赋值运算符</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span> != &amp;right)&#123;</span><br><span class="line">			j = right.j;</span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;operator=(const C2&amp;)&quot;</span> &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C3</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	C1 c1;</span><br><span class="line">	C2 c2;</span><br><span class="line">	<span class="built_in">C3</span>():<span class="built_in">c1</span>(<span class="number">0</span>), <span class="built_in">c2</span>(<span class="number">0</span>)&#123;&#125;</span><br><span class="line">	<span class="built_in">C3</span>(<span class="type">int</span> i, <span class="type">int</span> j):<span class="built_in">c1</span>(i), <span class="built_in">c2</span>(j)&#123;&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;cout &lt;&lt; <span class="string">&quot;c1.i = &quot;</span> &lt;&lt; c1.i &lt;&lt; <span class="string">&quot; c2.j = &quot;</span> &lt;&lt; c2.j &lt;&lt; endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">C3 <span class="title">a</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">	<span class="function">C3 <span class="title">b</span><span class="params">(a)</span></span>;  <span class="comment">//C1执行显式定义的拷贝构造</span></span><br><span class="line">                  <span class="comment">//C2执行隐式定义的拷贝构造</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;b: &quot;</span>;</span><br><span class="line">	b.<span class="built_in">print</span>();</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	C3 c;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;c: &quot;</span>;</span><br><span class="line">	c.<span class="built_in">print</span>();</span><br><span class="line">	c = a;  <span class="comment">//C1执行隐式定义的拷贝赋值</span></span><br><span class="line">                <span class="comment">//C2执行显式定义的拷贝赋值</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;c: &quot;</span>;</span><br><span class="line">	c.<span class="built_in">print</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">C1(const C1 &amp;other)</span></span><br><span class="line"><span class="comment">b: c1.i = 1 c2.j = 2</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">c: c1.i = 0 c2.j = 0</span></span><br><span class="line"><span class="comment">operator=(const C2&amp;)</span></span><br><span class="line"><span class="comment">c: c1.i = 1 c2.j = 2</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
+<li>被继承的已有类，被称为基类(base class)，也称“父类”。</li>
+<li>通过继承得到的新类，被为派生类(derived class)，也称“子类”、“扩展类”。</li>
+<li>常见的继承方式：public, private<ul>
+<li>class Derived : [private] Base { .. }; 缺省继承方式为private继承。</li>
+<li>class Derived : public Base { … };</li>
+</ul>
+</li>
+<li>protected 继承很少被使用<ul>
+<li>class Derived : protected Base { … };</li>
+</ul>
+</li>
+<li>什么不能被继承？<ul>
+<li>构造函数：创建派生类对象时，必须调用派生类的构造函数，派生类构造函数调用基类的构造函数，以创建派生对象的基类部分。C++11新增了继承构造函数的机制（使用using），但默认不继承</li>
+<li>析构函数：释放对象时，先调用派生类析构函数，再调用基类析构函数</li>
+<li>赋值运算符：<ul>
+<li>编译器不会继承基类的赋值运算符（参数为基类）</li>
+<li>但会自动合成隐式定义的赋值运算符（参数为派生类），其功能为调用基类的赋值运算符。</li>
+</ul>
+</li>
+<li>友元函数：本质不是类成员<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;cout &lt;&lt; <span class="string">&quot;Base::f()&quot;</span> &lt;&lt; endl;&#125;</span><br><span class="line">	Base &amp; <span class="keyword">operator</span>= (<span class="type">const</span> Base &amp;right)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span> != &amp;right)&#123;</span><br><span class="line">			k = right.k;</span><br><span class="line">			cout &lt;&lt; <span class="string">&quot;operator= (const Base &amp;right)&quot;</span> &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive</span>: <span class="keyword">public</span> Base&#123;&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Derive d, d2;</span><br><span class="line">	cout &lt;&lt; d.k &lt;&lt; endl; <span class="comment">//Base数据成员被继承</span></span><br><span class="line">	d.<span class="built_in">f</span>(); <span class="comment">//Base::f()被继承</span></span><br><span class="line">	</span><br><span class="line">	Base e;</span><br><span class="line">	<span class="comment">//d = e; //编译错误，Base的赋值运算符不被继承</span></span><br><span class="line">	d = d2;  <span class="comment">//调用隐式定义的赋值运算符</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>若没有显式调用，则编译器会自动生成一个对基类的默认构造函数的调用。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base</span>() : <span class="built_in">data</span>(<span class="number">0</span>) &#123; cout &lt;&lt; <span class="string">&quot;Base::Base(&quot;</span> &lt;&lt; data &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;<span class="comment">/// 默认构造函数</span></span><br><span class="line">    <span class="built_in">Base</span>(<span class="type">int</span> i) : <span class="built_in">data</span>(i) &#123; cout &lt;&lt; <span class="string">&quot;Base::Base(&quot;</span> &lt;&lt; data &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Derive</span>() &#123; cout &lt;&lt; <span class="string">&quot;Derive::Derive()&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">    <span class="comment">/// 无显式调用基类构造函数，则调用基类默认构造函数</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Derive obj;	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// g++ 1.cpp –o 1.out -std=c++11</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>若想要显式调用，则只能在派生类构造函数的初始化成员列表中进行。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base</span>() : <span class="built_in">data</span>(<span class="number">0</span>) &#123; cout &lt;&lt; <span class="string">&quot;Base::Base(&quot;</span> &lt;&lt; data &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;</span><br><span class="line">			<span class="comment">/// 默认构造函数</span></span><br><span class="line">    <span class="built_in">Base</span>(<span class="type">int</span> i) : <span class="built_in">data</span>(i) &#123; cout &lt;&lt; <span class="string">&quot;Base::Base(&quot;</span> &lt;&lt; data &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Derive</span>(<span class="type">int</span> i) : <span class="built_in">Base</span>(i) &#123; cout &lt;&lt; “Derive::<span class="built_in">Derive</span>()” &lt;&lt; endl; &#125; </span><br><span class="line">    <span class="comment">/// 显式调用基类构造函数</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Derive <span class="title">obj</span><span class="params">(<span class="number">356</span>)</span></span>;	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// g++ 1.cpp –o 1.out -std=c++11</span></span><br></pre></td></tr></table></figure></li>
+<li>在派生类中使用 using Base::Base; 来继承基类构造函数，相当于给派生类“定义”了相应参数的构造函数，如	<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base</span>(<span class="type">int</span> i) : <span class="built_in">data</span>(i) &#123; cout &lt;&lt; <span class="string">&quot;Base::Base(&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">using</span> Base::Base; 		<span class="comment">///相当于 Derive(int i):Base(i)&#123;&#125;;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Derive <span class="title">obj</span><span class="params">(<span class="number">356</span>)</span></span>;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// g++ 1.cpp –o 1.out -std=c++11</span></span><br></pre></td></tr></table></figure></li>
+<li>当基类存在多个构造函数时，使用using会给派生类自动构造多个相应的构造函数。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base</span>(<span class="type">int</span> i) : <span class="built_in">data</span>(i) &#123; cout &lt;&lt; <span class="string">&quot;Base::Base(&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;</span><br><span class="line">	<span class="built_in">Base</span>(<span class="type">int</span> i, <span class="type">int</span> j) </span><br><span class="line">		&#123; cout &lt;&lt; <span class="string">&quot;Base::Base(&quot;</span> &lt;&lt; i &lt;&lt; “,<span class="string">&quot; &lt;&lt; j &lt;&lt; )\n&quot;</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">using</span> Base::Base; 		<span class="comment">///相当于 Derive(int i):Base(i)&#123;&#125;;</span></span><br><span class="line">                     <span class="comment">///加上 Derive(int i, int j):Base(i，j)&#123;&#125;;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Derive <span class="title">obj1</span><span class="params">(<span class="number">356</span>)</span></span>;</span><br><span class="line">	<span class="function">Derive <span class="title">obj2</span><span class="params">(<span class="number">356</span>, <span class="number">789</span>)</span></span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">// g++ 1.cpp –o 1.out -std=c++11</span></span><br></pre></td></tr></table></figure></li>
+<li>如果基类的某个构造函数被声明为私有成员函数，则不能在派生类中声明继承该构造函数。</li>
+<li>如果派生类使用了继承构造函数，编译器就不会再为派生类生成隐式定义的默认构造函数。</li>
+</ul>
+<h2 id="成员访问权限"><a href="#成员访问权限" class="headerlink" title="成员访问权限"></a>成员访问权限</h2><ul>
+<li>基类中的私有成员，<strong>不允许在派生类成员函数中访问</strong>，也不允许派生类的对象访问它们。<ul>
+<li>真正体现“基类私有”，对派生类也不开放其权限！</li>
+</ul>
+</li>
+<li>基类中的公有成员：<ul>
+<li>允许在派生类成员函数中被访问</li>
+<li>若是使用<strong>public</strong>继承方式，则成为派生类公有成员，可以被派生类的对象访问；</li>
+<li>若是使用<strong>private&#x2F;protected</strong>继承方式，则成为派生类私有&#x2F;保护成员，不能被派生类的对象访问。若想让某成员能被派生类的对象访问，可在派生类public部分用关键字<strong>using</strong>声明它的名字。</li>
+</ul>
+</li>
+<li>基类中的保护成员<ul>
+<li>保护成员<strong>允许在派生类成员函数</strong>中被访问，但不能被外部函数访问。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">baseFunc</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;in Base::baseFunc()...&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive1</span>: <span class="keyword">public</span> Base &#123;&#125;; <span class="comment">// D1类的继承方式是public继承</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Derive1 obj1; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;calling obj1.baseFunc()...&quot;</span> &lt;&lt; endl;</span><br><span class="line">  obj1.<span class="built_in">baseFunc</span>(); <span class="comment">// 基类接口成为派生类接口的一部分，派生类对象可调用</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">baseFunc</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;in Base::baseFunc()...&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive2</span>: <span class="keyword">private</span> Base </span><br><span class="line">&#123;<span class="comment">/// 私有继承， is-implementing-in-terms-of：用基类接口实现派生类功能</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">deriveFunc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;in Derive2::deriveFunc(), calling Base::baseFunc()...&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">baseFunc</span>(); <span class="comment">/// 私有继承时，基类接口在派生类成员函数中可以使用</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Derive2 obj2; </span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;calling obj2.deriveFunc()...&quot;</span> &lt;&lt; endl;</span><br><span class="line">  obj2.<span class="built_in">deriveFunc</span>(); </span><br><span class="line">  <span class="comment">//obj2.baseFunc(); ERROR: 基类接口不允许从派生类对象调用</span></span><br><span class="line"> </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">baseFunc</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;in Base::baseFunc()...&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive3</span>: <span class="keyword">private</span> Base &#123;<span class="comment">// B的私有继承</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="comment">/// 私有继承时，在派生类public部分声明基类成员名字</span></span><br><span class="line">  <span class="keyword">using</span> Base::baseFunc; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Derive3 obj3;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;calling obj3.baseFunc()...&quot;</span> &lt;&lt; endl;</span><br><span class="line">  obj3.<span class="built_in">baseFunc</span>(); <span class="comment">//基类接口在派生类public部分声明，则派生类对象可调用</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基类中的私有，保护成员访问<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  <span class="type">int</span> a&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">  <span class="type">int</span> b&#123;<span class="number">0</span>&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive</span> : <span class="keyword">private</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">getA</span><span class="params">()</span></span>&#123;cout&lt;&lt;a&lt;&lt;endl;&#125; <span class="comment">///编译错误，不可访问基类中私有成员</span></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">getB</span><span class="params">()</span></span>&#123;cout&lt;&lt;b&lt;&lt;endl;&#125; <span class="comment">///可以访问基类中保护成员</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Derive d;</span><br><span class="line">  d.<span class="built_in">getB</span>();</span><br><span class="line">  <span class="comment">//cout&lt;&lt;d.b; ///编译错误，派生类对象不可访问基类中保护成员</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123; </span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> data&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">getData</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> data;&#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">setData</span><span class="params">(<span class="type">int</span> i)</span></span>&#123; data=i;&#125; &#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive1</span> : <span class="keyword">private</span> Base &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">using</span> Base::getData; &#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Derive1 d1;</span><br><span class="line">    cout&lt;&lt;d1.<span class="built_in">getData</span>();   </span><br><span class="line">    <span class="comment">//d1.setData(10);   ///隐藏了基类的setData函数，不可访问    </span></span><br><span class="line">    <span class="comment">//Base&amp; b = d1;        ///不允许私有继承的向上转换   </span></span><br><span class="line">    <span class="comment">//b.setData(10);    ///否则可以绕过D1，调用基类的setData函数</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>；&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="基类成员访问权限与三种继承方式"><a href="#基类成员访问权限与三种继承方式" class="headerlink" title="基类成员访问权限与三种继承方式"></a>基类成员访问权限与三种继承方式</h3><ul>
+<li>public继承<ul>
+<li>基类的公有成员，保护成员，私有成员作为派生类的成员时，都保持原有的状态。</li>
+</ul>
+</li>
+<li>private继承<ul>
+<li>基类的公有成员，保护成员，私有成员作为派生类的成员时，都作为私有成员。</li>
+</ul>
+</li>
+<li>protected继承<ul>
+<li>基类的公有成员，保护成员作为派生类的成员时，都成为保护成员，基类的私有成员仍然是私有的。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/.%5Cpics%5C20230403oop.png" alt="本地路径" title="相对路径，下一级目录"></p>
+<h3 id="组合与继承"><a href="#组合与继承" class="headerlink" title="组合与继承"></a>组合与继承</h3><ul>
+<li>组合与继承的优点：支持增量开发。<ul>
+<li>允许引入新代码而不影响已有代码正确性。</li>
+</ul>
+</li>
+<li>相似：<ul>
+<li>实现代码重用。</li>
+<li>将子对象引入新类。</li>
+<li>使用构造函数的初始化成员列表初始化。</li>
+</ul>
+</li>
+<li>不同：<ul>
+<li>组合：<ul>
+<li>嵌入一个对象以实现新类的功能。</li>
+<li>has-a 关系。</li>
+</ul>
+</li>
+<li>继承：<ul>
+<li>沿用已存在的类提供的接口。</li>
+<li>public 继承：is-a。</li>
+<li>private 继承：is-implementing-in-terms-of。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="重写隐藏与重载"><a href="#重写隐藏与重载" class="headerlink" title="重写隐藏与重载"></a>重写隐藏与重载</h2><ul>
+<li><p>重载(overload)：<br>目的：提供同名函数的不同实现，属于静态多态。<br>函数名必须相同，函数参数必须不同，作用域相同（如位于同一个类中；或同名全局函数）。</p>
+</li>
+<li><p>重写隐藏(redefining)：</p>
+<ul>
+<li>目的：在派生类中重新定义基类函数，实现派生类的特殊功能。</li>
+<li>屏蔽了基类的所有其它同名函数。</li>
+<li>函数名必须相同，函数参数可以不同</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">T</span> &#123;&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;Base::f()\n&quot;</span>; &#125;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;Base::f(&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">double</span> d)</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;Base::f(&quot;</span> &lt;&lt; d &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(T)</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;Base::f(T)\n&quot;</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">using</span> Base::f;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;Derive::f(&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;)\n&quot;</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Derive d;</span><br><span class="line">  d.<span class="built_in">f</span>(<span class="number">10</span>);</span><br><span class="line">  d.<span class="built_in">f</span>(<span class="number">4.9</span>);</span><br><span class="line">  d.<span class="built_in">f</span>();</span><br><span class="line">  d.<span class="built_in">f</span>(<span class="built_in">T</span>());</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Derive::f(10)</span></span><br><span class="line"><span class="comment">B::f(4.9)</span></span><br><span class="line"><span class="comment">B::f()</span></span><br><span class="line"><span class="comment">B::f(T)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="using关键字"><a href="#using关键字" class="headerlink" title="using关键字"></a>using关键字</h3><h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><ul>
+<li>数据存储<ul>
+<li>如果派生类D继承的两个基类A,B，是同一基类Base的不同继承，则A,B中继承自Base的数据成员会在D有两份独立的副本，可能带来数据冗余。</li>
+</ul>
+</li>
+<li>二义性<ul>
+<li>如果派生类D继承的两个基类A,B，有同名成员a，则访问D中a时，编译器无法判断要访问的哪一个基类成员。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="type">int</span> a&#123;<span class="number">0</span>&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MiddleA</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">addA</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;a=&quot;</span> &lt;&lt; ++a &lt;&lt; endl; &#125;;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">bar</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;A::bar&quot;</span> &lt;&lt; endl; &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MiddleB</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">addB</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;a=&quot;</span> &lt;&lt; ++a &lt;&lt; endl; &#125;;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">bar</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;B::bar&quot;</span> &lt;&lt; endl; &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derive</span> : <span class="keyword">public</span> MiddleA, <span class="keyword">public</span> MiddleB&#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Derive d;</span><br><span class="line">  d.<span class="built_in">addA</span>(); 		<span class="comment">/// 输出 a=1。</span></span><br><span class="line">  d.<span class="built_in">addB</span>(); 		<span class="comment">/// 仍然输出 a=1。</span></span><br><span class="line">  d.<span class="built_in">addB</span>();     <span class="comment">/// 输出 a=2。</span></span><br><span class="line">  <span class="comment">//cout &lt;&lt; d.a; 	   /// 编译错误，MiddleA和MiddleB都有成员a</span></span><br><span class="line">  cout &lt;&lt; d.MiddleA::a &lt;&lt; endl;    <span class="comment">/// 输出A中的成员a的值 1</span></span><br><span class="line">  <span class="comment">//d.bar(); 		   /// 编译错误，MiddleA和MiddleB都有成员函数bar</span></span><br><span class="line">  cout &lt;&lt; d.MiddleB::a &lt;&lt; endl; </span><br><span class="line"> <span class="comment">/// 输出B中的成员a的值 2</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">课后练习：</span><br><span class="line">一家工厂生产飞机、汽车和摩托车。</span><br><span class="line">一架飞机需要三个轮子，和两个机翼；一辆汽车需要四个轮子；一辆摩托车需要两个轮子。</span><br><span class="line">这些交通工具都具有一个run 函数，其中汽车和摩托车调用时输出 “I am running”，但是飞机调用时输出 “I am running and flying”。</span><br><span class="line">编写以下几个类： Plane，Motor，Car，Wing，Wheel，Vehicle(交通工具)，设计合理的继承、组合关系以及使用合理使用函数的继承与重写实现add_wing，add_wheel，finished 以及 run 函数。测试代码见下页：</span><br></pre></td></tr></table></figure>
       
 
       
@@ -231,7 +388,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计算机系统研讨</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oop</a>
         		</li>
       		
 		</ul>
@@ -287,7 +444,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/03/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A0%94%E8%AE%A8hw-4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/03/oop-7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +458,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/03/19/oop-5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          oop-5
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/03/17/%E7%A6%BB%E6%95%A32-L4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">离散2-L4</div>
+    <a href="/2023/03/31/%E7%A6%BB%E6%95%A32-L6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">离散2-L6</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -467,10 +615,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
               </li>
              
@@ -483,11 +627,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dsa</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dsa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,11 +663,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心理</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">心理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,10 +680,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">system</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计算机系统研讨</a>
               </li>
             
             <div class="clearfix"></div>
