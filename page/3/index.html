@@ -63,7 +63,7 @@
 		</nav>
 
 		<nav>
-			总文章数 68
+			总文章数 77
 		</nav>
 		
 		<nav class="header-smart-menu">
@@ -158,6 +158,1104 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-计算机系统导论-L3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA-L3/">计算机系统导论-L3</a>
+    </h1>
+  
+
+        
+        <a href="/2023/03/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA-L3/" class="archive-article-date">
+  	<time datetime="2023-03-06T11:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-06</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">675字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>DNS</li>
+<li>modularity 模块化</li>
+<li>marshal &#x2F; unmarshal</li>
+</ul>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><h2 id="how-to-improve-modularity"><a href="#how-to-improve-modularity" class="headerlink" title="how to improve modularity"></a>how to improve modularity</h2><ul>
+<li>降低系统复杂度</li>
+<li>client &#x2F; service organization是一种强制模块化的手段<ul>
+<li>client –&gt; request –&gt; service</li>
+<li>service –&gt; response –&gt; client</li>
+</ul>
+</li>
+</ul>
+<h3 id="c-x2F-s-communication"><a href="#c-x2F-s-communication" class="headerlink" title="c&#x2F;s communication"></a>c&#x2F;s communication</h3><ul>
+<li>RPC(remote procedure call)</li>
+<li>同一台机器上的过程调用：数据–&gt; 放入堆栈 –&gt; jump</li>
+<li>不同机器间的过程调用：send message</li>
+</ul>
+<h2 id="marshal-x2F-unmarshal"><a href="#marshal-x2F-unmarshal" class="headerlink" title="marshal &#x2F; unmarshal"></a>marshal &#x2F; unmarshal</h2><ul>
+<li>Json(Javascript Object Nanotation)是一种数据交换格式，常用于前后端数据传输。任意一端将数据转换成json 字符串，另一端再将该字符串解析成相应的数据结构，如string类型，strcut对象等.</li>
+<li>Json Marshal：将数据编码成json字符串</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">type Stu struct <span class="punctuation">&#123;</span></span><br><span class="line">    Name  string `json<span class="punctuation">:</span><span class="string">&quot;name&quot;</span>`</span><br><span class="line">    Age   int</span><br><span class="line">    HIgh  bool</span><br><span class="line">    sex   string</span><br><span class="line">    Class *Class `json<span class="punctuation">:</span><span class="string">&quot;class&quot;</span>`</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">type Class struct <span class="punctuation">&#123;</span></span><br><span class="line">    Name  string</span><br><span class="line">    Grade int</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">func main() <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">//实例化一个数据结构，用于生成json字符串</span></span><br><span class="line">    stu <span class="punctuation">:</span>= Stu<span class="punctuation">&#123;</span></span><br><span class="line">        Name<span class="punctuation">:</span> <span class="string">&quot;张三&quot;</span><span class="punctuation">,</span></span><br><span class="line">        Age<span class="punctuation">:</span>  <span class="number">18</span><span class="punctuation">,</span></span><br><span class="line">        HIgh<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        sex<span class="punctuation">:</span>  <span class="string">&quot;男&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//指针变量</span></span><br><span class="line">    cla <span class="punctuation">:</span>= new(Class)</span><br><span class="line">    cla.Name = <span class="string">&quot;1班&quot;</span></span><br><span class="line">    cla.Grade = <span class="number">3</span></span><br><span class="line">    stu.Class=cla</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Marshal失败时err!=nil</span></span><br><span class="line">    jsonStu<span class="punctuation">,</span> err <span class="punctuation">:</span>= json.Marshal(stu)</span><br><span class="line">    if err != nil <span class="punctuation">&#123;</span></span><br><span class="line">        fmt.Println(<span class="string">&quot;生成json字符串错误&quot;</span>)</span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//jsonStu是[]byte类型，转化成string类型便于查看</span></span><br><span class="line">    fmt.Println(string(jsonStu))</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="RPC-calling-process-Remote-Procedure-Call"><a href="#RPC-calling-process-Remote-Procedure-Call" class="headerlink" title="RPC calling process(Remote Procedure Call)"></a>RPC calling process(Remote Procedure Call)</h2><ul>
+<li>功能: 指定每个 NFS 功能所对应的 port number ，并且回报给客户端，让客户端可以连结到正确的port上去</li>
+<li>server framework<ul>
+<li>进程池</li>
+<li>queue等待请求</li>
+</ul>
+</li>
+<li>failure handling<ul>
+<li>client没有得到结果会resent</li>
+<li>服务器记住，如果已经执行request则不理client方的请求，防止重复执行</li>
+<li>at least once</li>
+<li>at most once</li>
+<li>exactly once</li>
+</ul>
+</li>
+</ul>
+<h2 id="NFS-Network-File-System"><a href="#NFS-Network-File-System" class="headerlink" title="NFS(Network File System)"></a>NFS(Network File System)</h2><ul>
+<li>NFS: access files or directories of other machines –&gt; HOW TO NAME A REMOTE FILE ? </li>
+<li>功能:可以通过网络，让不同的机器、不同的操作系统可以共享彼此的文件</li>
+<li>Remote file naming</li>
+</ul>
+<h2 id="RPC-in-NFS"><a href="#RPC-in-NFS" class="headerlink" title="RPC in NFS"></a>RPC in NFS</h2><ul>
+<li>由于NFS启用的功能相当多，所以对应的端口不固定，需要<strong>RPC统一管理NFS端口</strong>，PRC最主要的功能就是<strong>指定每个NFS功能所对应的port number</strong>,并且<strong>通知客户端</strong>，让客户端可以连接到正常端口上去。</li>
+<li>process<ul>
+<li><p>1）首先服务器端启动RPC服务，并开启111端口</p>
+<ul>
+<li>在启动NFS SERVER之前，首先要启动RPC服务（即portmap服务）否则NFS SERVER就无法向RPC服务区注册</li>
+</ul>
+</li>
+<li><p>2）服务器端启动NFS服务，并向RPC注册端口信息</p>
+</li>
+<li><p>3）客户端启动RPC（portmap服务），向服务端的RPC(portmap)服务请求服务端的NFS端口</p>
+</li>
+<li><p>4）服务端的RPC(portmap)服务反馈NFS端口信息给客户端。</p>
+</li>
+<li><p>5）客户端通过获取的NFS端口来建立和服务端的NFS连接并进行数据的传输。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="coherence-一致性"><a href="#coherence-一致性" class="headerlink" title="coherence 一致性"></a>coherence 一致性</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/03/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E5%AF%BC%E8%AE%BA-L3/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-操作系统-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-1/">操作系统-1</a>
+    </h1>
+  
+
+        
+        <a href="/2023/03/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-1/" class="archive-article-date">
+  	<time datetime="2023-03-06T07:32:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-06</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">362字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2>
+        
+          <a class="article-more-a" href="/2023/03/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/03/06/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-1/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-离散2-L2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/03/%E7%A6%BB%E6%95%A32-L2/">离散2-L2</a>
+    </h1>
+  
+
+        
+        <a href="/2023/03/03/%E7%A6%BB%E6%95%A32-L2/" class="archive-article-date">
+  	<time datetime="2023-03-02T22:44:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-03</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.9k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">8分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>review</li>
+<li>子图</li>
+<li>同构</li>
+<li>补图</li>
+<li>图的代数表示</li>
+<li>图的运算</li>
+<li>道路与回路</li>
+</ul>
+        
+          <a class="article-more-a" href="/2023/03/03/%E7%A6%BB%E6%95%A32-L2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">离散</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/03/03/%E7%A6%BB%E6%95%A32-L2/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-oop-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/02/oop-3/">oop-3</a>
+    </h1>
+  
+
+        
+        <a href="/2023/03/02/oop-3/" class="archive-article-date">
+  	<time datetime="2023-03-02T15:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-02</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">4k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">17分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>3.1 函数重载与缺省值</li>
+<li>3.2 基础知识</li>
+<li>3.3 类与对象</li>
+<li>3.4 成员变量与成员函数</li>
+<li>3.5 private和public </li>
+<li>3.6 this指针</li>
+<li>3.7 内联函数
+        
+          <a class="article-more-a" href="/2023/03/02/oop-3/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/03/02/oop-3/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-计算机系统研讨-L2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A0%94%E8%AE%A8-L2/">计算机系统研讨-L2</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A0%94%E8%AE%A8-L2/" class="archive-article-date">
+  	<time datetime="2023-02-27T11:26:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-27</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2>
+        
+          <a class="article-more-a" href="/2023/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A0%94%E8%AE%A8-L2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%A0%94%E8%AE%A8-L2/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-思考的方法-L2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/27/%E6%80%9D%E8%80%83%E7%9A%84%E6%96%B9%E6%B3%95-L2/">思考的方法-L2</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/27/%E6%80%9D%E8%80%83%E7%9A%84%E6%96%B9%E6%B3%95-L2/" class="archive-article-date">
+  	<time datetime="2023-02-27T05:33:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-27</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">627字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>如何理解人的行为</li>
+<li>如何获得长久的幸福</li>
+<li>卓越：突破心理障碍</li>
+</ul>
+<h2 id="如何理解人的行为"><a href="#如何理解人的行为" class="headerlink" title="如何理解人的行为"></a>如何理解人的行为</h2><h4 id="从鹦鹉觅食看工作的意义"><a href="#从鹦鹉觅食看工作的意义" class="headerlink" title="从鹦鹉觅食看工作的意义"></a>从鹦鹉觅食看工作的意义</h4><ul>
+<li>举例<ul>
+<li>乐高玩具</li>
+<li>宜家效应<ul>
+<li>销售思维：用户需要自己付出努力</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>总结：只有有价值的劳动才有意义</li>
+</ul>
+<h4 id="慎用激励"><a href="#慎用激励" class="headerlink" title="慎用激励"></a>慎用激励</h4><ul>
+<li>幼儿园迟到问题：家长接孩子，罚款，导致迟到变成心安理得</li>
+<li>动机外化：把一个人的内部动机转化成外部动机</li>
+</ul>
+<h2 id="如何获得长久的幸福"><a href="#如何获得长久的幸福" class="headerlink" title="如何获得长久的幸福"></a>如何获得长久的幸福</h2><ul>
+<li>空心病<ul>
+<li>价值观缺失</li>
+<li>缺乏存在感</li>
+</ul>
+</li>
+<li>习得性无助</li>
+</ul>
+<h3 id="tips："><a href="#tips：" class="headerlink" title="tips："></a>tips：</h3><ul>
+<li>芝加哥豪宅<ul>
+<li>旅行是一件值得投资的事情</li>
+<li>住房：郊区豪宅</li>
+</ul>
+</li>
+<li>如何在工作（学习）中获得并给予幸福？<ul>
+<li>持续获得小的成就</li>
+<li><strong>承认</strong>焦虑和沮丧时生活的一部分。每天不可能一直保持高昂和激情的生活状态（关键：认可）</li>
+<li>每天睡前列举三件值得感激的事情</li>
+</ul>
+</li>
+<li>如何在逆境中成长 resilience（适应力）</li>
+<li>成功三要素<ul>
+<li>乐观：理性乐观（行动）</li>
+<li>激情</li>
+<li>努力</li>
+</ul>
+</li>
+<li>幸福是一种实践活动<ul>
+<li>认真聆听医嘱却不完全遵守的患者：知道要去做</li>
+<li>习惯性地做正确的事情</li>
+<li>人生大部分快乐来自<strong>学习</strong>，以及对世界和在世界中产生的<strong>惊奇</strong></li>
+</ul>
+</li>
+<li>如何创造积极的环境：映射的力量<ul>
+<li>积极的办公环境：<ul>
+<li>摆放最喜欢的：<ul>
+<li>照片、艺术品、花、格言……</li>
+<li>看最喜欢的：书、电影</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自我效能的力量</li>
+<li>身与心的关系<ul>
+<li>姿态：<ul>
+<li>抬头、坐姿、握手</li>
+<li>自信、动力、活力</li>
+</ul>
+</li>
+<li>压力：把压力看做朋友</li>
+</ul>
+</li>
+<li>学会失败<ul>
+<li>接受</li>
+<li>如何解读</li>
+</ul>
+</li>
+<li>学会乐观<ul>
+<li>采取行动（理性乐观）<ul>
+<li>积极循环：努力工作+勇敢面对–成功–自信–动力–努力工作</li>
+<li>拖延症（根本：不愿意干 不喜欢 需要开始干）</li>
+<li>五分钟起飞法</li>
+<li>晚上回寝室，发现有很多事情没有干完，拿一张纸把所有没有干的事情列出来，仔细写下来明天打算怎么干完这件事，然后安心睡觉</li>
+</ul>
+</li>
+<li>想象<ul>
+<li>有依据 不是空想 ex：想象在图书馆认真学习然后取得A</li>
+</ul>
+</li>
+<li>认知治疗：恢复理性评估<ul>
+<li>三种非理性评估<ul>
+<li>放大：过度泛化 非此即彼</li>
+<li>贬低：管中窥豹 视而不见</li>
+<li>虚构：大胆求证</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="卓越-突破心理障碍"><a href="#卓越-突破心理障碍" class="headerlink" title="卓越 突破心理障碍"></a>卓越 突破心理障碍</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">心理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/27/%E6%80%9D%E8%80%83%E7%9A%84%E6%96%B9%E6%B3%95-L2/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-oop-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/26/oop-2/">oop-2</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/26/oop-2/" class="archive-article-date">
+  	<time datetime="2023-02-26T09:42:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-26</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">8分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>1.5 源程序的结构、编译、链接</li>
+<li>1.6 多文件编译和链接过程</li>
+<li>1.7 宏定义</li>
+<li>1.8 编写Make工具的脚本程序</li>
+<li>1.9 使用程序主函数的命令行参数</li>
+<li>1.10 GDB调试工具</li>
+</ul>
+        
+          <a class="article-more-a" href="/2023/02/26/oop-2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/26/oop-2/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-离散2-L1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/24/%E7%A6%BB%E6%95%A32-L1/">离散2-L1</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/24/%E7%A6%BB%E6%95%A32-L1/" class="archive-article-date">
+  	<time datetime="2023-02-24T01:53:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-24</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">915字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>前言</li>
+<li>图的基本概念</li>
+<li>图的基本性质</li>
+</ul>
+        
+          <a class="article-more-a" href="/2023/02/24/%E7%A6%BB%E6%95%A32-L1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">离散</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/24/%E7%A6%BB%E6%95%A32-L1/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-c-primer-9-内存模型和名称空间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/23/c-primer-9-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4/">c++_primer_9_内存模型和名称空间</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/23/c-primer-9-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4/" class="archive-article-date">
+  	<time datetime="2023-02-23T11:24:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-23</time>
+</a>
+      
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">313字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
+<li>编译</li>
+<li>存储持续性、作用域和链接性</li>
+</ul>
+        
+          <a class="article-more-a" href="/2023/02/23/c-primer-9-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/23/c-primer-9-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4/">Have a look ~ >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-计算机系统研讨L1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -264,968 +1362,9 @@
 
 
   
-    <article id="post-c-primer-8-函数探幽" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/20/c-primer-8-%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD/">c++_primer_8_函数探幽</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/20/c-primer-8-%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD/" class="archive-article-date">
-  	<time datetime="2023-02-20T10:31:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-20</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.9k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">13分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
-<li>内联函数</li>
-<li>引用变量</li>
-<li>如何按引用传递函数参数</li>
-<li>默认参数</li>
-<li>左右值引用</li>
-<li>函数重载</li>
-<li>函数模板</li>
-<li>函数模板具体化</li>
-</ul>
-        
-          <a class="article-more-a" href="/2023/02/20/c-primer-8-%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/20/c-primer-8-%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-oop-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/20/oop-1/">oop-1</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/20/oop-1/" class="archive-article-date">
-  	<time datetime="2023-02-20T00:17:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-20</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">517字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
-<li>前言</li>
-<li>编程环境和工具<ul>
-<li>命令行</li>
-<li>编译器</li>
-<li>环境变量</li>
-</ul>
-</li>
-<li>ssh
-        
-          <a class="article-more-a" href="/2023/02/20/oop-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/20/oop-1/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前端2-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/18/%E5%89%8D%E7%AB%AF2-CSS/">前端2_CSS</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/18/%E5%89%8D%E7%AB%AF2-CSS/" class="archive-article-date">
-  	<time datetime="2023-02-18T00:57:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-18</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">733字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CSS样式概念"><a href="#CSS样式概念" class="headerlink" title="CSS样式概念"></a>CSS样式概念</h2><p>css专门用来美化标签 </p>
-<ul>
-<li>基础 些简单页面 看懂 改</li>
-<li>模块 调整和修改
-        
-          <a class="article-more-a" href="/2023/02/18/%E5%89%8D%E7%AB%AF2-CSS/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/18/%E5%89%8D%E7%AB%AF2-CSS/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-前端基础_Flask" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80_Flask/">前端基础——FLASK</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80_Flask/" class="archive-article-date">
-  	<time datetime="2023-02-14T07:54:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.3k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">11分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>目的：开发一个平台(网站)<ul>
-<li>前端开发：HTML CSS JavaScript</li>
-<li>web框架：接受请求并处理</li>
-<li>MySQL数据库：存储数据的地方</li>
-</ul>
-</li>
-<li>快速上手：基于Flask Web框架快速搭建一个网站</li>
-<li>深入学习：基于Django框架
-        
-          <a class="article-more-a" href="/2023/02/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80_Flask/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80_Flask/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-csapp-machine-level-learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/09/csapp-machine-level-learning/">csapp-machine-level-learning</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/09/csapp-machine-level-learning/" class="archive-article-date">
-  	<time datetime="2023-02-09T13:17:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-09</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">0字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">csapp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/09/csapp-machine-level-learning/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-oop-L8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/09/oop-L8/">oop-L8-虚函数</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/09/oop-L8/" class="archive-article-date">
-  	<time datetime="2023-02-09T11:07:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-09</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">90字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
-<li>向上类型转换</li>
-<li>对象切片</li>
-<li>函数调用捆绑</li>
-<li>虚函数和虚函数表</li>
-<li>虚函数和构造函数、析构函数</li>
-<li>重写覆盖，override和final</li>
-</ul>
-<h2 id="向上类型转换"><a href="#向上类型转换" class="headerlink" title="向上类型转换"></a>向上类型转换</h2><p>派生类对象&#x2F;引用&#x2F;指针转换成基类对象&#x2F;引用&#x2F;指针，称为向上类型转换。</p>
-<ul>
-<li>(派生类是基类的继承)</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">oop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/09/oop-L8/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-串数组和广义表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/07/%E4%B8%B2%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/">串数组和广义表</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/07/%E4%B8%B2%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2023-02-07T11:53:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-07</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">53字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2>
-        
-          <a class="article-more-a" href="/2023/02/07/%E4%B8%B2%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/07/%E4%B8%B2%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-栈与队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/07/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">栈与队列</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/07/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2023-02-07T10:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-07</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.6k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">7分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
-<li>栈<ul>
-<li>栈的基本概念</li>
-<li>栈的实现</li>
-<li>栈与递归</li>
-</ul>
-</li>
-<li>队列<ul>
-<li>基本队列</li>
-<li>循环队列</li>
-<li>链队列</li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2023/02/07/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dsa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/07/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-线性表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/07/%E7%BA%BF%E6%80%A7%E8%A1%A8/">线性表</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/07/%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2023-02-07T04:57:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-07</time>
-</a>
-      
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.5k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">6分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="directory"><a href="#directory" class="headerlink" title="directory"></a>directory</h2><ul>
-<li>基本概念</li>
-<li>顺序表(数组)</li>
-<li>链表
-        
-          <a class="article-more-a" href="/2023/02/07/%E7%BA%BF%E6%80%A7%E8%A1%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dsa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/07/%E7%BA%BF%E6%80%A7%E8%A1%A8/">Have a look ~ >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1341,19 +1480,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+                <a href="javascript:void(0)" class="js-tag color2">missing semester</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1401,11 +1540,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">心理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心理</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
